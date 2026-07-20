@@ -1,0 +1,49 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IntelliJ / Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# Android
+android/app/debug/
+android/app/release/
+android/key.properties
+
+# iOS / macOS
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/DerivedData/
+ios/Runner.xcworkspace/
+ios/Pods/
+
+# Web
+apps/web/build/
+apps/web/.dart_tool/
+apps/mobile/build/
+apps/mobile/.dart_tool/
+packages/api_client/.dart_tool/
+packages/monk_shared/.dart_tool/

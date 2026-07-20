@@ -1,0 +1,10 @@
+name: monk_shared
+description: Shared enums and error codes (mirrors backend packages/shared).
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.12.0
+
+dev_dependencies:
+  lints: ^6.0.0

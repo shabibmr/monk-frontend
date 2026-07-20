@@ -1,0 +1,17 @@
+name: api_client
+description: >
+  Temporary hand-written Dio client matching backend auth + health APIs.
+  REPLACE by OpenAPI-generated package when backend T0.6 lands.
+  Do not diverge from backend controllers / OpenAPI.
+version: 0.1.0-handwritten
+publish_to: none
+
+environment:
+  sdk: ^3.12.0
+
+dependencies:
+  dio: ^5.8.0+1
+  meta: ^1.16.0
+
+dev_dependencies:
+  lints: ^6.0.0

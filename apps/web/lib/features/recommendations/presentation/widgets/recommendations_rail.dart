@@ -278,8 +278,8 @@ class _RecommendationCard extends StatelessWidget {
             children: [
               if (recommendation.estimatedBudget != null)
                 ImMoneyText(
-                  amount: recommendation.estimatedBudget!,
-                  currency: recommendation.currency ?? 'USD',
+                  minorUnits: recommendation.estimatedBudget!.toInt(),
+                  currencyCode: recommendation.currency ?? 'USD',
                 )
               else
                 const SizedBox.shrink(),

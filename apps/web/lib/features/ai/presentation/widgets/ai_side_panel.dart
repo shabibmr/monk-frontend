@@ -43,9 +43,17 @@ class AiSidePanel extends StatelessWidget {
     return BlocConsumer<AiBloc, AiState>(
       listener: (context, state) {
         if (state.status == AiStatus.error && state.errorMessage != null) {
-          ImToast.show(context, state.errorMessage!, isError: true);
+          ImToast.show(
+            context,
+            message: state.errorMessage!,
+            tone: ImToastTone.danger,
+          );
         } else if (state.status == AiStatus.accepted) {
-          ImToast.show(context, 'AI Output accepted and applied!');
+          ImToast.show(
+            context,
+            message: 'AI Output accepted and applied!',
+            tone: ImToastTone.success,
+          );
         }
       },
       builder: (context, state) {

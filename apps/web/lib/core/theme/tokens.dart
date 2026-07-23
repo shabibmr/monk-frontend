@@ -12,9 +12,21 @@ abstract final class ImColors {
   static const cream50 = Color(0xFFF7F5EE);
   static const cream100 = Color(0xFFEFEDE4);
   static const ink900 = Color(0xFF1D2B32);
+  static const ink800 = Color(0xFF1E293B);
+  static const ink700 = Color(0xFF334155);
   static const ink600 = Color(0xFF5A6B72);
+  static const ink500 = Color(0xFF64748B);
+  static const ink400 = Color(0xFF94A3B8);
   static const ink300 = Color(0xFFB9C2C6);
+  static const ink100 = Color(0xFFEAEFF2);
   static const white = Color(0xFFFFFFFF);
+
+  static const brand100 = coral100;
+  static const brand600 = coral600;
+  static const brand700 = teal700;
+
+  static const primary600 = coral600;
+  static const primary700 = teal700;
 
   static const success600 = Color(0xFF2E7D5B);
   static const success100 = Color(0xFFDBEEE5);
@@ -27,7 +39,9 @@ abstract final class ImColors {
 }
 
 abstract final class ImSpacing {
+  static const space2 = 2.0;
   static const space4 = 4.0;
+  static const space6 = 6.0;
   static const space8 = 8.0;
   static const space12 = 12.0;
   static const space16 = 16.0;

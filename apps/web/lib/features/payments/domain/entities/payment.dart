@@ -69,7 +69,7 @@ class Payment extends Equatable {
     if (commissionMinor != null) {
       lines.add(
         FeeBreakdownLine(
-          label: 'Platform fee snapshot ${commissionPct}% (API amount)',
+          label: 'Platform fee snapshot $commissionPct% (API amount)',
           amountMinor: commissionMinor!,
         ),
       );

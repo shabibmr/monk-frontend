@@ -140,7 +140,7 @@ class _SchedulePublishDialogState extends State<SchedulePublishDialog> {
                     ),
                     const SizedBox(height: ImSpacing.space8),
                     DropdownButtonFormField<String>(
-                      value: _platform,
+                      initialValue: _platform,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         contentPadding: EdgeInsets.symmetric(
@@ -227,7 +227,7 @@ class _SchedulePublishDialogState extends State<SchedulePublishDialog> {
                     ImTextField(
                       controller: _notesController,
                       label: 'Schedule Notes (Optional)',
-                      placeholder: 'Add instructions or captions...',
+                      hint: 'Add instructions or captions...',
                     ),
                   ],
                 ),

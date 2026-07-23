@@ -141,7 +141,7 @@ class _DisputeFilingViewState extends State<_DisputeFilingView> {
                         ),
                         const SizedBox(height: ImSpacing.space16),
                         DropdownButtonFormField<String>(
-                          value: _reason,
+                          initialValue: _reason,
                           decoration:
                               const InputDecoration(labelText: 'Dispute Reason'),
                           items: _reasons.map((r) {

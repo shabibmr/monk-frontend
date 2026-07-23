@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../domain/entities/ai_assist_result.dart';
 import '../../domain/repositories/ai_repository.dart';
 import 'ai_event.dart';
 import 'ai_state.dart';

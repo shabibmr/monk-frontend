@@ -9,5 +9,6 @@ export 'im_skeleton.dart';
 export 'im_status_chip.dart';
 export 'im_stepper.dart';
 export 'im_text_field.dart';
+export 'im_platform_icon.dart';
 export 'im_toast.dart';
 

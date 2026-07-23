@@ -272,7 +272,8 @@ class _PlatformsStepState extends State<_PlatformsStep> {
           children: _platforms
               .map(
                 (p) => ChoiceChip(
-                  label: Text(p),
+                  avatar: ImPlatformIcon(platform: p, size: 16),
+                  label: Text(ImPlatformIcon.formatName(p)),
                   selected: _primary == p,
                   onSelected: (_) => setState(() => _primary = p),
                 ),
@@ -290,7 +291,8 @@ class _PlatformsStepState extends State<_PlatformsStep> {
           children: _platforms
               .map(
                 (p) => ChoiceChip(
-                  label: Text(p),
+                  avatar: ImPlatformIcon(platform: p, size: 16),
+                  label: Text(ImPlatformIcon.formatName(p)),
                   selected: _secondary == p,
                   onSelected: (_) => setState(
                     () => _secondary = _secondary == p ? null : p,
@@ -379,6 +381,7 @@ class _SocialStepState extends State<_SocialStep> {
             Expanded(
               child: ImButton(
                 label: 'Connect Instagram',
+                icon: const ImPlatformIcon(platform: 'instagram', size: 18),
                 variant: ImButtonVariant.secondary,
                 onPressed: widget.saving
                     ? null
@@ -391,6 +394,7 @@ class _SocialStepState extends State<_SocialStep> {
             Expanded(
               child: ImButton(
                 label: 'Connect YouTube',
+                icon: const ImPlatformIcon(platform: 'youtube', size: 18),
                 variant: ImButtonVariant.secondary,
                 onPressed: widget.saving
                     ? null
@@ -406,10 +410,21 @@ class _SocialStepState extends State<_SocialStep> {
             style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: ImSpacing.space12),
         DropdownButtonFormField<String>(
-          // ignore: deprecated_member_use
-          value: _platform,
+          initialValue: _platform,
           items: _platforms
-              .map((p) => DropdownMenuItem(value: p, child: Text(p)))
+              .map(
+                (p) => DropdownMenuItem(
+                  value: p,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ImPlatformIcon(platform: p, size: 18),
+                      const SizedBox(width: ImSpacing.space8),
+                      Text(ImPlatformIcon.formatName(p)),
+                    ],
+                  ),
+                ),
+              )
               .toList(),
           onChanged: (v) => setState(() => _platform = v ?? 'instagram'),
           decoration: const InputDecoration(labelText: 'Platform'),
@@ -442,7 +457,18 @@ class _SocialStepState extends State<_SocialStep> {
           ...accounts.map(
             (a) => ListTile(
               contentPadding: EdgeInsets.zero,
-              title: Text('${a.platform} · ${a.handle ?? "—"}'),
+              leading: Container(
+                padding: const EdgeInsets.all(ImSpacing.space8),
+                decoration: BoxDecoration(
+                  color: ImColors.ink100,
+                  borderRadius: BorderRadius.circular(ImRadii.radiusSm),
+                ),
+                child: ImPlatformIcon(platform: a.platform, size: 20),
+              ),
+              title: Text(
+                '${ImPlatformIcon.formatName(a.platform)} · ${a.handle ?? "—"}',
+                style: const TextStyle(fontWeight: FontWeight.w600),
+              ),
               subtitle: Text(
                 a.declaredOnly == true
                     ? 'Declared only'

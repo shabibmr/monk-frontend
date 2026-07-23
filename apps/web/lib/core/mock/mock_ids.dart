@@ -40,7 +40,7 @@ abstract final class MockIds {
   static const brief1 = 'brief-demo-1';
   static const session1 = 'session-demo-1';
 
-  static const demoPassword = 'DemoPassw0rd!';
+  static const demoPassword = '123456';
 
   static const emailAdmin = 'demo.admin@influencersmonk.local';
   static const emailBrand1 = 'demo.brand1@influencersmonk.local';

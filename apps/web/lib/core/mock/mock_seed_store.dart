@@ -111,7 +111,26 @@ class MockSeedStore {
   }
 
   DemoAccount? findAccountByEmail(String email) {
-    return accountsByEmail[email.trim().toLowerCase()];
+    final norm = email.trim().toLowerCase();
+    if (accountsByEmail.containsKey(norm)) {
+      return accountsByEmail[norm];
+    }
+    if (norm == 'creator' || norm.startsWith('creator@') || norm == 'arjun') {
+      return accountsByEmail[MockIds.emailCreator1.toLowerCase()];
+    }
+    if (norm == 'brand' || norm.startsWith('brand@') || norm == 'priya') {
+      return accountsByEmail[MockIds.emailBrand1.toLowerCase()];
+    }
+    if (norm == 'admin' || norm.startsWith('admin@')) {
+      return accountsByEmail[MockIds.emailAdmin.toLowerCase()];
+    }
+    if (norm == 'manager' || norm.startsWith('manager@') || norm == 'meera') {
+      return accountsByEmail[MockIds.emailManager1.toLowerCase()];
+    }
+    if (norm == 'agency' || norm.startsWith('agency@') || norm == 'alex') {
+      return accountsByEmail[MockIds.emailAgency1.toLowerCase()];
+    }
+    return null;
   }
 
   DemoAccount? findAccountById(String id) => accountsById[id];

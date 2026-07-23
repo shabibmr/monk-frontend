@@ -15,15 +15,15 @@ class LandingStubScreen extends StatelessWidget {
           constraints: const BoxConstraints(maxWidth: 560),
           child: Padding(
             padding: const EdgeInsets.all(ImSpacing.space32),
+
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Influencers Monk',
-                  style: Theme.of(context).textTheme.displayLarge,
-                  textAlign: TextAlign.center,
+                const MonkLogo(
+                  height: 80,
+                  heroTag: 'monk-brand-logo',
                 ),
-                const SizedBox(height: ImSpacing.space16),
+                const SizedBox(height: ImSpacing.space24),
                 Text(
                   'Marketplace for brands and creators — start earning together.',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -38,6 +38,7 @@ class LandingStubScreen extends StatelessWidget {
                     ImButton(
                       label: 'Sign in',
                       onPressed: () => context.go('/login'),
+
                     ),
                     const SizedBox(width: ImSpacing.space16),
                     ImButton(

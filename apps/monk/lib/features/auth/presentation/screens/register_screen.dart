@@ -62,11 +62,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
+                      const Center(
+                        child: MonkLogo(
+                          height: 52,
+                          heroTag: 'monk-brand-logo',
+                        ),
+                      ),
+                      const SizedBox(height: ImSpacing.space16),
+
                       Text(
                         'Create account',
                         style: Theme.of(context).textTheme.displayLarge,
                       ),
                       const SizedBox(height: ImSpacing.space24),
+
                       Text(
                         'Account type',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(

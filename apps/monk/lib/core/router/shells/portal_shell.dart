@@ -8,6 +8,8 @@ import '../../session/session_cubit.dart';
 import '../../theme/app_theme.dart';
 import '../../theme/tokens.dart';
 import '../../utils/breakpoints.dart';
+import '../../widgets/widgets.dart';
+
 
 class _NavItem {
   const _NavItem(this.label, this.path, this.icon);
@@ -138,7 +140,15 @@ class _PortalChrome extends StatelessWidget {
     if (bp == ImBreakpoint.compact) {
       return Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const MonkLogo(height: 28),
+              const SizedBox(width: 8),
+              Text(title),
+            ],
+          ),
+
           actions: [
             Badge(
               isLabelVisible: unread > 0,
@@ -174,56 +184,80 @@ class _PortalChrome extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
-          Container(
+          SizedBox(
             width: ImLayout.sidebarWidth,
-            color: portal.sidebarBg,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(ImSpacing.space24),
-                  child: Text(
-                    'iM · $title',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: portal.sidebarFg,
-                        ),
-                  ),
-                ),
-                ...items.map((e) {
-                  final active = location.startsWith(e.path);
-                  return ListTile(
-                    leading: Icon(
-                      e.icon,
-                      color: active
-                          ? portal.sidebarActive
-                          : portal.sidebarFg.withValues(alpha: 0.7),
+            child: Material(
+              color: portal.sidebarBg,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: ImSpacing.space16,
+                      vertical: ImSpacing.space24,
                     ),
-                    title: Text(
-                      e.label,
-                      style: TextStyle(
+
+                    child: Row(
+                      children: [
+                        const MonkLogo(height: 34),
+                        const SizedBox(width: ImSpacing.space8),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 3,
+                          ),
+                          decoration: BoxDecoration(
+                            color: portal.sidebarActive.withValues(alpha: 0.15),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Text(
+                            title,
+                            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                  color: portal.sidebarActive,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  ...items.map((e) {
+                    final active = location.startsWith(e.path);
+                    return ListTile(
+                      leading: Icon(
+                        e.icon,
                         color: active
                             ? portal.sidebarActive
-                            : portal.sidebarFg,
-                        fontWeight:
-                            active ? FontWeight.w600 : FontWeight.w400,
+                            : portal.sidebarFg.withValues(alpha: 0.7),
+                      ),
+                      title: Text(
+                        e.label,
+                        style: TextStyle(
+                          color: active
+                              ? portal.sidebarActive
+                              : portal.sidebarFg,
+                          fontWeight:
+                              active ? FontWeight.w600 : FontWeight.w400,
+                        ),
+                      ),
+                      selected: active,
+                      onTap: () => context.go(e.path),
+                    );
+                  }),
+                  const Spacer(),
+                  if (darkSidebar)
+                    Padding(
+                      padding: const EdgeInsets.all(ImSpacing.space16),
+                      child: Text(
+                        'Admin portal',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: ImColors.white.withValues(alpha: 0.7),
+                            ),
                       ),
                     ),
-                    selected: active,
-                    onTap: () => context.go(e.path),
-                  );
-                }),
-                const Spacer(),
-                if (darkSidebar)
-                  Padding(
-                    padding: const EdgeInsets.all(ImSpacing.space16),
-                    child: Text(
-                      'Admin portal',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: ImColors.white.withValues(alpha: 0.7),
-                          ),
-                    ),
-                  ),
-              ],
+                ],
+              ),
             ),
           ),
           Expanded(

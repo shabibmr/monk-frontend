@@ -59,6 +59,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
+                      const Center(
+                        child: MonkLogo(
+                          height: 56,
+                          heroTag: 'monk-brand-logo',
+                        ),
+                      ),
+                      const SizedBox(height: ImSpacing.space16),
+
+
                       Text(
                         'Sign in',
                         style: Theme.of(context).textTheme.displayLarge,
@@ -71,6 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                       ),
                       const SizedBox(height: ImSpacing.space24),
+
                       ImTextField(
                         label: 'Email',
                         controller: _email,

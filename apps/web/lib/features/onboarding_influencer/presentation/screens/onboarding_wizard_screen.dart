@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:monk_shared/monk_shared.dart';
 
 import '../../../../core/di/injection.dart';
 import '../../../../core/errors/error_presenter.dart';
@@ -97,7 +98,9 @@ class _WizardBody extends StatelessWidget {
               ),
             );
           }
-          if (state.phase == OnboardingPhase.completed) {
+          // Only on the transition into completion — opening an already
+          // complete profile shows the summary instead of redirecting.
+          if (state.phase == OnboardingPhase.completed && state.justCompleted) {
             context.go('/c/dashboard');
           }
         },
@@ -172,6 +175,9 @@ class _WizardBody extends StatelessWidget {
     OnboardingState state,
     bool saving,
   ) {
+    if (state.phase == OnboardingPhase.completed && !state.justCompleted) {
+      return _CompletedSummary(state: state);
+    }
     switch (state.currentStep) {
       case 1:
         return _AccountStep(saving: saving);
@@ -187,6 +193,73 @@ class _WizardBody extends StatelessWidget {
       default:
         return _ConfirmStep(state: state, saving: saving);
     }
+  }
+}
+
+/// Shown when the wizard is opened on an already-complete profile — replaces
+/// the old redirect-to-dashboard behaviour.
+class _CompletedSummary extends StatelessWidget {
+  const _CompletedSummary({required this.state});
+  final OnboardingState state;
+
+  EntityStatus get _chip {
+    switch (state.verificationStatus) {
+      case 'approved':
+        return EntityStatus.approved;
+      case 'rejected':
+        return EntityStatus.rejected;
+      default:
+        return EntityStatus.inReview;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final done = state.progress.completedSteps;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Row(
+          children: [
+            const Icon(
+              Icons.check_circle_outline,
+              color: ImColors.success600,
+            ),
+            const SizedBox(width: ImSpacing.space8),
+            Expanded(
+              child: Text(
+                'Onboarding complete',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ),
+            ImStatusChip(
+              status: _chip,
+              label: 'Verification: ${state.verificationStatus ?? "pending"}',
+            ),
+          ],
+        ),
+        const SizedBox(height: ImSpacing.space8),
+        Text(
+          'Your profile is set up. Pick any step above to review what you '
+          'submitted, or head back to the dashboard.',
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: ImColors.ink600,
+              ),
+        ),
+        const SizedBox(height: ImSpacing.space16),
+        Text(
+          done.isEmpty
+              ? 'No steps recorded'
+              : 'Completed steps: ${done.join(", ")}',
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
+        const SizedBox(height: ImSpacing.space24),
+        ImButton(
+          label: 'Go to dashboard',
+          onPressed: () => context.go('/c/dashboard'),
+        ),
+      ],
+    );
   }
 }
 

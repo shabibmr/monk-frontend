@@ -48,6 +48,67 @@ void main() {
   );
 
   blocTest<OnboardingBloc, OnboardingState>(
+    'already-complete status shows the summary without redirecting',
+    build: () {
+      when(() => repo.loadOnboarding()).thenAnswer(
+        (_) async => const OnboardingStatus(
+          profileId: 'p1',
+          progress: OnboardingProgress(
+            step1: true,
+            step2: true,
+            step3: true,
+            step4: true,
+            step5: true,
+            step6: true,
+          ),
+          nextStep: 7,
+          completed: true,
+          verificationStatus: 'approved',
+        ),
+      );
+      return OnboardingBloc(repository: repo, sessionCubit: session);
+    },
+    act: (b) => b.add(const OnboardingStarted()),
+    expect: () => [
+      isA<OnboardingState>()
+          .having((s) => s.phase, 'phase', OnboardingPhase.loading),
+      isA<OnboardingState>()
+          .having((s) => s.phase, 'phase', OnboardingPhase.completed)
+          .having((s) => s.justCompleted, 'justCompleted', false),
+    ],
+  );
+
+  blocTest<OnboardingBloc, OnboardingState>(
+    'confirming the final step flags justCompleted for the redirect',
+    build: () {
+      when(() => repo.completeOnboarding(any())).thenAnswer((_) async {});
+      when(() => repo.loadOnboarding()).thenAnswer(
+        (_) async => const OnboardingStatus(
+          profileId: 'p1',
+          progress: OnboardingProgress(step1: true),
+          nextStep: 7,
+          completed: true,
+          verificationStatus: 'pending',
+        ),
+      );
+      return OnboardingBloc(repository: repo, sessionCubit: session);
+    },
+    seed: () => const OnboardingState(
+      phase: OnboardingPhase.ready,
+      profileId: 'p1',
+      currentStep: 6,
+    ),
+    act: (b) => b.add(const OnboardingConfirmComplete()),
+    expect: () => [
+      isA<OnboardingState>()
+          .having((s) => s.phase, 'phase', OnboardingPhase.saving),
+      isA<OnboardingState>()
+          .having((s) => s.phase, 'phase', OnboardingPhase.completed)
+          .having((s) => s.justCompleted, 'justCompleted', true),
+    ],
+  );
+
+  blocTest<OnboardingBloc, OnboardingState>(
     'cannot skip forward via GoToStep',
     build: () {
       return OnboardingBloc(repository: repo, sessionCubit: session);

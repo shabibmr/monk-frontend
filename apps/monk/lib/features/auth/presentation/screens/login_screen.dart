@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/di/injection.dart';
 import '../../../../core/errors/error_presenter.dart';
+import '../../../../core/mock/mock_ids.dart';
+import '../../../../core/network/api_client_factory.dart';
 import '../../../../core/session/session_cubit.dart';
 import '../../../../core/theme/tokens.dart';
 import '../../../../core/widgets/widgets.dart';
 import '../bloc/auth_bloc.dart';
 import '../bloc/auth_event.dart';
 import '../bloc/auth_state.dart';
+import '../widgets/mock_demo_persona_selector.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -20,6 +24,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _email = TextEditingController();
   final _password = TextEditingController();
+  String? _selectedDemoEmail;
 
   @override
   void dispose() {
@@ -30,6 +35,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final useMocks = getIt<AppConfig>().useMocks;
+
     return Scaffold(
       body: Center(
         child: ConstrainedBox(
@@ -66,8 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const SizedBox(height: ImSpacing.space16),
-
-
                       Text(
                         'Sign in',
                         style: Theme.of(context).textTheme.displayLarge,
@@ -80,7 +85,17 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                       ),
                       const SizedBox(height: ImSpacing.space24),
-
+                      if (useMocks)
+                        MockDemoPersonaSelector(
+                          selectedEmail: _selectedDemoEmail,
+                          onSelected: (email) {
+                            setState(() {
+                              _selectedDemoEmail = email;
+                              _email.text = email;
+                              _password.text = MockIds.demoPassword;
+                            });
+                          },
+                        ),
                       ImTextField(
                         label: 'Email',
                         controller: _email,

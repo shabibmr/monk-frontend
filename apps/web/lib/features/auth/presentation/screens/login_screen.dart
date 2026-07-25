@@ -102,10 +102,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 setState(() {
                   _selectedDemoEmail = email;
                   _email.text = email;
-                  _password.text = '123456';
+                  _password.text = MockIds.demoPassword;
                 });
               }
             },
+          ),
+          const SizedBox(height: ImSpacing.space8),
+          const Text(
+            'Sign in with a short name — creator, brand, manager, admin, '
+            'agency, newbrand, newcreator. Password for every persona: '
+            '${MockIds.demoPassword}',
+            style: TextStyle(fontSize: 11, color: ImColors.ink600),
           ),
         ],
       ),

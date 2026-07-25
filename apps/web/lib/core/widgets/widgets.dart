@@ -11,4 +11,5 @@ export 'im_stepper.dart';
 export 'im_text_field.dart';
 export 'im_platform_icon.dart';
 export 'im_toast.dart';
+export 'monk_logo.dart';
 

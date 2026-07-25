@@ -17,6 +17,7 @@ class OnboardingState extends Equatable {
     this.failure,
     this.infoMessage,
     this.verificationStatus,
+    this.justCompleted = false,
   });
 
   final OnboardingPhase phase;
@@ -30,6 +31,11 @@ class OnboardingState extends Equatable {
   final String? infoMessage;
   final String? verificationStatus;
 
+  /// True only for the state emitted right after the user confirms the final
+  /// step. Loading an already-complete profile leaves this false so the wizard
+  /// can be opened for review instead of redirecting to the dashboard.
+  final bool justCompleted;
+
   OnboardingState copyWith({
     OnboardingPhase? phase,
     String? profileId,
@@ -41,6 +47,7 @@ class OnboardingState extends Equatable {
     Failure? failure,
     String? infoMessage,
     String? verificationStatus,
+    bool justCompleted = false,
     bool clearFailure = false,
     bool clearOauth = false,
     bool clearMessage = false,
@@ -56,6 +63,8 @@ class OnboardingState extends Equatable {
       failure: clearFailure ? null : (failure ?? this.failure),
       infoMessage: clearMessage ? null : (infoMessage ?? this.infoMessage),
       verificationStatus: verificationStatus ?? this.verificationStatus,
+      // One-shot signal: never carried over into the next state.
+      justCompleted: justCompleted,
     );
   }
 
@@ -71,5 +80,6 @@ class OnboardingState extends Equatable {
         failure,
         infoMessage,
         verificationStatus,
+        justCompleted,
       ];
 }

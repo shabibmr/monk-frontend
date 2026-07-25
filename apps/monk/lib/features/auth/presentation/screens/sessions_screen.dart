@@ -6,6 +6,8 @@ import '../../../../core/errors/error_presenter.dart';
 import '../../../../core/theme/tokens.dart';
 import '../../../../core/widgets/widgets.dart';
 import '../../domain/repositories/auth_repository.dart';
+import '../bloc/auth_bloc.dart';
+import '../bloc/auth_event.dart';
 import '../cubit/sessions_cubit.dart';
 
 class SessionsScreen extends StatelessWidget {
@@ -27,6 +29,17 @@ class _SessionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Sessions')),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(ImSpacing.space16),
+          child: ImButton(
+            label: 'Sign out of this device',
+            variant: ImButtonVariant.destructive,
+            onPressed: () =>
+                context.read<AuthBloc>().add(const AuthLogoutRequested()),
+          ),
+        ),
+      ),
       body: BlocConsumer<SessionsCubit, SessionsState>(
         listener: (context, state) {
           if (state.failure != null) {

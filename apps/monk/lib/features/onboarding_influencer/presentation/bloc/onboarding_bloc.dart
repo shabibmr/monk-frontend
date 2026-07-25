@@ -38,6 +38,8 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
       final status = await _repo.loadOnboarding();
       _session.setOnboardingComplete(status.completed);
       if (status.completed) {
+        // Already complete: show the summary, do not redirect (justCompleted
+        // stays false).
         emit(
           state.copyWith(
             phase: OnboardingPhase.completed,
@@ -268,6 +270,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
           phase: OnboardingPhase.completed,
           progress: status.progress,
           verificationStatus: status.verificationStatus,
+          justCompleted: true,
           infoMessage: 'Onboarding complete — pending verification',
         ),
       );

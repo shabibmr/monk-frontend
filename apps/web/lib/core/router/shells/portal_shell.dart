@@ -10,6 +10,7 @@ import '../../session/session_cubit.dart';
 import '../../theme/app_theme.dart';
 import '../../theme/tokens.dart';
 import '../../utils/breakpoints.dart';
+import '../../widgets/widgets.dart';
 
 class _NavItem {
   const _NavItem(this.label, this.path, this.icon);
@@ -140,7 +141,14 @@ class _PortalChrome extends StatelessWidget {
     if (bp == ImBreakpoint.compact) {
       return Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const MonkLogo(height: 28),
+              const SizedBox(width: ImSpacing.space8),
+              Text(title),
+            ],
+          ),
           actions: [
             Badge(
               isLabelVisible: unread > 0,
@@ -190,12 +198,35 @@ class _PortalChrome extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(ImSpacing.space24),
-                  child: Text(
-                    'iM · $title',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: portal.sidebarFg,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: ImSpacing.space16,
+                    vertical: ImSpacing.space24,
+                  ),
+                  child: Row(
+                    children: [
+                      const MonkLogo(height: 34),
+                      const SizedBox(width: ImSpacing.space8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 3,
                         ),
+                        decoration: BoxDecoration(
+                          color: portal.sidebarActive.withValues(alpha: 0.15),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Text(
+                          title.toUpperCase(),
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelSmall
+                              ?.copyWith(
+                                color: portal.sidebarActive,
+                                fontWeight: FontWeight.bold,
+                              ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 ...items.map((e) {

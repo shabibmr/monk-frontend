@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:monk_shared/monk_shared.dart';
 
+import '../../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../../../features/auth/presentation/bloc/auth_event.dart';
 import '../../../features/notifications/presentation/cubit/notifications_cubit.dart';
 import '../../session/session_cubit.dart';
 import '../../theme/app_theme.dart';
@@ -148,6 +150,13 @@ class _PortalChrome extends StatelessWidget {
                 onPressed: () {},
               ),
             ),
+            IconButton(
+              icon: const Icon(Icons.logout_outlined),
+              tooltip: 'Log out',
+              onPressed: () => context
+                  .read<AuthBloc>()
+                  .add(const AuthLogoutRequested()),
+            ),
           ],
         ),
         body: Column(
@@ -223,6 +232,19 @@ class _PortalChrome extends StatelessWidget {
                           ),
                     ),
                   ),
+                ListTile(
+                  leading: Icon(
+                    Icons.logout_outlined,
+                    color: portal.sidebarFg.withValues(alpha: 0.7),
+                  ),
+                  title: Text(
+                    'Log out',
+                    style: TextStyle(color: portal.sidebarFg),
+                  ),
+                  onTap: () => context
+                      .read<AuthBloc>()
+                      .add(const AuthLogoutRequested()),
+                ),
               ],
             ),
           ),

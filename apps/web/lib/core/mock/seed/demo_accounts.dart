@@ -43,7 +43,7 @@ void seedDemoAccounts(MockSeedStore store) {
       password: pwd,
       profileId: MockIds.influencer1,
       profileName: 'Arjun Creates',
-      influencerOnboardingComplete: true,
+      influencerOnboardingComplete: false,
     ),
   );
 

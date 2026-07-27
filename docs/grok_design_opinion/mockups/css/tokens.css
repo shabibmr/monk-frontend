@@ -1,0 +1,93 @@
+/* Soft Premium Creator Platform — design tokens (design_context2.md) */
+:root {
+  /* Surfaces */
+  --surface: #fafafc;
+  --surface-alt: #fcfbff;
+  --surface-card: #ffffff;
+  --surface-card-secondary: #fbfbfd;
+  --border: #ececf3;
+  --divider: #f1f2f8;
+
+  /* Brand */
+  --primary: #6d3ef5;
+  --primary-hover: #5a2de0;
+  --primary-pressed: #4a20c7;
+  --primary-soft: #8f68ff;
+  --primary-100: #ede7fd;
+  --primary-50: #f5f2ff;
+
+  /* Accents */
+  --accent-pink: #f46db4;
+  --accent-orange: #ffb54d;
+  --accent-green: #3bc87a;
+  --accent-blue: #4da3ff;
+
+  /* Ink */
+  --ink-900: #1a1a2e;
+  --ink-700: #3d3d56;
+  --ink-600: #6b7280;
+  --ink-400: #9ca3af;
+  --ink-300: #d1d5db;
+
+  /* Semantic */
+  --success: #3bc87a;
+  --success-100: #e3f9ed;
+  --warning: #ffb648;
+  --warning-100: #fff4e0;
+  --danger: #ff5d5d;
+  --danger-100: #ffe8e8;
+  --info: #4da3ff;
+  --info-100: #e5f2ff;
+
+  /* Gradients */
+  --grad-purple: linear-gradient(135deg, #6d3ef5 0%, #b06dff 100%);
+  --grad-pink: linear-gradient(135deg, #ff6fb7 0%, #ffb68d 100%);
+  --grad-warm: linear-gradient(135deg, #f46db4 0%, #ffb54d 100%);
+  --grad-hero: linear-gradient(135deg, #8a63f5 0%, #ec4899 100%);
+  --grad-bg-glow: linear-gradient(180deg, #ffffff 0%, #f9f6ff 100%);
+  --grad-card-glow: linear-gradient(160deg, #ffffff 0%, #fbf9ff 100%);
+  --grad-score: linear-gradient(135deg, #ff7eb3 0%, #ffb86c 100%);
+  --grad-earnings: linear-gradient(145deg, #3b1e8c 0%, #1a1a2e 100%);
+
+  /* Radii */
+  --radius-chip: 12px;
+  --radius-field: 16px;
+  --radius-button: 18px;
+  --radius-image: 20px;
+  --radius-card: 24px;
+  --radius-full: 999px;
+
+  /* Spacing */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* Layout */
+  --page-max: 1600px;
+  --content-max: 1450px;
+  --page-pad: 40px;
+  --nav-height: 72px;
+  --touch: 48px;
+  --btn-h: 48px;
+
+  /* Shadow */
+  --shadow-card: 0 10px 40px rgba(60, 45, 100, 0.06);
+  --shadow-float: 0 16px 48px rgba(60, 45, 100, 0.1);
+  --shadow-nav: 0 4px 24px rgba(60, 45, 100, 0.05);
+  --shadow-soft: 0 4px 16px rgba(60, 45, 100, 0.06);
+
+  /* Type */
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --lh: 1.4;
+
+  /* Motion */
+  --ease: ease;
+  --dur: 200ms;
+}

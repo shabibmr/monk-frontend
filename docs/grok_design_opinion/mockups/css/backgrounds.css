@@ -1,0 +1,426 @@
+/**
+ * Soft Premium ambient backgrounds
+ * Decorative layer behind content — soft blobs, grid, floating graphics.
+ */
+
+/* —— Page root —— */
+body.has-bg-scene {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--surface);
+  background-image:
+    radial-gradient(ellipse 90% 70% at 8% -10%, rgba(176, 109, 255, 0.22), transparent 55%),
+    radial-gradient(ellipse 70% 60% at 100% 0%, rgba(244, 109, 180, 0.14), transparent 50%),
+    radial-gradient(ellipse 60% 50% at 70% 100%, rgba(77, 163, 255, 0.1), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 0% 80%, rgba(255, 181, 77, 0.08), transparent 50%),
+    linear-gradient(180deg, #fcfbff 0%, #fafafc 40%, #f7f5ff 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+body.has-bg-scene.bg-glow {
+  /* bg-glow is superseded by richer scene */
+  background-attachment: fixed;
+}
+
+/* Fixed decorative canvas (never captures clicks) */
+.bg-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Content sits above scene */
+body.has-bg-scene > .top-nav,
+body.has-bg-scene > .page,
+body.has-bg-scene > main,
+body.has-bg-scene > .phone,
+body.has-bg-scene > .mock-bar,
+body.has-bg-scene > .float-nav,
+body.has-bg-scene > .auth,
+body.has-bg-scene > .toast {
+  position: relative;
+  z-index: 1;
+}
+
+body.has-bg-scene > .top-nav {
+  z-index: 100;
+}
+
+/* —— Soft color orbs —— */
+.bg-scene__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.bg-scene__orb--1 {
+  width: min(48vw, 520px);
+  height: min(48vw, 520px);
+  top: -12%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(143, 104, 255, 0.55) 0%, rgba(143, 104, 255, 0) 70%);
+  animation: bg-drift-a 22s ease-in-out infinite alternate;
+}
+
+.bg-scene__orb--2 {
+  width: min(42vw, 440px);
+  height: min(42vw, 440px);
+  bottom: -10%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(244, 109, 180, 0.4) 0%, rgba(244, 109, 180, 0) 70%);
+  animation: bg-drift-b 26s ease-in-out infinite alternate;
+}
+
+.bg-scene__orb--3 {
+  width: min(36vw, 360px);
+  height: min(36vw, 360px);
+  top: 42%;
+  left: 35%;
+  background: radial-gradient(circle, rgba(77, 163, 255, 0.28) 0%, rgba(77, 163, 255, 0) 70%);
+  animation: bg-drift-c 30s ease-in-out infinite alternate;
+}
+
+.bg-scene__orb--4 {
+  width: min(28vw, 280px);
+  height: min(28vw, 280px);
+  top: 18%;
+  left: 8%;
+  background: radial-gradient(circle, rgba(255, 181, 77, 0.22) 0%, rgba(255, 181, 77, 0) 70%);
+  animation: bg-drift-a 18s ease-in-out infinite alternate-reverse;
+}
+
+/* —— Dot grid —— */
+.bg-scene__grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  background-image: radial-gradient(rgba(109, 62, 245, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 75%);
+}
+
+/* —— Soft mesh rings —— */
+.bg-scene__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(109, 62, 245, 0.1);
+  box-shadow: inset 0 0 40px rgba(143, 104, 255, 0.06);
+}
+
+.bg-scene__ring--1 {
+  width: 420px;
+  height: 420px;
+  top: -80px;
+  left: -100px;
+  animation: bg-spin 80s linear infinite;
+}
+
+.bg-scene__ring--2 {
+  width: 280px;
+  height: 280px;
+  bottom: 8%;
+  right: -40px;
+  border-color: rgba(244, 109, 180, 0.12);
+  animation: bg-spin 100s linear infinite reverse;
+}
+
+/* —— Floating geometric shapes —— */
+.bg-scene__shape {
+  position: absolute;
+  opacity: 0.5;
+  animation: bg-float 12s ease-in-out infinite;
+}
+
+.bg-scene__shape--sq {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(109, 62, 245, 0.18), rgba(143, 104, 255, 0.08));
+  border: 1px solid rgba(109, 62, 245, 0.12);
+  top: 22%;
+  right: 12%;
+  transform: rotate(18deg);
+  animation-delay: -2s;
+}
+
+.bg-scene__shape--circ {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(244, 109, 180, 0.25), rgba(255, 182, 141, 0.12));
+  border: 1px solid rgba(244, 109, 180, 0.15);
+  top: 58%;
+  left: 6%;
+  animation-delay: -5s;
+}
+
+.bg-scene__shape--pill {
+  width: 64px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(59, 200, 122, 0.18), rgba(77, 163, 255, 0.12));
+  border: 1px solid rgba(59, 200, 122, 0.15);
+  bottom: 24%;
+  right: 18%;
+  animation-delay: -8s;
+}
+
+.bg-scene__shape--diamond {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(255, 181, 77, 0.2);
+  border: 1px solid rgba(255, 181, 77, 0.25);
+  top: 36%;
+  left: 18%;
+  transform: rotate(45deg);
+  animation-delay: -3s;
+}
+
+/* —— Sparkles / stars —— */
+.bg-scene__spark {
+  position: absolute;
+  color: var(--primary-soft);
+  font-size: 14px;
+  opacity: 0.45;
+  animation: bg-twinkle 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(143, 104, 255, 0.35));
+}
+
+.bg-scene__spark--1 { top: 14%; left: 22%; animation-delay: 0s; font-size: 18px; }
+.bg-scene__spark--2 { top: 28%; right: 20%; animation-delay: 1.2s; color: #f46db4; }
+.bg-scene__spark--3 { bottom: 30%; left: 28%; animation-delay: 0.6s; font-size: 12px; color: #ffb54d; }
+.bg-scene__spark--4 { top: 62%; right: 8%; animation-delay: 2s; font-size: 16px; }
+.bg-scene__spark--5 { bottom: 16%; right: 32%; animation-delay: 1.5s; color: #4da3ff; }
+.bg-scene__spark--6 { top: 8%; right: 40%; animation-delay: 2.4s; font-size: 11px; }
+
+/* —— Wave footer —— */
+.bg-scene__wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 180px;
+  opacity: 0.55;
+}
+
+.bg-scene__wave svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* —— Floating character / mascot graphics (ambient) —— */
+.bg-scene__graphic {
+  position: absolute;
+  opacity: 0.14;
+  filter: saturate(1.05);
+  animation: bg-float 16s ease-in-out infinite;
+}
+
+.bg-scene__graphic--mascot {
+  width: min(28vw, 220px);
+  bottom: 6%;
+  right: 3%;
+  opacity: 0.16;
+  animation-delay: -4s;
+}
+
+.bg-scene__graphic--shopper {
+  width: min(30vw, 240px);
+  top: 12%;
+  left: -2%;
+  opacity: 0.12;
+  transform: rotate(-8deg);
+  animation-delay: -7s;
+}
+
+.bg-scene__graphic--face {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  opacity: 0.18;
+  box-shadow: 0 12px 32px rgba(109, 62, 245, 0.12);
+}
+
+.bg-scene__graphic--face-1 {
+  top: 20%;
+  right: 6%;
+  animation-delay: -1s;
+}
+
+.bg-scene__graphic--face-2 {
+  bottom: 28%;
+  left: 4%;
+  width: 56px;
+  height: 56px;
+  opacity: 0.14;
+  animation-delay: -9s;
+}
+
+.bg-scene__graphic--face-3 {
+  top: 48%;
+  right: 22%;
+  width: 48px;
+  height: 48px;
+  opacity: 0.12;
+  animation-delay: -5s;
+}
+
+/* —— Confetti-ish dots —— */
+.bg-scene__dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0.35;
+}
+
+.bg-scene__dot--a { background: #8f68ff; top: 18%; left: 42%; }
+.bg-scene__dot--b { background: #f46db4; top: 40%; left: 12%; width: 6px; height: 6px; }
+.bg-scene__dot--c { background: #ffb54d; top: 70%; right: 28%; width: 10px; height: 10px; }
+.bg-scene__dot--d { background: #3bc87a; top: 12%; right: 28%; width: 5px; height: 5px; }
+.bg-scene__dot--e { background: #4da3ff; bottom: 22%; left: 40%; }
+
+/* —— Top-nav glass sits on scene —— */
+body.has-bg-scene .top-nav {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border-bottom-color: rgba(236, 236, 243, 0.8);
+}
+
+/* —— Auth page stronger scene —— */
+body.bg-auth.has-bg-scene {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 15% 10%, rgba(176, 109, 255, 0.28), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 95% 90%, rgba(244, 109, 180, 0.2), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(109, 62, 245, 0.06), transparent 60%),
+    linear-gradient(160deg, #f5f2ff 0%, #fafafc 50%, #fff5fb 100%);
+}
+
+body.bg-auth .bg-scene__graphic--mascot {
+  opacity: 0.2;
+  width: min(32vw, 260px);
+}
+
+/* —— Mobile phone page: scene outside phone —— */
+body.bg-mobile-frame {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(143, 104, 255, 0.25), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 20% 100%, rgba(244, 109, 180, 0.15), transparent 50%),
+    linear-gradient(180deg, #e9e4f8 0%, #f3eefc 50%, #fce8f3 100%);
+}
+
+body.bg-mobile-frame .phone {
+  position: relative;
+  z-index: 2;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(176, 109, 255, 0.15), transparent 50%),
+    var(--surface);
+}
+
+/* Soft inner phone decorations */
+.phone__bg-deco {
+  position: absolute;
+  inset: 44px 0 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 0 0 28px 28px;
+}
+
+.phone__bg-deco .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(28px);
+}
+
+.phone__bg-deco .orb-1 {
+  width: 200px;
+  height: 200px;
+  top: -40px;
+  right: -50px;
+  background: rgba(143, 104, 255, 0.35);
+}
+
+.phone__bg-deco .orb-2 {
+  width: 160px;
+  height: 160px;
+  bottom: 80px;
+  left: -40px;
+  background: rgba(244, 109, 180, 0.2);
+}
+
+.phone__scroll {
+  position: relative;
+  z-index: 1;
+}
+
+/* —— Prefer reduced motion —— */
+@media (prefers-reduced-motion: reduce) {
+  .bg-scene__orb,
+  .bg-scene__shape,
+  .bg-scene__spark,
+  .bg-scene__graphic,
+  .bg-scene__ring {
+    animation: none !important;
+  }
+}
+
+/* —— Animations —— */
+@keyframes bg-drift-a {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-24px, 18px) scale(1.06); }
+}
+
+@keyframes bg-drift-b {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(30px, -16px) scale(1.08); }
+}
+
+@keyframes bg-drift-c {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-20px, 24px); }
+}
+
+@keyframes bg-float {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-14px) rotate(var(--r, 0deg)); }
+}
+
+@keyframes bg-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.9); }
+  50% { opacity: 0.7; transform: scale(1.15); }
+}
+
+@keyframes bg-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Shape-specific rotation preserved during float */
+.bg-scene__shape--sq { --r: 18deg; }
+.bg-scene__shape--diamond { --r: 45deg; }
+.bg-scene__graphic--shopper { --r: -8deg; }
+
+@media (max-width: 700px) {
+  .bg-scene__graphic--mascot,
+  .bg-scene__graphic--shopper {
+    opacity: 0.08;
+    width: 140px;
+  }
+  .bg-scene__graphic--face {
+    display: none;
+  }
+  .bg-scene__ring {
+    opacity: 0.5;
+  }
+}

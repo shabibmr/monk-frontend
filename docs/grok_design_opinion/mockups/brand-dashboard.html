@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brand Dashboard — Influencer Monk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/avatars.css" />
+  <link rel="stylesheet" href="css/backgrounds.css" />
+</head>
+<body class="bg-glow has-bg-scene">
+  <header class="top-nav">
+    <div class="top-nav__left">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">✦</span>
+        <span>Influencer <span class="accent">Monk</span></span>
+      </a>
+    </div>
+    <nav class="top-nav__center" aria-label="Primary">
+      <a class="nav-link is-active" href="brand-dashboard.html">🏠 <span class="label">Home</span></a>
+      <a class="nav-link" href="campaign-create.html">📣 <span class="label">Campaigns</span></a>
+      <a class="nav-link" href="#">👥 <span class="label">Creators</span></a>
+      <a class="nav-link" href="#">📊 <span class="label">Analytics</span></a>
+      <a class="nav-link" href="#">📄 <span class="label">Reports</span></a>
+    </nav>
+    <div class="top-nav__right">
+      <button class="icon-btn" type="button" aria-label="Search" data-toast="Search coming soon">🔍</button>
+      <button class="icon-btn" type="button" aria-label="Notifications">🔔<span class="ping"></span></button>
+      <button class="icon-btn" type="button" aria-label="Messages">💬</button>
+      <button class="profile-chip" type="button" data-toast="Profile menu">
+        <span class="char char--sm char--bg-brand" style="border:none">
+          <img src="assets/chars/luxe.svg" alt="" width="34" height="34" />
+        </span>
+        <span class="profile-chip__meta">
+          <strong>LuxeGlow</strong>
+          <span>Brand Account</span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="dash">
+      <div class="dash__main">
+        <!-- Hero -->
+        <section class="card card--glow" style="padding: 32px;">
+          <div class="hero">
+            <div>
+              <h1 class="hero__title">Good morning, LuxeGlow! 👋</h1>
+              <p class="hero__sub">Great brands build great stories. Let’s create magic today.</p>
+              <div class="hero__actions">
+                <a class="btn btn--primary" href="campaign-create.html">+ Create Campaign</a>
+                <button class="btn btn--secondary" type="button" data-toast="Opening creator discovery…">🔍 Find Creators</button>
+              </div>
+            </div>
+            <div class="hero-art char-figure-wrap" aria-hidden="true">
+              <span class="sparkle sparkle--1">✨</span>
+              <span class="sparkle sparkle--2">⭐</span>
+              <img class="char-figure char-figure--lg" src="assets/chars/shopper-mascot.svg" alt="" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Metrics -->
+        <section class="metrics-row" aria-label="Key metrics">
+          <article class="metric-tile">
+            <div class="metric-tile__icon metric-tile__icon--purple">📣</div>
+            <div class="metric-tile__label">Active Campaigns</div>
+            <div class="metric-tile__value">12</div>
+            <div class="metric-tile__trend">↑ 20% <span class="text-soft fw-500">vs last month</span></div>
+          </article>
+          <article class="metric-tile">
+            <div class="metric-tile__icon metric-tile__icon--pink">👥</div>
+            <div class="metric-tile__label">Creators Collaborating</div>
+            <div class="metric-tile__value">48</div>
+            <div class="metric-tile__trend">↑ 16% <span class="text-soft fw-500">vs last month</span></div>
+          </article>
+          <article class="metric-tile">
+            <div class="metric-tile__icon metric-tile__icon--blue">👁</div>
+            <div class="metric-tile__label">Total Reach</div>
+            <div class="metric-tile__value">4.2M</div>
+            <div class="metric-tile__trend">↑ 28% <span class="text-soft fw-500">vs last month</span></div>
+          </article>
+          <article class="metric-tile">
+            <div class="metric-tile__icon metric-tile__icon--green">💚</div>
+            <div class="metric-tile__label">Engagement Rate</div>
+            <div class="metric-tile__value">5.7%</div>
+            <div class="metric-tile__trend">↑ 8% <span class="text-soft fw-500">vs last month</span></div>
+          </article>
+          <article class="metric-tile">
+            <div class="metric-tile__icon metric-tile__icon--orange">₹</div>
+            <div class="metric-tile__label">Total Spend</div>
+            <div class="metric-tile__value">₹12.4L</div>
+            <div class="metric-tile__trend is-down">↓ 6% <span class="text-soft fw-500">vs last month</span></div>
+          </article>
+        </section>
+
+        <!-- Active campaigns carousel -->
+        <section data-carousel>
+          <div class="section-head">
+            <h2>Your Active Campaigns</h2>
+            <div class="flex items-center gap-8">
+              <button class="icon-btn" type="button" data-carousel-dir="prev" aria-label="Previous" style="width:36px;height:36px">‹</button>
+              <button class="icon-btn" type="button" data-carousel-dir="next" aria-label="Next" style="width:36px;height:36px">›</button>
+              <a class="link" href="#">View all</a>
+            </div>
+          </div>
+          <div class="carousel">
+            <article class="carousel__item campaign-card">
+              <div class="campaign-card__media" style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff)">
+                <span class="campaign-card__badge chip chip--warning">In Progress</span>
+                <div style="height:100%;display:grid;place-items:center;font-size:48px">✨</div>
+              </div>
+              <div class="campaign-card__body">
+                <div class="char-stack char-stack--lg">
+                  <span class="char char--sm"><img src="assets/chars/ananya.svg" alt="" /></span>
+                  <span class="char char--sm"><img src="assets/chars/rohit.svg" alt="" /></span>
+                  <span class="char char--sm"><img src="assets/chars/megha.svg" alt="" /></span>
+                  <span class="char-stack__more">+8</span>
+                </div>
+                <h3 class="campaign-card__title">LuxeGlow Radiance Boost</h3>
+                <p class="campaign-card__meta">15 Creators</p>
+                <div class="progress"><div class="progress__bar" style="width:62%"></div></div>
+                <p class="text-xs text-muted mt-8">62% · ₹2,45,000 / ₹4,00,000</p>
+              </div>
+            </article>
+            <article class="carousel__item campaign-card">
+              <div class="campaign-card__media" style="background:linear-gradient(135deg,#ffedd5,#fde68a)">
+                <span class="campaign-card__badge chip chip--warning">In Progress</span>
+                <div style="height:100%;display:grid;place-items:center;font-size:48px">🍊</div>
+              </div>
+              <div class="campaign-card__body">
+                <div class="char-stack char-stack--lg">
+                  <span class="char char--sm"><img src="assets/chars/priya.svg" alt="" /></span>
+                  <span class="char char--sm"><img src="assets/chars/kai.svg" alt="" /></span>
+                  <span class="char char--sm"><img src="assets/chars/nina.svg" alt="" /></span>
+                  <span class="char-stack__more">+6</span>
+                </div>
+                <h3 class="campaign-card__title">Vitamin C Brightening</h3>
+                <p class="campaign-card__meta">12 Creators</p>
+                <div class="progress"><div class="progress__bar" style="width:40%"></div></div>
+                <p class="text-xs text-muted mt-8">40% · ₹1,80,000 / ₹3,00,000</p>
+              </div>
+            </article>
+            <article class="carousel__item campaign-card">
+              <div class="campaign-card__media" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)">
+                <span class="campaign-card__badge chip chip--warning">In Progress</span>
+                <div style="height:100%;display:grid;place-items:center;font-size:48px">💧</div>
+              </div>
+              <div class="campaign-card__body">
+                <div class="char-stack char-stack--lg">
+                  <span class="char char--sm"><img src="assets/chars/sam.svg" alt="" /></span>
+                  <span class="char char--sm"><img src="assets/chars/jordan.svg" alt="" /></span>
+                  <span class="char char--sm"><img src="assets/chars/leo.svg" alt="" /></span>
+                  <span class="char-stack__more">+10</span>
+                </div>
+                <h3 class="campaign-card__title">HydraGlow Moisturizer</h3>
+                <p class="campaign-card__meta">18 Creators</p>
+                <div class="progress"><div class="progress__bar" style="width:75%"></div></div>
+                <p class="text-xs text-muted mt-8">75% · ₹2,10,000 / ₹2,80,000</p>
+              </div>
+            </article>
+            <article class="carousel__item campaign-card">
+              <div class="campaign-card__media" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">
+                <span class="campaign-card__badge chip chip--success">Live</span>
+                <div style="height:100%;display:grid;place-items:center;font-size:48px">🌿</div>
+              </div>
+              <div class="campaign-card__body">
+                <div class="char-stack char-stack--lg">
+                  <span class="char char--sm"><img src="assets/chars/kai.svg" alt="" /></span>
+                  <span class="char char--sm"><img src="assets/chars/ananya.svg" alt="" /></span>
+                  <span class="char char--sm"><img src="assets/chars/priya.svg" alt="" /></span>
+                  <span class="char-stack__more">+7</span>
+                </div>
+                <h3 class="campaign-card__title">Clean & Clear Campaign</h3>
+                <p class="campaign-card__meta">14 Creators</p>
+                <div class="progress"><div class="progress__bar" style="width:90%"></div></div>
+                <p class="text-xs text-muted mt-8">90% · ₹3,20,000 / ₹3,50,000</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Bottom two columns -->
+        <div class="two-col">
+          <section class="card">
+            <div class="section-head">
+              <h3>Top Performing Creators</h3>
+              <a class="link" href="#">View all</a>
+            </div>
+            <div class="list-row">
+              <span class="char char--md char--ring"><img src="assets/chars/ananya.svg" alt="" /></span>
+              <div style="flex:1;min-width:0">
+                <div class="fw-600 text-sm">Ananya Sharma</div>
+                <div class="text-micro text-muted">@ananya_lifestyle · Beauty</div>
+              </div>
+              <div class="text-sm fw-600">820K</div>
+              <div class="text-sm text-success fw-600">7.8%</div>
+            </div>
+            <div class="list-row">
+              <span class="char char--md char--ring"><img src="assets/chars/rohit.svg" alt="" /></span>
+              <div style="flex:1;min-width:0">
+                <div class="fw-600 text-sm">Rohit Verma</div>
+                <div class="text-micro text-muted">@fitnesswithrohit · Fitness</div>
+              </div>
+              <div class="text-sm fw-600">650K</div>
+              <div class="text-sm text-success fw-600">6.5%</div>
+            </div>
+            <div class="list-row">
+              <span class="char char--md char--ring"><img src="assets/chars/megha.svg" alt="" /></span>
+              <div style="flex:1;min-width:0">
+                <div class="fw-600 text-sm">Megha Kapoor</div>
+                <div class="text-micro text-muted">@meghasworld · Beauty</div>
+              </div>
+              <div class="text-sm fw-600">540K</div>
+              <div class="text-sm text-success fw-600">6.1%</div>
+            </div>
+            <div class="list-row">
+              <span class="char char--md char--ring"><img src="assets/chars/kai.svg" alt="" /></span>
+              <div style="flex:1;min-width:0">
+                <div class="fw-600 text-sm">Kai Mendes</div>
+                <div class="text-micro text-muted">@kaicreates · Lifestyle</div>
+              </div>
+              <div class="text-sm fw-600">410K</div>
+              <div class="text-sm text-success fw-600">5.9%</div>
+            </div>
+            <div class="list-row">
+              <span class="char char--md char--ring"><img src="assets/chars/priya.svg" alt="" /></span>
+              <div style="flex:1;min-width:0">
+                <div class="fw-600 text-sm">Priya Nair</div>
+                <div class="text-micro text-muted">@priya.glow · Beauty</div>
+              </div>
+              <div class="text-sm fw-600">380K</div>
+              <div class="text-sm text-success fw-600">5.4%</div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <h3>Recent Activity</h3>
+              <a class="link" href="#">View all</a>
+            </div>
+            <div class="list-row">
+              <span class="char char--sm"><img src="assets/chars/rohit.svg" alt="" /></span>
+              <div style="flex:1">
+                <div class="text-sm"><strong>Rohit Verma</strong> submitted content for LuxeGlow Radiance Boost</div>
+              </div>
+              <span class="text-micro text-soft">2h ago</span>
+            </div>
+            <div class="list-row">
+              <span class="char char--sm"><img src="assets/chars/luxe.svg" alt="" /></span>
+              <div style="flex:1">
+                <div class="text-sm">Payment of <strong>₹1,80,000</strong> processed for Vitamin C Serum</div>
+              </div>
+              <span class="text-micro text-soft">5h ago</span>
+            </div>
+            <div class="list-row">
+              <span class="char char--sm"><img src="assets/chars/ananya.svg" alt="" /></span>
+              <div style="flex:1">
+                <div class="text-sm"><strong>Ananya Sharma</strong> posted content for HydraGlow</div>
+              </div>
+              <span class="text-micro text-soft">1d ago</span>
+            </div>
+            <div class="list-row">
+              <span class="char char--sm"><img src="assets/chars/megha.svg" alt="" /></span>
+              <div style="flex:1">
+                <div class="text-sm"><strong>Megha Kapoor</strong> applied to Clean & Clear</div>
+              </div>
+              <span class="text-micro text-soft">1d ago</span>
+            </div>
+            <div class="list-row">
+              <span class="char char--sm"><img src="assets/chars/jordan.svg" alt="" /></span>
+              <div style="flex:1">
+                <div class="text-sm"><strong>Jordan Lee</strong> accepted invite for Summer Essentials</div>
+              </div>
+              <span class="text-micro text-soft">2d ago</span>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Right rail -->
+      <aside class="dash__rail">
+        <section class="card" style="background:linear-gradient(160deg,#fff7ed,#fdf2f8);border:none">
+          <div class="flex justify-between items-center mb-8">
+            <span class="text-sm fw-600 text-muted">Your Brand Score</span>
+            <span title="How we calculate score">ⓘ</span>
+          </div>
+          <div class="flex items-end gap-12">
+            <div style="font-size:48px;font-weight:700;letter-spacing:-0.04em;line-height:1">8.6</div>
+            <div class="chip chip--success" style="margin-bottom:8px">↑ 12%</div>
+          </div>
+          <p class="text-sm text-muted mt-12">Excellent! You’re outperforming <strong>78%</strong> of brands on Monk.</p>
+          <div class="chart-area">
+            <svg viewBox="0 0 280 80" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="brandScoreFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#6D3EF5" stop-opacity="0.25"/>
+                  <stop offset="100%" stop-color="#6D3EF5" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,60 C40,55 60,40 90,42 C120,44 140,20 170,28 C200,36 230,18 280,12 L280,80 L0,80 Z" fill="url(#brandScoreFill)"/>
+              <path d="M0,60 C40,55 60,40 90,42 C120,44 140,20 170,28 C200,36 230,18 280,12" fill="none" stroke="#6D3EF5" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="280" cy="12" r="5" fill="#6D3EF5"/>
+            </svg>
+          </div>
+          <a class="btn btn--ghost" href="#" style="padding-left:0">View score insights →</a>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h3>Quick Actions</h3>
+            <a class="link" href="#">View all</a>
+          </div>
+          <div class="quick-actions">
+            <a class="quick-action" href="campaign-create.html">
+              <span class="quick-action__icon" style="background:var(--primary-100)">➕</span>
+              <span>Create Campaign</span>
+            </a>
+            <button class="quick-action" type="button" data-toast="Find creators">
+              <span class="quick-action__icon" style="background:#fce7f3">🔍</span>
+              <span>Find Creators</span>
+            </button>
+            <button class="quick-action" type="button" data-toast="Invite sent flow">
+              <span class="quick-action__icon" style="background:var(--warning-100)">✉️</span>
+              <span>Invite Creator</span>
+            </button>
+            <button class="quick-action" type="button" data-toast="Brief builder">
+              <span class="quick-action__icon" style="background:var(--info-100)">📝</span>
+              <span>Campaign Brief</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h3>Spend Overview</h3>
+            <select class="text-sm" style="border:1px solid var(--border);border-radius:12px;padding:6px 10px;background:white">
+              <option>This Month</option>
+              <option>Last Month</option>
+            </select>
+          </div>
+          <div style="font-size:28px;font-weight:700;letter-spacing:-0.03em">₹12,42,300 <span class="text-sm text-danger">↓ 6%</span></div>
+          <p class="text-xs text-muted mt-8">From 8 Active Campaigns</p>
+          <div class="chart-area">
+            <svg viewBox="0 0 280 100" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="spendFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#8F68FF" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#8F68FF" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,70 C35,65 50,50 80,55 C110,60 130,30 160,35 C190,40 220,20 280,25 L280,100 L0,100 Z" fill="url(#spendFill)"/>
+              <path d="M0,70 C35,65 50,50 80,55 C110,60 130,30 160,35 C190,40 220,20 280,25" fill="none" stroke="#6D3EF5" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h3>Upcoming Campaigns</h3>
+            <a class="link" href="#">View all</a>
+          </div>
+          <div class="list-row">
+            <span class="avatar" style="border-radius:14px;background:linear-gradient(135deg,#fce7f3,#ede9fe)">🧴</span>
+            <div style="flex:1">
+              <div class="fw-600 text-sm">Summer Essentials</div>
+              <div class="text-micro text-muted">01 Jun – 20 Jun 2025</div>
+              <span class="chip chip--info mt-8" style="height:22px">Starts in 3 days</span>
+            </div>
+          </div>
+          <div class="list-row">
+            <span class="avatar" style="border-radius:14px;background:linear-gradient(135deg,#d1fae5,#a7f3d0)">🌿</span>
+            <div style="flex:1">
+              <div class="fw-600 text-sm">Glow Naturally Skincare</div>
+              <div class="text-micro text-muted">05 Jun – 25 Jun 2025</div>
+              <span class="chip chip--neutral mt-8" style="height:22px">Starts in 7 days</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

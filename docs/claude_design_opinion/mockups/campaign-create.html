@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monk — Create Campaign (redesign mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-24); }
+  .form-grid .span-2 { grid-column: 1 / -1; }
+  /* Collapses to one column under compactBreakpoint (§5.6) */
+  @media (max-width: 600px) { .form-grid { grid-template-columns: minmax(0, 1fr); } }
+  .goal-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-12); }
+  @media (max-width: 600px) { .goal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .page-grid { display: grid; grid-template-columns: minmax(0, 1fr) var(--rail-width); gap: var(--space-24); align-items: start; }
+  @media (max-width: 1100px) { .page-grid { grid-template-columns: minmax(0, 1fr); } }
+  /* The stepper scrolls rather than wrapping on narrow screens. */
+  .stepper-wrap { overflow-x: auto; scrollbar-width: none; }
+  .stepper-wrap::-webkit-scrollbar { display: none; }
+  .stepper { min-width: 720px; }
+</style>
+</head>
+<body>
+
+<!-- ShellStyle.flat — brand portal -->
+<div class="shell shell--flat">
+
+  <nav class="topnav" aria-label="Primary">
+    <a class="topnav__logo" href="brand-dashboard.html">
+      <span class="topnav__mark" aria-hidden="true">M</span>
+      <span>Monk</span>
+    </a>
+    <div class="topnav__items">
+      <a class="navitem" href="brand-dashboard.html"><span class="navitem__icon" aria-hidden="true">▦</span>Dashboard</a>
+      <a class="navitem" href="#main"><span class="navitem__icon" aria-hidden="true">◎</span>Discover</a>
+      <a class="navitem" href="#main" aria-current="page"><span class="navitem__icon" aria-hidden="true">◑</span>Campaigns</a>
+      <a class="navitem" href="#main"><span class="navitem__icon" aria-hidden="true">✉</span>Applications</a>
+      <a class="navitem" href="#main"><span class="navitem__icon" aria-hidden="true">▤</span>Briefs</a>
+    </div>
+    <div class="topnav__actions">
+      <button class="iconbtn" aria-label="Notifications, 12 unread">
+        🔔<span class="badge-count" aria-hidden="true">12</span>
+      </button>
+      <div class="account" data-menu>
+        <button class="account__trigger" aria-haspopup="menu" aria-expanded="false">
+          <span class="avatar" aria-hidden="true">L</span>
+          <span class="account__meta">
+            <span class="account__name">LuxeGlow</span><br>
+            <span class="account__role">Brand Account</span>
+          </span>
+          <span aria-hidden="true">▾</span>
+        </button>
+        <div class="menu" role="menu" data-open="false">
+          <p class="menu__label">Workspace</p>
+          <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">🔖</span>Shortlists</a>
+          <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">🧾</span>Invoices</a>
+          <div class="menu__sep"></div>
+          <p class="menu__label">Settings</p>
+          <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">👥</span>Team</a>
+          <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">🏢</span>Company</a>
+          <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">⚙</span>Settings</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="shell__body" id="main">
+
+    <header style="margin-bottom:var(--space-24)">
+      <h1 class="t-display-large">Create New Campaign ✨</h1>
+      <p class="t-body-large muted" style="margin-top:var(--space-8)">Let's build something amazing together!</p>
+    </header>
+
+    <div class="page-grid">
+
+      <div class="stack-24">
+
+        <!-- Legitimate use of numbering: a real 5-step sequence (§5.6).
+             Click any step, or use the footer buttons. -->
+        <section class="card card--tight">
+          <div class="stepper-wrap">
+            <ol class="stepper" data-stepper="1" style="list-style:none;margin:0;padding:0">
+              <li class="step" tabindex="0" role="button"><span class="step__num">1</span><span class="step__label">Basic Info</span></li>
+              <span class="step__link"></span>
+              <li class="step" tabindex="0" role="button"><span class="step__num">2</span><span class="step__label">Creators</span></li>
+              <span class="step__link"></span>
+              <li class="step" tabindex="0" role="button"><span class="step__num">3</span><span class="step__label">Content &amp; Deliverables</span></li>
+              <span class="step__link"></span>
+              <li class="step" tabindex="0" role="button"><span class="step__num">4</span><span class="step__label">Budget &amp; Timeline</span></li>
+              <span class="step__link"></span>
+              <li class="step" tabindex="0" role="button"><span class="step__num">5</span><span class="step__label">Review &amp; Launch</span></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="row" style="gap:var(--space-8);margin-bottom:var(--space-24)">
+            <span class="chip-icon chip-icon--sm chip-lavender" aria-hidden="true">▤</span>
+            <h2 class="t-title" style="color:var(--primary-600)">Basic Information</h2>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="field">
+              <label class="field__label" for="name">
+                Campaign Name <span class="req" aria-hidden="true">*</span>
+              </label>
+              <div class="field__wrap">
+                <input class="input" id="name" maxlength="80" required aria-required="true"
+                       placeholder="Give your campaign a catchy name" data-counter="c-name">
+                <span class="field__counter-inline" id="c-name">0/80</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="brand">Brand</label>
+              <div class="field__wrap">
+                <select class="select" id="brand">
+                  <option>LuxeGlow</option>
+                  <option>Glow Naturally</option>
+                </select>
+                <span class="field__chevron" aria-hidden="true">▾</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="cat">
+                Campaign Category <span class="req" aria-hidden="true">*</span>
+              </label>
+              <div class="field__wrap">
+                <select class="select" id="cat" required aria-required="true">
+                  <option value="">Select category</option>
+                  <option>Beauty</option><option>Fitness</option><option>Fashion</option>
+                </select>
+                <span class="field__chevron" aria-hidden="true">▾</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="type">
+                Campaign Type <span class="req" aria-hidden="true">*</span>
+              </label>
+              <div class="field__wrap">
+                <select class="select" id="type" required aria-required="true">
+                  <option value="">Select campaign type</option>
+                  <option>Paid collaboration</option><option>Barter</option>
+                </select>
+                <span class="field__chevron" aria-hidden="true">▾</span>
+              </div>
+            </div>
+
+            <div class="field span-2">
+              <label class="field__label" for="desc">
+                Campaign Description <span class="req" aria-hidden="true">*</span>
+              </label>
+              <div class="field__wrap">
+                <textarea class="textarea" id="desc" maxlength="500" required aria-required="true"
+                          placeholder="Tell creators about your brand, goals and what you're looking for…"
+                          data-counter="c-desc"></textarea>
+                <span class="counter" id="c-desc">0/500</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field__label" id="goals-label">Campaign Goals</span>
+              <p class="t-small muted" style="margin-top:calc(var(--space-8) * -1)">What do you want to achieve with this campaign?</p>
+              <div class="goal-grid" role="group" aria-labelledby="goals-label">
+                <button type="button" class="optcard" aria-pressed="true">
+                  <span class="chip-icon chip-icon--sm chip-lavender" aria-hidden="true">📢</span>Brand Awareness
+                  <span class="optcard__check" aria-hidden="true">✓</span>
+                </button>
+                <button type="button" class="optcard" aria-pressed="false">
+                  <span class="chip-icon chip-icon--sm chip-pink" aria-hidden="true">💬</span>Engagement
+                  <span class="optcard__check" aria-hidden="true">✓</span>
+                </button>
+                <button type="button" class="optcard" aria-pressed="false">
+                  <span class="chip-icon chip-icon--sm chip-amber" aria-hidden="true">🛍</span>Sales
+                  <span class="optcard__check" aria-hidden="true">✓</span>
+                </button>
+                <button type="button" class="optcard" aria-pressed="false">
+                  <span class="chip-icon chip-icon--sm chip-mint" aria-hidden="true">👤</span>Leads
+                  <span class="optcard__check" aria-hidden="true">✓</span>
+                </button>
+                <button type="button" class="optcard" aria-pressed="false">
+                  <span class="chip-icon chip-icon--sm chip-blue" aria-hidden="true">🚀</span>Product Launch
+                  <span class="optcard__check" aria-hidden="true">✓</span>
+                </button>
+                <button type="button" class="optcard" aria-pressed="false">
+                  <span class="chip-icon chip-icon--sm chip-lavender" aria-hidden="true">⋯</span>Other
+                  <span class="optcard__check" aria-hidden="true">✓</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field__label">Target Audience <span class="muted" style="font-weight:400">(Optional)</span></span>
+              <p class="t-small muted" style="margin-top:calc(var(--space-8) * -1)">Define your ideal audience</p>
+
+              <label class="t-small" for="age-from" style="font-weight:600">Age Range</label>
+              <div class="row" style="gap:var(--space-12)">
+                <div class="field__wrap" style="flex:1">
+                  <select class="select" id="age-from"><option>18</option><option>25</option></select>
+                  <span class="field__chevron" aria-hidden="true">▾</span>
+                </div>
+                <span class="t-small muted">to</span>
+                <div class="field__wrap" style="flex:1">
+                  <select class="select" id="age-to" aria-label="Age range, to"><option>35+</option><option>50+</option></select>
+                  <span class="field__chevron" aria-hidden="true">▾</span>
+                </div>
+              </div>
+
+              <span class="t-small" style="font-weight:600" id="gender-label">Gender</span>
+              <div class="segmented" role="group" aria-labelledby="gender-label">
+                <button type="button" class="segmented__btn" aria-pressed="true">All</button>
+                <button type="button" class="segmented__btn" aria-pressed="false">Male</button>
+                <button type="button" class="segmented__btn" aria-pressed="false">Female</button>
+                <button type="button" class="segmented__btn" aria-pressed="false">Other</button>
+              </div>
+
+              <label class="t-small" for="loc" style="font-weight:600">Locations</label>
+              <input class="input" id="loc" placeholder="Add locations (e.g., India, USA, UAE)">
+            </div>
+
+          </div>
+
+          <div class="row-between" style="margin-top:var(--space-32);padding-top:var(--space-24);border-top:1px solid var(--divider)">
+            <button class="btn btn--secondary" data-step-prev>Cancel</button>
+            <button class="btn btn--primary" data-step-next>Save &amp; Continue <span aria-hidden="true">→</span></button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ============ RIGHT RAIL ============ -->
+      <aside class="col-rail" aria-label="Campaign context">
+
+        <!-- gradientWarm. Body copy sits over the PINK half — text on
+             accentOrange500 measures 2.26:1 and is never permitted (§9). -->
+        <section class="card card--gradient card--warm-grad">
+          <div class="row" style="gap:var(--space-8)">
+            <span aria-hidden="true">🎯</span>
+            <h2 class="t-title" style="color:var(--primary-600)">Pro Tip</h2>
+          </div>
+          <p class="t-body" style="margin-top:var(--space-8);color:var(--ink-900)">
+            A clear campaign brief gets you better creators and content.
+          </p>
+        </section>
+
+        <section class="card">
+          <div class="row-between" style="margin-bottom:var(--space-16)">
+            <h2 class="t-title">Campaign Preview</h2>
+            <span aria-hidden="true">✨</span>
+          </div>
+          <div class="slot slot--photo" style="height:130px;border-radius:var(--radius-md)" aria-hidden="true"></div>
+          <div class="row-between" style="margin-top:var(--space-16)">
+            <span class="t-title">Campaign Name</span>
+            <span class="chip chip--warning">Draft</span>
+          </div>
+          <div class="listrow">
+            <span aria-hidden="true">🏷</span>
+            <span class="listrow__body"><span class="listrow__sub">Campaign Category</span></span>
+          </div>
+          <div class="listrow">
+            <span aria-hidden="true">📅</span>
+            <span class="listrow__body"><span class="listrow__sub">Dates</span></span>
+            <span class="listrow__meta">—</span>
+          </div>
+        </section>
+
+        <section class="card" style="background:var(--primary-100);border-color:transparent">
+          <h2 class="t-title" style="color:var(--primary-600);margin-bottom:var(--space-16)">What's next?</h2>
+          <div class="timeline">
+            <div class="timeline__item">
+              <span class="chip-icon chip-icon--sm chip-lavender" style="background:var(--surface-card)" aria-hidden="true">👥</span>
+              <div class="timeline__body">
+                <div class="listrow__title">Select the right creators</div>
+                <div class="listrow__sub">We'll help you find the perfect match</div>
+              </div>
+            </div>
+            <div class="timeline__item">
+              <span class="chip-icon chip-icon--sm chip-lavender" style="background:var(--surface-card)" aria-hidden="true">📋</span>
+              <div class="timeline__body">
+                <div class="listrow__title">Define content &amp; deliverables</div>
+                <div class="listrow__sub">Set clear expectations</div>
+              </div>
+            </div>
+            <div class="timeline__item">
+              <span class="chip-icon chip-icon--sm chip-lavender" style="background:var(--surface-card)" aria-hidden="true">📅</span>
+              <div class="timeline__body">
+                <div class="listrow__title">Set budget &amp; timeline</div>
+                <div class="listrow__sub">Plan your campaign schedule</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="note">
+          <span aria-hidden="true">▶</span>
+          <span>Visual pass only. <code>campaign_form_bloc.dart</code> state shape is
+          unaffected — <code>im_stepper.dart</code> is restyled, not rewired (§5.6).</span>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

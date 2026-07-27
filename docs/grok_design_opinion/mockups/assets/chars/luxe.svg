@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" role="img" aria-label="LuxeGlow brand">
+  <defs>
+    <linearGradient id="lBg" x1="0" y1="0" x2="160" y2="160">
+      <stop stop-color="#10B981"/><stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <circle cx="80" cy="80" r="80" fill="url(#lBg)"/>
+  <circle cx="80" cy="80" r="52" fill="white" opacity=".12"/>
+  <text x="80" y="96" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="56" font-weight="700" fill="white">L</text>
+  <circle cx="118" cy="48" r="8" fill="#FFB54D"/>
+  <path d="M118 40v16M110 48h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</svg>

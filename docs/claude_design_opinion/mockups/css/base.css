@@ -1,0 +1,171 @@
+/* ============================================================================
+   Monk redesign — reset, type scale, layout primitives, app shells
+   Spec: design_context.md §2 (type), §3 (layout), §5.1–5.3 (shell + grid)
+   No hex literals here — everything comes from tokens.css.
+   ========================================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-900);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* Spec §9 — the screenshots show no focus state; that is a mockup limitation,
+   not a design decision. 2px primary ring at 2px offset on everything. */
+:focus-visible {
+  outline: 2px solid var(--primary-600);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* --- Type scale (§2) ------------------------------------------------------ */
+
+.t-hero-greeting {            /* Caveat — HERO GREETING ONLY. Never reuse.    */
+  font-family: var(--font-script);
+  font-size: 40px; font-weight: 700; line-height: 1.15;
+}
+.t-display-large  { font-family: var(--font-display); font-size: 32px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+.t-headline       { font-family: var(--font-display); font-size: 24px; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+.t-title          { font-size: 16px; font-weight: 600; line-height: 1.5; }
+.t-body-large     { font-size: 16px; font-weight: 400; line-height: 1.5; }
+.t-body           { font-size: 14px; font-weight: 400; line-height: 1.5; }
+.t-label          { font-size: 14px; font-weight: 600; line-height: 1.5; }
+.t-small          { font-size: 12px; font-weight: 400; line-height: 1.5; }
+
+.t-kpi {
+  font-family: var(--font-display);
+  font-size: 40px; font-weight: 700; line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.t-kpi-large {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700; line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+/* Every number that changes in place gets tabular figures (§2). */
+.tabular { font-variant-numeric: tabular-nums; }
+
+.muted { color: var(--ink-600); }
+h1, h2, h3, h4 { margin: 0; }
+p { margin: 0; }
+
+/* --- App shell (§5.2) -----------------------------------------------------
+   Two variants. ShellStyle.flat  = brand + admin (edge-to-edge).
+                 ShellStyle.floating = creator (inset canvas on gradient).
+   Below 600px BOTH collapse to flat — the inset is desktop-only.
+   -------------------------------------------------------------------------- */
+
+.shell            { min-height: 100vh; background: var(--surface); }
+.shell--flat      { background: var(--surface); }
+
+.shell--floating  { background: var(--gradient-page); padding: var(--shell-inset); }
+.shell--floating .shell__canvas {
+  background: var(--surface-card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  min-height: calc(100vh - var(--shell-inset) * 2);
+  box-shadow: var(--shadow-float);
+}
+.shell--floating .topnav { border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
+
+.shell__body {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-32);
+}
+.shell--floating .shell__body { padding: var(--space-32); }
+
+/* --- Dashboard grid (§5.3) ------------------------------------------------
+   Main column ~75%, right CONTENT rail 360px fixed. True two-column split
+   below the nav — the rail starts at the top of the content area.
+   -------------------------------------------------------------------------- */
+
+.grid-dash {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--rail-width);
+  gap: var(--space-24);
+  align-items: start;
+}
+.col-main, .col-rail {
+  display: flex; flex-direction: column; gap: var(--space-24);
+  min-width: 0;
+}
+
+.section-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-16); margin-bottom: var(--space-16);
+}
+
+.stack-8  { display: flex; flex-direction: column; gap: var(--space-8); }
+.stack-12 { display: flex; flex-direction: column; gap: var(--space-12); }
+.stack-16 { display: flex; flex-direction: column; gap: var(--space-16); }
+.stack-24 { display: flex; flex-direction: column; gap: var(--space-24); }
+.row      { display: flex; align-items: center; gap: var(--space-12); }
+.row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--space-12); }
+.spacer   { flex: 1; }
+
+/* --- Responsive ----------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .grid-dash { grid-template-columns: minmax(0, 1fr); }
+  .col-rail  { --rail-width: auto; }
+}
+
+@media (max-width: 600px) {
+  /* Floating shell collapses to flat — desktop-only treatment (§5.2). */
+  .shell--floating { background: var(--surface); padding: 0; }
+  .shell--floating .shell__canvas {
+    border-radius: 0; min-height: 100vh; box-shadow: none;
+  }
+  .shell--floating .topnav { border-radius: 0; }
+  .shell__body { padding: var(--space-16); }
+
+  /* Desktop nav items do not fit a phone bar and do not need to: the compact
+     branch of portal_shell.dart already uses a bottom NavigationBar (§5.1).
+     The bar keeps logo + actions only. */
+  .topnav { padding: 0 var(--space-16); gap: var(--space-12); }
+  .topnav__items { display: none; }
+  .account__meta { display: none; }
+
+  .t-display-large { font-size: 26px; }
+  .t-headline { font-size: 20px; }
+  .t-kpi { font-size: 32px; }
+}
+
+/* --- Utility -------------------------------------------------------------- */
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* Illustration + photo slots. Spec §0.1 — the mockup assets are third-party
+   and NOT licensed. Every slot is a labelled placeholder, never a copied asset. */
+.slot {
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: var(--space-12);
+  border: 1px dashed var(--ink-300);
+  border-radius: var(--radius-md);
+  background: var(--surface-subtle);
+  color: var(--ink-600);
+  font-size: 11px; line-height: 1.3;
+}
+.slot--photo {
+  border-style: solid;
+  border-color: transparent;
+  background: var(--gradient-hero);
+  opacity: 0.9;
+}
+.slot--on-dark { border-color: rgba(255, 255, 255, 0.35); background: rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.85); }

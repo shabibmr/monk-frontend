@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creator Mobile — Influencer Monk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/avatars.css" />
+  <link rel="stylesheet" href="css/backgrounds.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 40px;
+    }
+    .mock-bar {
+      width: min(100%, 420px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      color: var(--ink-600);
+      font-size: 13px;
+    }
+    .phone {
+      width: min(100%, 390px);
+      min-height: 780px;
+      background: var(--surface);
+      border-radius: 36px;
+      box-shadow: 0 24px 80px rgba(60, 45, 100, 0.18);
+      border: 8px solid #1a1a2e;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .phone__status {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+      font-size: 13px;
+      font-weight: 600;
+      background: transparent;
+    }
+    .phone__scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 18px 100px;
+      scrollbar-width: thin;
+    }
+    .m-greeting h1 {
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+    .m-hero {
+      background: var(--grad-purple);
+      border-radius: 24px;
+      padding: 20px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      margin-top: 16px;
+      min-height: 180px;
+    }
+    .m-hero .score {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .m-hero .mascot {
+      position: absolute;
+      right: -4px;
+      bottom: -8px;
+      width: 120px;
+      height: auto;
+      opacity: 0.98;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,.15));
+    }
+    .m-section {
+      background: white;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-card);
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .m-qa {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .m-qa button {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--ink-700);
+    }
+    .m-qa .ico {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+    }
+    .m-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .m-stat {
+      background: var(--surface-card-secondary);
+      border-radius: 16px;
+      padding: 12px;
+    }
+    .m-stat .v { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    .m-stat .l { font-size: 11px; color: var(--ink-600); margin-top: 2px; }
+    .m-stat .t { font-size: 11px; color: var(--success); font-weight: 600; margin-top: 4px; }
+    .phone .bottom-nav {
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      height: 64px;
+    }
+  </style>
+</head>
+<body class="bg-mobile-frame has-bg-scene">
+  <div class="mock-bar">
+    <a href="index.html" class="text-primary fw-600">← Mockups</a>
+    <span>Creator · Mobile frame</span>
+    <a href="creator-dashboard.html" class="text-primary fw-600">Desktop →</a>
+  </div>
+
+  <div class="phone">
+    <div class="phone__status">
+      <span data-clock>9:41</span>
+      <span style="letter-spacing:2px">●●● ▮</span>
+    </div>
+    <div class="phone__scroll">
+      <div class="m-greeting flex justify-between items-start">
+        <div>
+          <h1>Hey Ananya! 👋</h1>
+          <p class="text-sm text-muted mt-8">Let’s create, inspire and earn today 💜</p>
+        </div>
+        <div class="flex gap-8 items-center">
+          <button class="icon-btn" type="button" style="width:40px;height:40px" aria-label="Notifications">🔔<span class="ping"></span></button>
+          <span class="char char--md char--ring"><img src="assets/chars/ananya.svg" alt="Ananya" /></span>
+        </div>
+      </div>
+
+      <section class="m-hero">
+        <div class="text-sm fw-600" style="opacity:.9">Your Influence Score ⓘ</div>
+        <div class="flex items-end gap-8 mt-12">
+          <div class="score">8,742</div>
+          <span class="text-sm fw-600" style="margin-bottom:6px;opacity:.95">↑ 12%</span>
+        </div>
+        <p class="text-sm mt-12" style="max-width:55%;opacity:.95">Keep shining! Your growth looks amazing ✨</p>
+        <button class="btn btn--sm mt-16" type="button" data-toast="Insights" style="background:rgba(255,255,255,.2);color:white;border:1px solid rgba(255,255,255,.3)">View insights →</button>
+        <img class="mascot" src="assets/chars/monk-mascot.svg" alt="" aria-hidden="true" />
+      </section>
+
+      <section class="m-section">
+        <div class="flex justify-between items-center">
+          <h3 style="font-size:16px">Quick Actions</h3>
+          <a class="link text-sm" href="#">See all</a>
+        </div>
+        <div class="m-qa">
+          <button type="button" data-toast="Create post">
+            <span class="ico" style="background:#fce7f3">＋</span>
+            Create Post
+          </button>
+          <button type="button" data-toast="Upload reel">
+            <span class="ico" style="background:var(--primary-100)">▶</span>
+            Upload Reel
+          </button>
+          <button type="button" data-toast="Find brands">
+            <span class="ico" style="background:var(--warning-100)">👥</span>
+            Find Brands
+          </button>
+          <button type="button" data-toast="Analytics">
+            <span class="ico" style="background:var(--success-100)">📊</span>
+            Analytics
+          </button>
+          <button type="button" data-toast="Earnings">
+            <span class="ico" style="background:var(--info-100)">💰</span>
+            Earnings
+          </button>
+        </div>
+      </section>
+
+      <section class="m-section">
+        <h3 style="font-size:16px">At a glance</h3>
+        <div class="m-stats">
+          <div class="m-stat">
+            <div class="v">125K</div>
+            <div class="l">Followers</div>
+            <div class="t">↑ 8.4%</div>
+          </div>
+          <div class="m-stat">
+            <div class="v">2.3M</div>
+            <div class="l">Reach</div>
+            <div class="t">↑ 11.2%</div>
+          </div>
+          <div class="m-stat">
+            <div class="v">8.7%</div>
+            <div class="l">Eng. Rate</div>
+            <div class="t">↑ 1.6%</div>
+          </div>
+          <div class="m-stat">
+            <div class="v">32</div>
+            <div class="l">Brand Collabs</div>
+            <div class="t">↑ +4</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="m-section">
+        <h3 style="font-size:16px;margin-bottom:12px">Active Campaign</h3>
+        <div class="flex gap-12 items-center">
+          <div style="width:72px;height:72px;border-radius:16px;background:linear-gradient(135deg,#d1fae5,#a7f3d0);display:grid;place-items:center;font-size:32px;flex-shrink:0">🧴</div>
+          <div style="flex:1;min-width:0">
+            <span class="chip chip--success" style="height:22px">In Progress</span>
+            <div class="fw-700 text-sm mt-8">Mamaearth Skincare</div>
+            <div class="text-micro text-muted">Organic Skincare · Beauty</div>
+            <div class="text-micro text-primary fw-600 mt-8">⏱ Ends in 5 days</div>
+            <div class="progress mt-8"><div class="progress__bar" style="width:60%"></div></div>
+            <div class="text-micro text-muted mt-8">60% Completed</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="m-section">
+        <div class="flex justify-between items-center mb-8">
+          <h3 style="font-size:16px">Today’s Tasks</h3>
+          <a class="link text-sm" href="#">View all</a>
+        </div>
+        <div data-task class="list-row">
+          <button type="button" class="task-toggle" data-task-toggle style="width:22px;height:22px;border-radius:50%;border:2px solid var(--success);background:white;color:var(--success);font-size:11px"></button>
+          <div style="flex:1">
+            <div class="fw-600 text-sm">Post a story</div>
+            <div class="text-micro text-muted">Show your morning vibe ☀️</div>
+          </div>
+          <span class="text-xs text-success fw-600">+10 pts</span>
+        </div>
+        <div data-task class="list-row">
+          <button type="button" class="task-toggle" data-task-toggle style="width:22px;height:22px;border-radius:50%;border:2px solid var(--accent-pink);background:#fce7f3;font-size:11px"></button>
+          <div style="flex:1">
+            <div class="fw-600 text-sm">Upload a new reel</div>
+            <div class="text-micro text-muted">Keep the streak going</div>
+          </div>
+          <span class="text-xs text-success fw-600">+25 pts</span>
+        </div>
+      </section>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Mobile">
+      <a class="bottom-nav__item is-active" href="creator-mobile.html">
+        <span>🏠</span> Home
+      </a>
+      <a class="bottom-nav__item" href="#">
+        <span>💼</span> Campaigns
+      </a>
+      <button class="bottom-nav__fab" type="button" data-toast="Create something amazing!" aria-label="Create">+</button>
+      <a class="bottom-nav__item" href="#">
+        <span>💬</span><span class="count">2</span> Inbox
+      </a>
+      <a class="bottom-nav__item" href="#">
+        <span>👤</span> Profile
+      </a>
+    </nav>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

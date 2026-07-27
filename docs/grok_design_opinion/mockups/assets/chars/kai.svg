@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" role="img" aria-label="Kai">
+  <defs>
+    <linearGradient id="kBg" x1="0" y1="0" x2="160" y2="160">
+      <stop stop-color="#D1FAE5"/><stop offset="1" stop-color="#DBEAFE"/>
+    </linearGradient>
+    <linearGradient id="kSkin" x1="50" y1="40" x2="110" y2="120">
+      <stop stop-color="#FFD5B8"/><stop offset="1" stop-color="#F0B894"/>
+    </linearGradient>
+  </defs>
+  <circle cx="80" cy="80" r="80" fill="url(#kBg)"/>
+  <path d="M28 152c10-30 30-44 52-44s42 14 52 44" fill="#0F766E"/>
+  <path d="M42 152c6-18 20-28 38-28s32 10 38 28" fill="#14B8A6"/>
+  <ellipse cx="80" cy="74" rx="34" ry="38" fill="url(#kSkin)"/>
+  <path d="M50 60c6-24 16-36 30-36s24 12 30 36c-10-12-20-16-30-16s-20 4-30 16z" fill="#1C1917"/>
+  <path d="M52 64c10-10 18-12 28-12s18 2 28 12" fill="#1C1917"/>
+  <!-- curly texture dots -->
+  <circle cx="58" cy="52" r="6" fill="#292524"/>
+  <circle cx="72" cy="44" r="7" fill="#292524"/>
+  <circle cx="90" cy="44" r="7" fill="#292524"/>
+  <circle cx="104" cy="54" r="6" fill="#292524"/>
+  <rect x="70" y="100" width="20" height="20" rx="8" fill="#F0B894"/>
+  <ellipse cx="68" cy="76" rx="3.2" ry="3.8" fill="#1A1A2E"/>
+  <ellipse cx="92" cy="76" rx="3.2" ry="3.8" fill="#1A1A2E"/>
+  <circle cx="69" cy="75" r="1" fill="#fff"/>
+  <circle cx="93" cy="75" r="1" fill="#fff"/>
+  <path d="M72 92c3 5 13 5 16 0" stroke="#C45C3E" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- freckles -->
+  <circle cx="62" cy="86" r="1" fill="#D4A574"/>
+  <circle cx="66" cy="90" r="1" fill="#D4A574"/>
+  <circle cx="96" cy="86" r="1" fill="#D4A574"/>
+</svg>

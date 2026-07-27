@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creator Dashboard — Collabify Prototype</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-nav">
+    <div class="logo-brand">
+      <div class="logo-mark">∞</div>
+      <span>Collabify</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" class="nav-item active"><span>⚡</span> Feed</a>
+      <a href="#" class="nav-item"><span>🎯</span> Campaigns</a>
+      <a href="#" class="nav-item"><span>💰</span> Earnings</a>
+      <a href="#" class="nav-item"><span>📈</span> Analytics</a>
+    </nav>
+    <div class="nav-utilities">
+      <div class="icon-btn">⚡</div>
+      <div class="icon-btn">
+        🔔
+        <div class="badge-dot">3</div>
+      </div>
+      <div class="user-profile">
+        <img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Ananya">
+        <div>
+          <div style="font-size: 13px; font-weight: 700;">Ananya Sharma ✔</div>
+          <div style="font-size: 11px; color: var(--ink-600);">Creator Account</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="app-container">
+    <div class="grid-3col">
+
+      <!-- Left / Main Column -->
+      <div class="main-column">
+
+        <!-- Creator Greeting & Hero Score Card -->
+        <div class="hero-card hero-creator-gradient">
+          <div style="display: flex; gap: 24px; align-items: center;">
+            <img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80" style="width: 100px; height: 100px; border: 4px solid white; box-shadow: 0 8px 24px rgba(0,0,0,0.2);" alt="Ananya">
+            <div>
+              <div class="greeting-script">Hey Ananya! 👋</div>
+              <h1 class="hero-title" style="font-size: 28px; margin: 2px 0 6px 0;">Create content. Build influence. Earn your way. 💜</h1>
+              <p class="hero-subtitle" style="margin-bottom: 0;">Lifestyle & Fashion Creator • 📍 Mumbai, India</p>
+            </div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(12px); border-radius: var(--radius-md); padding: 20px; text-align: right; min-width: 200px; border: 1px solid rgba(255,255,255,0.3);">
+            <div style="font-size: 13px; opacity: 0.9;">Your Influence Score</div>
+            <div style="font-family: var(--font-display); font-size: 44px; font-weight: 800; margin: 4px 0;">8,742</div>
+            <a href="#" class="btn btn-glass" style="height: 34px; font-size: 12px; padding: 0 16px;">View insights ›</a>
+          </div>
+        </div>
+
+        <!-- 4 Creator Stat Tiles -->
+        <div class="stat-grid" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="stat-tile">
+            <div class="chip-icon chip-lavender">👥</div>
+            <div>
+              <div class="stat-label">Total Followers</div>
+              <div class="stat-val">125K <span class="trend-badge trend-up" style="font-size: 11px;">↑ 8.4%</span></div>
+            </div>
+          </div>
+
+          <div class="stat-tile">
+            <div class="chip-icon chip-pink">👁</div>
+            <div>
+              <div class="stat-label">Total Reach</div>
+              <div class="stat-val">2.3M <span class="trend-badge trend-up" style="font-size: 11px;">↑ 11.2%</span></div>
+            </div>
+          </div>
+
+          <div class="stat-tile">
+            <div class="chip-icon chip-amber">🧡</div>
+            <div>
+              <div class="stat-label">Eng. Rate</div>
+              <div class="stat-val">8.7% <span class="trend-badge trend-up" style="font-size: 11px;">↑ 1.6%</span></div>
+            </div>
+          </div>
+
+          <div class="stat-tile">
+            <div class="chip-icon chip-mint">⭐</div>
+            <div>
+              <div class="stat-label">Brand Collabs</div>
+              <div class="stat-val">32 <span class="trend-badge trend-up" style="font-size: 11px;">+ 4</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel: Brands that love your vibe -->
+        <div>
+          <div class="section-header">
+            <h2 class="section-title">Brands that love your vibe 💜</h2>
+            <a href="#" style="font-size: 14px;">View all</a>
+          </div>
+
+          <div class="carousel-container">
+            <div class="card-item">
+              <div class="card-thumb">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Nike">
+                <span class="status-pill pill-new">New</span>
+              </div>
+              <div class="card-body">
+                <div class="card-title">Nike Activewear Campaign</div>
+                <div class="card-subtitle">₹2.5L – ₹4.0L Payout</div>
+                <button class="btn btn-primary" style="width: 100%; height: 36px; margin-top: 8px;">Apply Now</button>
+              </div>
+            </div>
+
+            <div class="card-item">
+              <div class="card-thumb">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80" alt="Nykaa">
+                <span class="status-pill pill-new">New</span>
+              </div>
+              <div class="card-body">
+                <div class="card-title">Nykaa Beauty Campaign</div>
+                <div class="card-subtitle">₹1.8L – ₹3.0L Payout</div>
+                <button class="btn btn-primary" style="width: 100%; height: 36px; margin-top: 8px;">Apply Now</button>
+              </div>
+            </div>
+
+            <div class="card-item">
+              <div class="card-thumb">
+                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&q=80" alt="Mamaearth">
+                <span class="status-pill pill-hot">Hot</span>
+              </div>
+              <div class="card-body">
+                <div class="card-title">Mamaearth Skincare</div>
+                <div class="card-subtitle">₹1.5L – ₹2.8L Payout</div>
+                <button class="btn btn-primary" style="width: 100%; height: 36px; margin-top: 8px;">Apply Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Rail Column -->
+      <div class="right-rail">
+
+        <!-- Gamified Today's Tasks Widget -->
+        <div class="panel-card">
+          <div class="section-header" style="margin-bottom: 12px;">
+            <h3 style="font-size: 16px; font-weight: 700;">Today's Tasks</h3>
+            <span style="font-size: 12px; color: var(--chip-mint-fg); font-weight: 700;">2/3 completed</span>
+          </div>
+
+          <div class="task-item">
+            <div class="task-left">
+              <div class="task-check checked">✓</div>
+              <span style="font-size: 14px; font-weight: 600;">Post a story</span>
+            </div>
+            <span class="pts-badge">+10 pts</span>
+          </div>
+
+          <div class="task-item">
+            <div class="task-left">
+              <div class="task-check checked">✓</div>
+              <span style="font-size: 14px; font-weight: 600;">Upload a new reel</span>
+            </div>
+            <span class="pts-badge">+25 pts</span>
+          </div>
+
+          <div class="task-item">
+            <div class="task-left">
+              <div class="task-check"></div>
+              <span style="font-size: 14px; font-weight: 600;">Engage with 10 comments</span>
+            </div>
+            <span class="pts-badge">+15 pts</span>
+          </div>
+        </div>
+
+        <!-- Dark Velvet Earnings Overview Panel -->
+        <div class="panel-card panel-dark">
+          <div class="section-header" style="margin-bottom: 8px;">
+            <h3 style="font-size: 16px; font-weight: 700; color: white;">Earnings Overview</h3>
+            <span style="font-size: 12px; opacity: 0.8;">This Month ▾</span>
+          </div>
+          <div style="font-family: var(--font-display); font-size: 32px; font-weight: 800; color: white;">
+            ₹1,42,300
+            <span class="trend-badge trend-up" style="font-size: 12px; margin-left: 8px;">↑ 18%</span>
+          </div>
+          <div style="font-size: 12px; opacity: 0.8; margin-bottom: 16px;">From 5 Active Campaigns</div>
+
+          <!-- Glowing Area Chart -->
+          <svg viewBox="0 0 300 80" style="width: 100%; height: 80px;">
+            <path d="M0,60 Q50,15 100,50 T200,20 T300,5 L300,80 L0,80 Z" fill="rgba(143, 104, 255, 0.3)"/>
+            <path d="M0,60 Q50,15 100,50 T200,20 T300,5" fill="none" stroke="#8F68FF" stroke-width="3"/>
+          </svg>
+        </div>
+
+        <!-- Pro Tip Card -->
+        <div class="panel-card" style="background: #FEF9C3; border: 1px solid #FDE047;">
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <div style="font-size: 24px;">🥳</div>
+            <div>
+              <div style="font-weight: 700; font-size: 14px; margin-bottom: 4px; color: #854D0E;">Pro Tip for Ananya</div>
+              <div style="font-size: 13px; color: #713F12;">Creators like you earn 2x more by posting consistently!</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

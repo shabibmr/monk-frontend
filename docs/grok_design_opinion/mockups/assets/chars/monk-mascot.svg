@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none" role="img" aria-label="Monk mascot">
+  <defs>
+    <linearGradient id="hood" x1="40" y1="40" x2="160" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#6D3EF5"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="70" y1="50" x2="130" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5D0A9"/>
+      <stop offset="1" stop-color="#E8B88A"/>
+    </linearGradient>
+  </defs>
+  <!-- soft ground shadow -->
+  <ellipse cx="100" cy="228" rx="52" ry="10" fill="#6D3EF5" opacity=".12"/>
+  <!-- legs -->
+  <rect x="72" y="175" width="18" height="40" rx="9" fill="#4C1D95"/>
+  <rect x="110" y="175" width="18" height="40" rx="9" fill="#4C1D95"/>
+  <ellipse cx="81" cy="214" rx="14" ry="7" fill="#2E1065"/>
+  <ellipse cx="119" cy="214" rx="14" ry="7" fill="#2E1065"/>
+  <!-- body hoodie -->
+  <path d="M55 110c0-8 10-18 45-18s45 10 45 18v70c0 16-18 28-45 28s-45-12-45-28V110z" fill="url(#hood)"/>
+  <path d="M70 118c6 28 20 42 30 42s24-14 30-42" stroke="#5B21B6" stroke-width="3" opacity=".35" fill="none"/>
+  <!-- pocket -->
+  <path d="M78 155h44c4 0 8 4 8 8v12c0 10-12 16-30 16s-30-6-30-16v-12c0-4 4-8 8-8z" fill="#5B21B6" opacity=".35"/>
+  <!-- arms -->
+  <path d="M58 120c-18 10-24 30-16 42 4 6 12 6 16 0 6-10 8-24 6-36z" fill="url(#hood)"/>
+  <!-- peace hand -->
+  <g transform="translate(128 95)">
+    <ellipse cx="18" cy="40" rx="16" ry="20" fill="#E8B88A"/>
+    <rect x="8" y="8" width="7" height="28" rx="3.5" fill="#E8B88A" transform="rotate(-12 11 22)"/>
+    <rect x="20" y="4" width="7" height="30" rx="3.5" fill="#E8B88A" transform="rotate(8 23 19)"/>
+    <rect x="28" y="22" width="6" height="18" rx="3" fill="#E8B88A"/>
+    <rect x="4" y="28" width="6" height="14" rx="3" fill="#E8B88A"/>
+  </g>
+  <!-- hoodie cuff left -->
+  <ellipse cx="48" cy="158" rx="12" ry="10" fill="#5B21B6"/>
+  <!-- head -->
+  <ellipse cx="100" cy="78" rx="40" ry="44" fill="url(#skin)"/>
+  <!-- hair bun -->
+  <circle cx="100" cy="36" r="18" fill="#3D2314"/>
+  <circle cx="100" cy="36" r="12" fill="#5C3317"/>
+  <!-- hair sides -->
+  <path d="M62 70c2-24 16-36 38-36 8 0 14 2 20 8-12-2-20 6-24 16-6-10-18-12-34 12z" fill="#3D2314"/>
+  <path d="M118 48c12 8 18 22 18 36 0 4-1 8-2 12-4-16-12-28-20-34z" fill="#3D2314"/>
+  <!-- glasses -->
+  <rect x="74" y="72" width="20" height="16" rx="5" fill="none" stroke="#6D3EF5" stroke-width="2.5"/>
+  <rect x="106" y="72" width="20" height="16" rx="5" fill="none" stroke="#6D3EF5" stroke-width="2.5"/>
+  <path d="M94 80h12" stroke="#6D3EF5" stroke-width="2.5"/>
+  <!-- eyes wink -->
+  <ellipse cx="84" cy="80" rx="3" ry="3.5" fill="#1A1A2E"/>
+  <path d="M110 80c3-3 10-3 13 0" stroke="#1A1A2E" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="85" cy="79" r="1" fill="#fff"/>
+  <!-- brows -->
+  <path d="M76 68c4-2 10-2 14 1" stroke="#3D2314" stroke-width="2" stroke-linecap="round"/>
+  <path d="M108 68c4-2 10-2 14 1" stroke="#3D2314" stroke-width="2" stroke-linecap="round"/>
+  <!-- blush -->
+  <ellipse cx="70" cy="90" rx="6" ry="3.5" fill="#F46DB4" opacity=".3"/>
+  <ellipse cx="130" cy="90" rx="6" ry="3.5" fill="#F46DB4" opacity=".3"/>
+  <!-- smile -->
+  <path d="M88 96c4 7 20 7 24 0" stroke="#C45C3E" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- hoodie hood outline -->
+  <path d="M62 58c8-28 28-40 38-40s30 12 38 40" stroke="#5B21B6" stroke-width="6" stroke-linecap="round" opacity=".25" fill="none"/>
+  <!-- sparkles -->
+  <circle cx="36" cy="48" r="3" fill="#FFB54D"/>
+  <circle cx="168" cy="70" r="2.5" fill="#fff" opacity=".8"/>
+  <path d="M160 40l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6z" fill="#FFB54D"/>
+</svg>

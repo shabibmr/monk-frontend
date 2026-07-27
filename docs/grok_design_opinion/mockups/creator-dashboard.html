@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creator Dashboard — Influencer Monk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/avatars.css" />
+  <link rel="stylesheet" href="css/backgrounds.css" />
+  <style>
+    .profile-hero {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+    .profile-hero__avatar {
+      position: relative;
+    }
+    .profile-hero__avatar .badge {
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 2;
+    }
+    .score-card {
+      min-width: 280px;
+      background: var(--grad-score);
+      color: white;
+      border-radius: var(--radius-card);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+    .score-card .value {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .task-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--divider);
+    }
+    .task-row:last-child { border-bottom: none; }
+    .task-row.is-done .task-label { text-decoration: line-through; color: var(--ink-400); }
+    .task-toggle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      color: white;
+      flex-shrink: 0;
+      background: white;
+    }
+    .task-row.is-done .task-toggle {
+      background: var(--success);
+      border-color: var(--success);
+    }
+    .platform-icons { display: flex; gap: 8px; margin-top: 10px; }
+    .platform-icons span {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--surface-card-secondary); border: 1px solid var(--border);
+      display: grid; place-items: center; font-size: 12px;
+    }
+    @media (max-width: 900px) {
+      .profile-hero { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+      .score-card { width: 100%; }
+    }
+  </style>
+</head>
+<body class="bg-glow has-bg-scene">
+  <header class="top-nav">
+    <div class="top-nav__left">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">✦</span>
+        <span>Influencer <span class="accent">Monk</span></span>
+      </a>
+    </div>
+    <nav class="top-nav__center" aria-label="Primary">
+      <a class="nav-link is-active" href="creator-dashboard.html">🏠 <span class="label">Home</span></a>
+      <a class="nav-link" href="#">🛒 <span class="label">Marketplace</span></a>
+      <a class="nav-link" href="#">📋 <span class="label">Applications</span></a>
+      <a class="nav-link" href="#">💰 <span class="label">Earnings</span></a>
+      <a class="nav-link" href="creator-mobile.html">📱 <span class="label">Mobile</span></a>
+    </nav>
+    <div class="top-nav__right">
+      <button class="icon-btn" type="button" aria-label="Boost" data-toast="Creator boost tips">⚡</button>
+      <button class="icon-btn" type="button" aria-label="Notifications">🔔<span class="ping"></span></button>
+      <button class="profile-chip" type="button">
+        <span class="char char--sm">
+          <img src="assets/chars/ananya.svg" alt="" width="34" height="34" />
+        </span>
+        <span class="profile-chip__meta">
+          <strong>Ananya</strong>
+          <span>Creator</span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="dash">
+      <div class="dash__main">
+        <section class="card card--glow" style="padding:32px">
+          <div class="text-center mb-16" style="margin-bottom:28px">
+            <h1 style="font-size:36px;letter-spacing:-0.03em">Hey Ananya! 👋</h1>
+            <p class="text-muted mt-8">Create content. Build influence. Earn your way. 💜</p>
+          </div>
+          <div class="profile-hero">
+            <div class="profile-hero__avatar">
+              <span class="char char--2xl char--shadow char--ring-pink">
+                <img src="assets/chars/ananya.svg" alt="Ananya Sharma" />
+              </span>
+              <span class="badge chip" style="background:#6d3ef5;color:white">★ Top Creator</span>
+            </div>
+            <div>
+              <h2 style="font-size:22px">Ananya Sharma <span style="color:var(--info)">✓</span></h2>
+              <p class="text-sm text-primary fw-600 mt-8">✦ Lifestyle & Fashion Creator</p>
+              <p class="text-sm text-muted mt-8">📍 Mumbai, India</p>
+              <p class="text-sm text-muted mt-8">Spreading good vibes and style tips ✨</p>
+              <div class="platform-icons">
+                <span title="Instagram">📷</span>
+                <span title="YouTube">▶</span>
+                <span title="TikTok">♪</span>
+                <span>+2</span>
+              </div>
+            </div>
+            <div class="score-card">
+              <div class="text-sm fw-600" style="opacity:.9">Your Influence Score ⓘ</div>
+              <div class="flex items-end gap-12 mt-12">
+                <div class="value">8,742</div>
+                <span class="chip" style="background:rgba(255,255,255,.25);color:white;margin-bottom:6px">↑ 12%</span>
+              </div>
+              <p class="text-sm mt-12" style="opacity:.95">Keep creating amazing content!</p>
+              <div class="chart-area" style="height:56px;margin-top:8px">
+                <svg viewBox="0 0 240 56" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0,40 C30,38 50,30 80,32 C110,34 130,18 160,22 C190,26 210,12 240,10" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="240" cy="10" r="4" fill="white"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="metrics-row" style="grid-template-columns:repeat(4,1fr)">
+          <article class="metric-tile">
+            <div class="metric-tile__icon metric-tile__icon--purple">👤</div>
+            <div class="metric-tile__value">125K</div>
+            <div class="metric-tile__label">Total Followers</div>
+            <div class="metric-tile__trend">↑ 8.4%</div>
+          </article>
+          <article class="metric-tile">
+            <div class="metric-tile__icon metric-tile__icon--pink">◎</div>
+            <div class="metric-tile__value">2.3M</div>
+            <div class="metric-tile__label">Total Reach</div>
+            <div class="metric-tile__trend">↑ 11.2%</div>
+          </article>
+          <article class="metric-tile">
+            <div class="metric-tile__icon metric-tile__icon--orange">💛</div>
+            <div class="metric-tile__value">8.7%</div>
+            <div class="metric-tile__label">Engagement Rate</div>
+            <div class="metric-tile__trend">↑ 1.6%</div>
+          </article>
+          <article class="metric-tile">
+            <div class="metric-tile__icon metric-tile__icon--blue">⭐</div>
+            <div class="metric-tile__value">32</div>
+            <div class="metric-tile__label">Brand Collabs</div>
+            <div class="metric-tile__trend">↑ +4</div>
+          </article>
+        </section>
+
+        <section data-carousel>
+          <div class="section-head">
+            <h2>Brands that love your vibe 💜</h2>
+            <div class="flex items-center gap-8">
+              <button class="icon-btn" type="button" data-carousel-dir="prev" style="width:36px;height:36px">‹</button>
+              <button class="icon-btn" type="button" data-carousel-dir="next" style="width:36px;height:36px">›</button>
+              <a class="link" href="#">View all</a>
+            </div>
+          </div>
+          <div class="carousel">
+            <article class="carousel__item campaign-card">
+              <div class="campaign-card__media" style="background:linear-gradient(135deg,#111,#333)">
+                <span class="campaign-card__badge chip chip--info">New</span>
+                <div style="height:100%;display:grid;place-items:center;color:white;font-weight:700;font-size:22px">NIKE</div>
+              </div>
+              <div class="campaign-card__body">
+                <h3 class="campaign-card__title">Activewear Campaign</h3>
+                <p class="campaign-card__meta">₹2.5L – ₹4L</p>
+              </div>
+            </article>
+            <article class="carousel__item campaign-card">
+              <div class="campaign-card__media" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)">
+                <span class="campaign-card__badge chip chip--info">New</span>
+                <div style="height:100%;display:grid;place-items:center;font-size:42px">💄</div>
+              </div>
+              <div class="campaign-card__body">
+                <h3 class="campaign-card__title">Nykaa Beauty Campaign</h3>
+                <p class="campaign-card__meta">₹1.8L – ₹3L</p>
+              </div>
+            </article>
+            <article class="carousel__item campaign-card">
+              <div class="campaign-card__media" style="background:linear-gradient(135deg,#fce7f3,#ede9fe)">
+                <span class="campaign-card__badge chip chip--pink">Hot</span>
+                <div style="height:100%;display:grid;place-items:center;font-weight:700;color:#be185d">Zivame</div>
+              </div>
+              <div class="campaign-card__body">
+                <h3 class="campaign-card__title">Lingerie Campaign</h3>
+                <p class="campaign-card__meta">₹1.2L – ₹2.5L</p>
+              </div>
+            </article>
+            <article class="carousel__item campaign-card">
+              <div class="campaign-card__media" style="background:linear-gradient(135deg,#d1fae5,#86efac)">
+                <span class="campaign-card__badge chip chip--info">New</span>
+                <div style="height:100%;display:grid;place-items:center;font-size:42px">🧴</div>
+              </div>
+              <div class="campaign-card__body">
+                <h3 class="campaign-card__title">Plix Health & Wellness</h3>
+                <p class="campaign-card__meta">₹1L – ₹2L</p>
+              </div>
+            </article>
+            <article class="carousel__item campaign-card">
+              <div class="campaign-card__media" style="background:linear-gradient(135deg,#ecfdf5,#bbf7d0)">
+                <span class="campaign-card__badge chip chip--pink">Hot</span>
+                <div style="height:100%;display:grid;place-items:center;font-weight:700;color:#047857">Mamaearth</div>
+              </div>
+              <div class="campaign-card__body">
+                <h3 class="campaign-card__title">Skincare Campaign</h3>
+                <p class="campaign-card__meta">₹1.5L – ₹2.8L</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h2>Your Active Campaigns</h2>
+            <a class="link" href="#">View all</a>
+          </div>
+          <div class="two-col">
+            <div class="list-row" style="border:1px solid var(--border);border-radius:16px;padding:14px;margin-bottom:0">
+              <span class="avatar" style="border-radius:14px;background:#d1fae5">🌿</span>
+              <div style="flex:1">
+                <div class="flex items-center gap-8">
+                  <span class="fw-700 text-sm">Mamaearth</span>
+                  <span class="chip chip--success" style="height:22px">In Progress</span>
+                </div>
+                <p class="text-xs text-muted mt-8">Organic Skincare · Due in 5 days</p>
+                <div class="progress mt-12"><div class="progress__bar" style="width:60%"></div></div>
+              </div>
+            </div>
+            <div class="list-row" style="border:1px solid var(--border);border-radius:16px;padding:14px;margin-bottom:0">
+              <span class="avatar" style="border-radius:14px;background:#fce7f3">💄</span>
+              <div style="flex:1">
+                <div class="flex items-center gap-8">
+                  <span class="fw-700 text-sm">Nykaa</span>
+                  <span class="chip chip--warning" style="height:22px">Review</span>
+                </div>
+                <p class="text-xs text-muted mt-8">Beauty Campaign · Content in review</p>
+                <div class="progress mt-12"><div class="progress__bar" style="width:85%"></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="dash__rail">
+        <section class="card card--gradient-hero" style="min-height:200px;padding:20px">
+          <div class="flex justify-between items-end" style="gap:8px">
+            <div style="padding-bottom:8px">
+              <div class="fw-600" style="opacity:.95">Good morning, Ananya ✨</div>
+              <p class="mt-8" style="font-size:18px;font-weight:700;max-width:140px;line-height:1.3">Ready to take over the world?</p>
+            </div>
+            <img class="char-figure char-figure--sm" src="assets/chars/monk-mascot.svg" alt="" style="max-width:110px;margin:0" />
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h3>Today’s tasks</h3>
+          </div>
+          <div data-task class="task-row is-done">
+            <button type="button" class="task-toggle" data-task-toggle>✓</button>
+            <span class="task-label text-sm" style="flex:1">Post a story</span>
+            <span class="text-xs text-success fw-600">+10 pts</span>
+          </div>
+          <div data-task class="task-row is-done">
+            <button type="button" class="task-toggle" data-task-toggle>✓</button>
+            <span class="task-label text-sm" style="flex:1">Upload a new reel</span>
+            <span class="text-xs text-success fw-600">+25 pts</span>
+          </div>
+          <div data-task class="task-row">
+            <button type="button" class="task-toggle" data-task-toggle></button>
+            <span class="task-label text-sm" style="flex:1">Engage with 10 comments</span>
+            <span class="text-xs text-success fw-600">+15 pts</span>
+          </div>
+          <p class="text-xs text-primary fw-600 mt-16" data-task-progress>2/3 completed</p>
+          <div class="progress mt-8"><div class="progress__bar" data-task-bar style="width:66%"></div></div>
+        </section>
+
+        <section class="card card--dark">
+          <div class="flex justify-between items-center mb-8">
+            <h3 style="color:white;font-size:16px">Earnings Overview</h3>
+            <span class="chip" style="background:rgba(255,255,255,.12);color:white">This Month</span>
+          </div>
+          <div style="font-size:28px;font-weight:700;letter-spacing:-0.03em">₹1,42,300 <span class="text-sm" style="color:#6ee7b7">↑ 18%</span></div>
+          <p class="text-xs mt-8" style="opacity:.75">From 5 Active Campaigns</p>
+          <div class="chart-area">
+            <svg viewBox="0 0 260 80" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,50 C40,48 60,35 90,40 C120,45 150,20 180,28 C210,36 230,18 260,22" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="260" cy="22" r="4" fill="#c4b5fd"/>
+            </svg>
+          </div>
+        </section>
+
+        <section class="card" style="background:linear-gradient(135deg,#fff7ed,#fef3c7);border:none">
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="fw-700 text-sm">Pro Tip for you 💡</div>
+              <p class="text-sm text-muted mt-8">Creators like you earn <strong>2× more</strong> by posting consistently! 🔥</p>
+            </div>
+            <span style="font-size:28px">🎉</span>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

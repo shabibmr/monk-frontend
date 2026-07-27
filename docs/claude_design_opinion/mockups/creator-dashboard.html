@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monk — Creator Dashboard (redesign mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<!-- ShellStyle.floating — creator only. 32px radiusXl canvas, 24px inset,
+     gradientPage behind. Collapses to flat below 600px (§5.2). -->
+<div class="shell shell--floating">
+  <div class="shell__canvas">
+
+    <!-- §5.4 ruling: creator gets the LABELLED nav, not the mockup's nav-less
+         bar. The screenshot's minimal bar is a marketing artifact — creator has
+         9 real routes and they have to live somewhere. -->
+    <nav class="topnav" aria-label="Primary">
+      <a class="topnav__logo" href="#main">
+        <span class="topnav__mark" aria-hidden="true">M</span>
+        <span>Monk</span>
+      </a>
+
+      <div class="topnav__items">
+        <a class="navitem" href="#main" aria-current="page"><span class="navitem__icon" aria-hidden="true">▦</span>Dashboard</a>
+        <a class="navitem" href="#main"><span class="navitem__icon" aria-hidden="true">🛍</span>Marketplace</a>
+        <a class="navitem" href="#main"><span class="navitem__icon" aria-hidden="true">✉</span>Applications</a>
+        <a class="navitem" href="#main"><span class="navitem__icon" aria-hidden="true">₹</span>Earnings</a>
+        <a class="navitem" href="#main"><span class="navitem__icon" aria-hidden="true">🎁</span>Referrals</a>
+      </div>
+
+      <div class="topnav__actions">
+        <button class="iconbtn iconbtn--tinted" aria-label="Quick create">⚡</button>
+        <button class="iconbtn" aria-label="Notifications, 3 unread">
+          🔔<span class="badge-count" aria-hidden="true">3</span>
+        </button>
+        <div class="account" data-menu>
+          <button class="account__trigger" aria-haspopup="menu" aria-expanded="false">
+            <span class="avatar" aria-hidden="true">A</span>
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="menu" role="menu" data-open="false">
+            <p class="menu__label">Account</p>
+            <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">🎬</span>Onboarding</a>
+            <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">🛡</span>KYC</a>
+            <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">👤</span>Access</a>
+            <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">⚙</span>Settings</a>
+            <div class="menu__sep"></div>
+            <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">↪</span>Sign out</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="shell__body" id="main">
+
+      <div class="note" style="margin-bottom:var(--space-24)">
+        <span aria-hidden="true">▶</span>
+        <span><strong>Floating shell demo.</strong> This page renders
+        <code>ShellStyle.floating</code> — the whole app in a 32px
+        <code>radiusXl</code> canvas inset 24px over <code>gradientPage</code>.
+        Compare against <a href="brand-dashboard.html">brand-dashboard.html</a>, which
+        renders <code>ShellStyle.flat</code>. Narrow the window past 600px to see it
+        collapse to flat.</span>
+      </div>
+
+      <div class="grid-dash">
+
+        <!-- ============ MAIN COLUMN ============ -->
+        <div class="col-main">
+
+          <!-- Caveat appears exactly ONCE on this screen, here. Never in chrome,
+               never in body, never twice (§2). -->
+          <section class="card">
+            <div class="hero">
+              <div class="hero__body">
+                <h1 class="t-hero-greeting">Hey Ananya! 👋</h1>
+                <p class="t-body-large muted" style="margin-top:var(--space-4)">
+                  Create content. Build influence. Earn your way. 💜
+                </p>
+
+                <div class="row" style="margin-top:var(--space-24);gap:var(--space-24);align-items:flex-start">
+                  <div style="position:relative;flex:0 0 auto">
+                    <span class="avatar" style="width:96px;height:96px;flex-basis:96px;font-size:32px" aria-hidden="true">A</span>
+                    <span class="chip chip--primary" style="position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);white-space:nowrap">⭐ Top Creator</span>
+                  </div>
+                  <div class="stack-8" style="min-width:0">
+                    <div class="row" style="gap:var(--space-8)">
+                      <h2 class="t-headline">Ananya Sharma</h2>
+                      <span class="verified" aria-label="Verified creator">✓</span>
+                    </div>
+                    <p class="t-body muted">✨ Lifestyle &amp; Fashion Creator</p>
+                    <p class="t-small muted">📍 Mumbai, India</p>
+                    <p class="t-body">Spreading good vibes and style tips ✨<br>Let's inspire the world together!</p>
+                    <div class="socials" style="margin-top:var(--space-4)">
+                      <span class="social" aria-label="Instagram">📸</span>
+                      <span class="social" aria-label="YouTube">▶</span>
+                      <span class="social" aria-label="TikTok">♪</span>
+                      <span class="social social--more" aria-label="2 more platforms">+2</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- gradientHero — one of the two permitted gradient surfaces (§8) -->
+              <div class="hero__art" style="flex:0 0 300px;height:auto">
+                <div class="card card--gradient card--hero-grad" style="height:100%">
+                  <span class="t-label">Your Influence Score <button class="info-dot" aria-label="How this is calculated">i</button></span>
+                  <div class="row" style="align-items:flex-end;gap:var(--space-12);margin-top:var(--space-8)">
+                    <span class="t-kpi">8,742</span>
+                    <span class="chip" style="background:rgba(255,255,255,.3);color:var(--white)">↑ 12%</span>
+                  </div>
+                  <p class="t-small" style="margin-top:var(--space-4)">Keep creating amazing content!</p>
+                  <svg class="chart chart--dark" viewBox="0 0 260 60" role="img" aria-label="Influence score trending upward over the last 12 weeks" style="margin-top:var(--space-12)">
+                    <path class="chart__line" d="M8,44 L38,36 L68,42 L98,30 L128,38 L158,22 L188,30 L218,12 L246,6"/>
+                    <circle class="chart__dot" cx="38" cy="36" r="2.5"/>
+                    <circle class="chart__dot" cx="98" cy="30" r="2.5"/>
+                    <circle class="chart__dot" cx="158" cy="22" r="2.5"/>
+                    <circle class="chart__dot" cx="218" cy="12" r="2.5"/>
+                    <circle class="chart__dot--last" cx="246" cy="6" r="5"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Stat row — one card, four columns, hairline dividers (§5.3) -->
+          <section class="card card--flush">
+            <h2 class="sr-only">Your metrics</h2>
+            <div class="statrow">
+              <div class="statrow__col">
+                <span class="chip-icon chip-lavender" aria-hidden="true">◍</span>
+                <div class="statrow__body">
+                  <div class="statrow__value">125K</div>
+                  <div class="statrow__label">Total Followers</div>
+                  <span class="trend trend--up"><span aria-hidden="true">↑</span>8.4%</span>
+                </div>
+              </div>
+              <div class="statrow__col">
+                <span class="chip-icon chip-pink" aria-hidden="true">◉</span>
+                <div class="statrow__body">
+                  <div class="statrow__value">2.3M</div>
+                  <div class="statrow__label">Total Reach</div>
+                  <span class="trend trend--up"><span aria-hidden="true">↑</span>11.2%</span>
+                </div>
+              </div>
+              <div class="statrow__col">
+                <span class="chip-icon chip-amber" aria-hidden="true">💛</span>
+                <div class="statrow__body">
+                  <div class="statrow__value">8.7%</div>
+                  <div class="statrow__label">Engagement Rate</div>
+                  <span class="trend trend--up"><span aria-hidden="true">↑</span>1.6%</span>
+                </div>
+              </div>
+              <div class="statrow__col">
+                <span class="chip-icon chip-mint" aria-hidden="true">★</span>
+                <div class="statrow__body">
+                  <div class="statrow__value">32</div>
+                  <div class="statrow__label">Brand Collabs</div>
+                  <span class="trend trend--up"><span aria-hidden="true">↑</span>4</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Brand carousel — Hot/New are MARKETING TAGS, not EntityStatus (§11) -->
+          <section class="card">
+            <div class="section-head">
+              <h2 class="t-headline">Brands that love your vibe 💜</h2>
+              <a class="link-viewall" href="#main">View all</a>
+            </div>
+
+            <div class="carousel">
+              <button class="carousel__nav carousel__nav--prev" aria-label="Previous brands">‹</button>
+              <button class="carousel__nav carousel__nav--next" aria-label="Next brands">›</button>
+              <div class="carousel__track">
+
+                <article class="carousel__item campaign" style="flex-basis:180px">
+                  <div class="campaign__media slot slot--photo" style="height:130px">
+                    <span class="tag tag--new" style="position:absolute;left:8px;bottom:8px">New</span>
+                  </div>
+                  <div class="campaign__title">Activewear Campaign</div>
+                  <div class="campaign__money muted">₹2.5L – ₹4L</div>
+                </article>
+
+                <article class="carousel__item campaign" style="flex-basis:180px">
+                  <div class="campaign__media slot slot--photo" style="height:130px">
+                    <span class="tag tag--new" style="position:absolute;left:8px;bottom:8px">New</span>
+                  </div>
+                  <div class="campaign__title">Beauty Campaign</div>
+                  <div class="campaign__money muted">₹1.8L – ₹3L</div>
+                </article>
+
+                <article class="carousel__item campaign" style="flex-basis:180px">
+                  <div class="campaign__media slot slot--photo" style="height:130px">
+                    <span class="tag tag--hot" style="position:absolute;left:8px;bottom:8px">Hot</span>
+                  </div>
+                  <div class="campaign__title">Lingerie Campaign</div>
+                  <div class="campaign__money muted">₹1.2L – ₹2.5L</div>
+                </article>
+
+                <article class="carousel__item campaign" style="flex-basis:180px">
+                  <div class="campaign__media slot slot--photo" style="height:130px">
+                    <span class="tag tag--new" style="position:absolute;left:8px;bottom:8px">New</span>
+                  </div>
+                  <div class="campaign__title">Health &amp; Wellness</div>
+                  <div class="campaign__money muted">₹1L – ₹2L</div>
+                </article>
+
+                <article class="carousel__item campaign" style="flex-basis:180px">
+                  <div class="campaign__media slot slot--photo" style="height:130px">
+                    <span class="tag tag--hot" style="position:absolute;left:8px;bottom:8px">Hot</span>
+                  </div>
+                  <div class="campaign__title">Skincare Campaign</div>
+                  <div class="campaign__money muted">₹1.5L – ₹2.8L</div>
+                </article>
+
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <h2 class="t-headline">Your Active Campaigns</h2>
+              <a class="link-viewall" href="#main">View all</a>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-16)">
+              <div class="card card--tight">
+                <div class="row-between" style="margin-bottom:var(--space-8)">
+                  <span class="row" style="gap:var(--space-8)">
+                    <span class="chip-icon chip-icon--sm chip-mint" aria-hidden="true">🌿</span>
+                    <span class="listrow__title">Mamaearth</span>
+                  </span>
+                  <span class="chip chip--success">In Progress</span>
+                </div>
+                <div class="progress"><div class="progress__fill" style="width:60%"></div></div>
+                <p class="t-small muted" style="margin-top:var(--space-8)">60% Completed · Ends in 5 days</p>
+              </div>
+              <div class="card card--tight">
+                <div class="row-between" style="margin-bottom:var(--space-8)">
+                  <span class="row" style="gap:var(--space-8)">
+                    <span class="chip-icon chip-icon--sm chip-pink" aria-hidden="true">💄</span>
+                    <span class="listrow__title">Nykaa</span>
+                  </span>
+                  <span class="chip chip--info">Review</span>
+                </div>
+                <div class="progress"><div class="progress__fill" style="width:85%"></div></div>
+                <p class="t-small muted" style="margin-top:var(--space-8)">85% Completed · Awaiting approval</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ============ RIGHT CONTENT RAIL ============ -->
+        <aside class="col-rail" aria-label="Summary">
+
+          <section class="card card--gradient card--hero-grad">
+            <h2 class="t-title">Good morning, Ananya ☀️</h2>
+            <p class="t-body" style="margin-top:var(--space-4)">Ready to take over the world?</p>
+            <div class="slot slot--on-dark" style="height:96px;margin-top:var(--space-16)" aria-hidden="true">
+              3D mascot illustration slot<br><em>asset not licensed (§0.1)</em>
+            </div>
+          </section>
+
+          <section class="card" data-tasklist>
+            <h2 class="t-title" style="margin-bottom:var(--space-8)">Today's tasks</h2>
+            <div class="task">
+              <button class="task__check" role="checkbox" aria-checked="false" aria-label="Post a story"></button>
+              <span class="listrow__body"><span class="listrow__title" style="font-weight:400">Post a story</span></span>
+              <span class="task__pts">+10 pts</span>
+            </div>
+            <div class="task">
+              <button class="task__check" role="checkbox" aria-checked="false" aria-label="Upload a new reel"></button>
+              <span class="listrow__body"><span class="listrow__title" style="font-weight:400">Upload a new reel</span></span>
+              <span class="task__pts">+25 pts</span>
+            </div>
+            <div class="task">
+              <button class="task__check" role="checkbox" aria-checked="false" aria-label="Engage with 10 comments"></button>
+              <span class="listrow__body"><span class="listrow__title" style="font-weight:400">Engage with 10 comments</span></span>
+              <span class="task__pts">+15 pts</span>
+            </div>
+            <div class="progress progress--grad" style="margin-top:var(--space-16)">
+              <div class="progress__fill" style="width:0%"></div>
+            </div>
+            <p class="t-small" style="margin-top:var(--space-8);color:var(--primary-600);font-weight:600" data-task-count>0/3 completed</p>
+          </section>
+
+          <!-- gradientDark earnings panel. Chart inverts to white line + white
+               dots + white @15% fill per §11. -->
+          <section class="card card--gradient card--dark-grad">
+            <div class="row-between" style="margin-bottom:var(--space-12)">
+              <h2 class="t-title">Earnings Overview</h2>
+              <button class="btn btn--glass btn--sm">This Month ▾</button>
+            </div>
+            <div class="row" style="align-items:baseline;gap:var(--space-12)">
+              <span class="t-kpi" style="font-size:30px">₹1,42,300</span>
+              <span class="chip" style="background:rgba(255,255,255,.2);color:var(--white)">↑ 18%</span>
+            </div>
+            <p class="t-small" style="margin-top:var(--space-4);opacity:.8">From 5 Active Campaigns</p>
+
+            <svg class="chart chart--dark" viewBox="0 0 300 100" role="img" aria-label="Earnings trend rising over the month" style="margin-top:var(--space-16)">
+              <defs>
+                <linearGradient id="areaFillDark" x1="0" y1="0" x2="0" y2="1">
+                  <stop class="chart__stop-from--dark" offset="0%"/>
+                  <stop class="chart__stop-to--dark" offset="100%"/>
+                </linearGradient>
+              </defs>
+              <path class="chart__area" d="M10,72 L52,58 L94,66 L136,44 L178,54 L220,30 L262,40 L290,14 L290,90 L10,90 Z"/>
+              <path class="chart__line" d="M10,72 L52,58 L94,66 L136,44 L178,54 L220,30 L262,40 L290,14"/>
+              <circle class="chart__dot" cx="52" cy="58" r="3"/>
+              <circle class="chart__dot" cx="136" cy="44" r="3"/>
+              <circle class="chart__dot" cx="220" cy="30" r="3"/>
+              <circle class="chart__dot--last" cx="290" cy="14" r="5"/>
+            </svg>
+          </section>
+
+          <!-- gradientCream — a DISTINCT treatment from gradientWarm. The two
+               Pro Tip cards in the screenshots are not the same card (§1). -->
+          <section class="card card--cream-grad">
+            <h2 class="t-title">Pro Tip for you 💡</h2>
+            <p class="t-body" style="margin-top:var(--space-8)">
+              Creators like you earn 2x more by posting consistently! 🎉
+            </p>
+          </section>
+
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

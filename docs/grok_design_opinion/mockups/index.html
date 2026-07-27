@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Influencer Monk — Soft Premium Mockups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/avatars.css" />
+  <link rel="stylesheet" href="css/backgrounds.css" />
+  <style>
+    .intro {
+      max-width: 720px;
+      margin-bottom: var(--space-40);
+    }
+    .intro h1 {
+      font-size: 42px;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .intro p {
+      font-size: 16px;
+      color: var(--ink-600);
+      margin-bottom: 16px;
+    }
+    .intro-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .swatches {
+      display: flex;
+      gap: 8px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .swatch {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 2px solid white;
+      box-shadow: var(--shadow-soft);
+    }
+    footer.page-foot {
+      margin-top: var(--space-64);
+      padding-top: var(--space-24);
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+      color: var(--ink-600);
+    }
+    footer.page-foot a { color: var(--primary); font-weight: 600; }
+  </style>
+</head>
+<body class="bg-glow has-bg-scene">
+  <header class="top-nav">
+    <div class="top-nav__left">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">✦</span>
+        <span>Influencer <span class="accent">Monk</span></span>
+      </a>
+    </div>
+    <div class="top-nav__right">
+      <span class="chip">Soft Premium · design_context2</span>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="intro">
+      <h1>UI Mockups</h1>
+      <p>
+        Interactive HTML/CSS/JS previews of the Soft Premium Creator Platform.
+        These mockups implement the visual system from
+        <strong>design_context2.md</strong> and guide the Flutter redesign in
+        <code>IMPLEMENTATION_PLAN.md</code>.
+      </p>
+      <div class="intro-meta">
+        <span class="chip chip--neutral">Desktop web</span>
+        <span class="chip chip--neutral">Tablet</span>
+        <span class="chip chip--neutral">Mobile</span>
+        <span class="chip">Inter · Purple system · Soft cards</span>
+      </div>
+      <div class="swatches" aria-hidden="true">
+        <div class="swatch" style="background:#6D3EF5" title="Primary"></div>
+        <div class="swatch" style="background:#8F68FF" title="Soft purple"></div>
+        <div class="swatch" style="background:#F46DB4" title="Pink"></div>
+        <div class="swatch" style="background:#FFB54D" title="Orange"></div>
+        <div class="swatch" style="background:#3BC87A" title="Green"></div>
+        <div class="swatch" style="background:#4DA3FF" title="Blue"></div>
+        <div class="swatch" style="background:#FAFAFC;border-color:#ECECF3" title="Surface"></div>
+      </div>
+    </div>
+
+    <div class="card mb-16" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+      <div class="flex items-center gap-12" style="flex-wrap:wrap">
+        <div class="char-stack char-stack--lg">
+          <span class="char char--md"><img src="assets/chars/ananya.svg" alt="" /></span>
+          <span class="char char--md"><img src="assets/chars/rohit.svg" alt="" /></span>
+          <span class="char char--md"><img src="assets/chars/megha.svg" alt="" /></span>
+          <span class="char char--md"><img src="assets/chars/kai.svg" alt="" /></span>
+          <span class="char char--md"><img src="assets/chars/priya.svg" alt="" /></span>
+          <span class="char-stack__more" style="width:40px;height:40px">+4</span>
+        </div>
+        <div>
+          <div class="fw-700">Character cast</div>
+          <div class="text-sm text-muted">9 creators · mascots · brand mark</div>
+        </div>
+      </div>
+      <a class="btn btn--primary btn--sm" href="characters.html">Browse characters →</a>
+    </div>
+
+    <div class="gallery">
+      <a class="gallery-card" href="characters.html">
+        <div class="gallery-card__preview" style="background:linear-gradient(135deg,#ede7fd,#fce7f3);display:flex;align-items:center;justify-content:center;gap:8px;padding:16px">
+          <span class="char char--lg char--shadow"><img src="assets/chars/ananya.svg" alt="" /></span>
+          <span class="char char--lg char--shadow"><img src="assets/chars/monk-mascot.svg" alt="" style="object-fit:contain;background:#6d3ef5" /></span>
+          <span class="char char--lg char--shadow"><img src="assets/chars/rohit.svg" alt="" /></span>
+        </div>
+        <div class="gallery-card__body">
+          <span class="tag">System</span>
+          <h3>Characters & avatars</h3>
+          <p>Full cast, sizes, stacks, mascots, and copy-paste usage snippets for Flutter later.</p>
+          <span class="btn btn--primary btn--sm">Open gallery →</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="brand-dashboard.html">
+        <div class="gallery-card__preview gallery-card__preview--brand">🛍️</div>
+        <div class="gallery-card__body">
+          <span class="tag">Brand · Desktop</span>
+          <h3>Brand dashboard</h3>
+          <p>Top nav, greeting hero, brand score, metrics row, campaign carousel, quick actions, spend chart.</p>
+          <span class="btn btn--primary btn--sm">Open mockup →</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="creator-dashboard.html">
+        <div class="gallery-card__preview gallery-card__preview--creator">✨</div>
+        <div class="gallery-card__body">
+          <span class="tag">Creator · Desktop</span>
+          <h3>Creator dashboard</h3>
+          <p>Playful hero, influence score, stats, brand carousel, tasks, earnings dark card, pro tip.</p>
+          <span class="btn btn--primary btn--sm">Open mockup →</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="creator-mobile.html">
+        <div class="gallery-card__preview gallery-card__preview--mobile">📱</div>
+        <div class="gallery-card__body">
+          <span class="tag">Creator · Mobile</span>
+          <h3>Creator home (mobile)</h3>
+          <p>Phone frame, influence hero, quick actions, active campaign, tasks, bottom nav + FAB.</p>
+          <span class="btn btn--primary btn--sm">Open mockup →</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="campaign-create.html">
+        <div class="gallery-card__preview gallery-card__preview--form">📋</div>
+        <div class="gallery-card__body">
+          <span class="tag">Brand · Form</span>
+          <h3>Create campaign</h3>
+          <p>Multi-step stepper, soft fields, goal tiles, live preview rail, pro tip card.</p>
+          <span class="btn btn--primary btn--sm">Open mockup →</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="login.html">
+        <div class="gallery-card__preview gallery-card__preview--auth">🔐</div>
+        <div class="gallery-card__body">
+          <span class="tag">Public · Auth</span>
+          <h3>Login</h3>
+          <p>Airy auth card, purple focus glow, encouraging microcopy, Soft Premium inputs.</p>
+          <span class="btn btn--primary btn--sm">Open mockup →</span>
+        </div>
+      </a>
+    </div>
+
+    <footer class="page-foot">
+      <p>
+        Source of truth:
+        <a href="../IMPLEMENTATION_PLAN.md">Implementation plan</a> ·
+        <a href="../../design/design_context2.md">design_context2.md</a>
+      </p>
+      <p class="mt-8">Open any HTML file in a browser — no build step required.</p>
+    </footer>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>

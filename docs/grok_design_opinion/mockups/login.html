@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login — Influencer Monk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/avatars.css" />
+  <link rel="stylesheet" href="css/backgrounds.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .auth {
+      width: min(100%, 960px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: white;
+      border-radius: 32px;
+      box-shadow: var(--shadow-float);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      min-height: 560px;
+    }
+    .auth__art {
+      background: var(--grad-purple);
+      color: white;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .auth__art::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      right: -60px;
+      bottom: -40px;
+    }
+    .auth__art::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      left: -40px;
+      top: 20%;
+    }
+    .auth__art-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .auth__art-deco img {
+      position: absolute;
+      opacity: 0.22;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,.15));
+    }
+    .auth__art-deco img.mascot {
+      width: 160px;
+      right: -10px;
+      bottom: -8px;
+    }
+    .auth__art-deco .ring {
+      position: absolute;
+      border: 2px solid rgba(255,255,255,.15);
+      border-radius: 50%;
+    }
+    .auth__art-deco .ring-1 { width: 200px; height: 200px; top: -40px; right: -30px; }
+    .auth__art-deco .ring-2 { width: 120px; height: 120px; bottom: 30%; left: 10%; }
+    .auth__art h2 {
+      color: white;
+      font-size: 32px;
+      letter-spacing: -0.03em;
+      max-width: 280px;
+      position: relative;
+      z-index: 1;
+    }
+    .auth__art p {
+      opacity: 0.9;
+      margin-top: 12px;
+      max-width: 280px;
+      position: relative;
+      z-index: 1;
+    }
+    .auth__form {
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .auth__form h1 {
+      font-size: 28px;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .auth-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      margin-bottom: 24px;
+    }
+    .divider-or {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      color: var(--ink-400);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .divider-or::before,
+    .divider-or::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+    .social-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .float-nav {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+    }
+    @media (max-width: 800px) {
+      .auth { grid-template-columns: 1fr; }
+      .auth__art { min-height: 180px; padding: 32px; }
+      .auth__art h2 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body class="bg-auth has-bg-scene">
+  <a class="float-nav btn btn--secondary btn--sm" href="index.html">← Mockups</a>
+
+  <div class="auth">
+    <aside class="auth__art">
+      <div class="auth__art-deco" aria-hidden="true">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <img class="mascot" src="assets/chars/monk-mascot.svg" alt="" />
+      </div>
+      <a class="logo" href="index.html" style="color:white;position:relative;z-index:1">
+        <span class="logo__mark" style="background:rgba(255,255,255,.2);box-shadow:none">✦</span>
+        <span>Influencer Monk</span>
+      </a>
+      <div style="position:relative;z-index:1">
+        <h2>Built for creators & brands who ship magic.</h2>
+        <p>Soft, premium, human — never corporate. Sign in and keep creating.</p>
+      </div>
+      <div style="position:relative;z-index:1">
+        <div class="char-stack char-stack--lg" style="margin-bottom:16px">
+          <span class="char char--md" style="border-color:rgba(255,255,255,.5)"><img src="assets/chars/ananya.svg" alt="" /></span>
+          <span class="char char--md" style="border-color:rgba(255,255,255,.5)"><img src="assets/chars/rohit.svg" alt="" /></span>
+          <span class="char char--md" style="border-color:rgba(255,255,255,.5)"><img src="assets/chars/megha.svg" alt="" /></span>
+          <span class="char char--md" style="border-color:rgba(255,255,255,.5)"><img src="assets/chars/kai.svg" alt="" /></span>
+          <span class="char char--md" style="border-color:rgba(255,255,255,.5)"><img src="assets/chars/priya.svg" alt="" /></span>
+        </div>
+        <div class="flex gap-8 flex-wrap">
+          <span class="chip" style="background:rgba(255,255,255,.2);color:white">Creators</span>
+          <span class="chip" style="background:rgba(255,255,255,.2);color:white">Brands</span>
+          <span class="chip" style="background:rgba(255,255,255,.2);color:white">Campaigns</span>
+        </div>
+      </div>
+    </aside>
+
+    <div class="auth__form">
+      <h1>Welcome back 👋</h1>
+      <p class="text-muted text-sm mb-16">Sign in to continue to your portal.</p>
+
+      <form onsubmit="event.preventDefault(); MonkMock.toast('Signed in — opening dashboard ✨'); setTimeout(()=>location.href='brand-dashboard.html', 900);">
+        <div class="field mb-16">
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="username" placeholder="you@brand.com" required />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+        </div>
+        <div class="auth-links">
+          <label class="text-sm text-muted flex items-center gap-8">
+            <input type="checkbox" style="width:16px;height:16px;accent-color:var(--primary)" /> Remember me
+          </label>
+          <a class="text-sm text-primary fw-600" href="#" data-toast="Reset link sent (demo)">Forgot password?</a>
+        </div>
+        <button class="btn btn--primary w-full btn--lg" type="submit">Sign in</button>
+      </form>
+
+      <div class="divider-or">OR</div>
+
+      <div class="social-row">
+        <button class="btn btn--secondary" type="button" data-toast="Google OAuth demo">G Google</button>
+        <button class="btn btn--secondary" type="button" data-toast="Apple OAuth demo"> Apple</button>
+      </div>
+
+      <p class="text-sm text-muted mt-24" style="text-align:center">
+        New here?
+        <a class="text-primary fw-600" href="#" data-toast="Register flow">Create an account</a>
+      </p>
+
+      <div class="flex gap-8 justify-center mt-16">
+        <a class="chip chip--outline" href="brand-dashboard.html">Brand demo</a>
+        <a class="chip chip--outline" href="creator-dashboard.html">Creator demo</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

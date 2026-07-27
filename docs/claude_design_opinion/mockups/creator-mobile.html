@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monk — Creator Mobile (redesign mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  /* Mockup-only: centre the phone frame on wide screens so the layout can be
+     reviewed on a desktop monitor. Not part of the component library. */
+  @media (min-width: 560px) {
+    body { background: var(--gradient-page); padding: var(--space-32) 0; }
+    .phone {
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-float);
+      overflow: hidden;
+      min-height: 860px;
+    }
+    .tabbar { position: absolute; }
+  }
+</style>
+</head>
+<body>
+
+<div class="phone">
+
+  <div class="phone__statusbar">
+    <span class="tabular">9:41</span>
+    <span aria-hidden="true">▮▮▮ ᯤ 🔋</span>
+  </div>
+
+  <header class="phone__body" style="padding-bottom:0">
+    <div class="row-between" style="align-items:flex-start">
+      <div>
+        <!-- Caveat. Exactly one usage site on this screen (§2). -->
+        <h1 class="t-hero-greeting">Hey Ananya! 👋</h1>
+        <p class="t-body muted" style="margin-top:var(--space-4)">
+          Let's create, inspire and earn today 💜
+        </p>
+      </div>
+      <div class="row" style="gap:var(--space-8);flex:0 0 auto">
+        <button class="iconbtn" aria-label="Notifications, 3 unread" style="background:var(--surface-card);border:1px solid var(--hairline)">
+          🔔<span class="badge-count" aria-hidden="true">3</span>
+        </button>
+        <span class="avatar avatar--lg" aria-hidden="true">A</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="phone__body" id="main">
+
+    <!-- gradientHero. One of two permitted gradient surfaces on this screen;
+         the FAB fill is the other (§8). -->
+    <section class="card card--gradient card--hero-grad" style="border-radius:var(--radius-lg)">
+      <div class="row-between" style="align-items:flex-start;gap:var(--space-16)">
+        <div style="min-width:0">
+          <span class="t-label">Your Influence Score
+            <button class="info-dot" aria-label="How this is calculated">i</button>
+          </span>
+          <div class="row" style="align-items:flex-end;gap:var(--space-12);margin-top:var(--space-8)">
+            <span class="t-kpi-large">8,742</span>
+            <span class="trend" style="color:var(--white);font-size:14px;padding-bottom:10px">
+              <span aria-hidden="true">↑</span>12%
+            </span>
+          </div>
+          <p class="t-body" style="margin-top:var(--space-8)">
+            Keep shining! Your growth looks amazing ✨
+          </p>
+          <button class="btn btn--glass" style="margin-top:var(--space-16)">
+            View insights <span aria-hidden="true">›</span>
+          </button>
+        </div>
+        <div class="slot slot--on-dark" style="width:110px;height:130px;flex:0 0 110px" aria-hidden="true">
+          3D mascot slot<br><em>not licensed</em>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick actions — CIRCULAR chips on mobile, where desktop uses radiusMd
+         squircles (§5.7). Horizontal scroll. -->
+    <section class="card">
+      <div class="section-head" style="margin-bottom:var(--space-12)">
+        <h2 class="t-title">Quick Actions</h2>
+        <a class="link-viewall" href="#main">See all</a>
+      </div>
+      <div class="qa-scroll">
+        <a class="qa" href="#main"><span class="chip-icon chip-icon--circle chip-icon--lg chip-pink" aria-hidden="true">+</span>Create Post</a>
+        <a class="qa" href="#main"><span class="chip-icon chip-icon--circle chip-icon--lg chip-lavender" aria-hidden="true">🎬</span>Upload Reel</a>
+        <a class="qa" href="#main"><span class="chip-icon chip-icon--circle chip-icon--lg chip-amber" aria-hidden="true">◍</span>Find Brands</a>
+        <a class="qa" href="#main"><span class="chip-icon chip-icon--circle chip-icon--lg chip-mint" aria-hidden="true">📊</span>Analytics</a>
+        <a class="qa" href="#main"><span class="chip-icon chip-icon--circle chip-icon--lg chip-blue" aria-hidden="true">👛</span>Earnings</a>
+      </div>
+    </section>
+
+    <!-- FOUR ACROSS in a single row on surfaceSubtle — not the 2x2 grid the
+         earlier spec draft claimed (§5.7). -->
+    <section class="card">
+      <h2 class="t-title" style="margin-bottom:var(--space-12)">At a glance</h2>
+      <div class="statgrid">
+        <div class="stattile">
+          <span class="chip-icon chip-icon--circle chip-icon--sm chip-lavender" style="margin:0 auto var(--space-8)" aria-hidden="true">◍</span>
+          <div class="stattile__value">125K</div>
+          <div class="stattile__label">Followers</div>
+          <span class="trend trend--up" style="font-size:11px"><span aria-hidden="true">↑</span>8.4%</span>
+        </div>
+        <div class="stattile">
+          <span class="chip-icon chip-icon--circle chip-icon--sm chip-pink" style="margin:0 auto var(--space-8)" aria-hidden="true">◉</span>
+          <div class="stattile__value">2.3M</div>
+          <div class="stattile__label">Reach</div>
+          <span class="trend trend--up" style="font-size:11px"><span aria-hidden="true">↑</span>11.2%</span>
+        </div>
+        <div class="stattile">
+          <span class="chip-icon chip-icon--circle chip-icon--sm chip-amber" style="margin:0 auto var(--space-8)" aria-hidden="true">💛</span>
+          <div class="stattile__value">8.7%</div>
+          <div class="stattile__label">Eng. Rate</div>
+          <span class="trend trend--up" style="font-size:11px"><span aria-hidden="true">↑</span>1.6%</span>
+        </div>
+        <div class="stattile">
+          <span class="chip-icon chip-icon--circle chip-icon--sm chip-mint" style="margin:0 auto var(--space-8)" aria-hidden="true">★</span>
+          <div class="stattile__value">32</div>
+          <div class="stattile__label">Collabs</div>
+          <span class="trend trend--up" style="font-size:11px"><span aria-hidden="true">↑</span>4</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="t-title" style="margin-bottom:var(--space-12)">Active Campaign</h2>
+      <div class="row" style="align-items:flex-start;gap:var(--space-12)">
+        <div class="slot slot--photo" style="width:110px;height:110px;flex:0 0 110px;border-radius:var(--radius-md)" aria-hidden="true"></div>
+        <div class="stack-8" style="min-width:0;flex:1">
+          <span class="chip chip--success">🌿 In Progress</span>
+          <div class="t-title">Mamaearth Skincare</div>
+          <div class="t-small muted">Organic Skincare • Beauty</div>
+          <span class="chip chip--primary">🕐 Ends in 5 days</span>
+          <div class="progress progress--thick"><div class="progress__fill" style="width:60%"></div></div>
+          <div class="t-small" style="color:var(--primary-600);font-weight:600">60% Completed</div>
+        </div>
+        <button class="iconbtn iconbtn--tinted" aria-label="Open campaign" style="flex:0 0 auto">›</button>
+      </div>
+    </section>
+
+    <section class="card" data-tasklist>
+      <div class="section-head" style="margin-bottom:var(--space-4)">
+        <h2 class="t-title">Today's Tasks</h2>
+        <a class="link-viewall" href="#main">View all</a>
+      </div>
+      <div class="task">
+        <button class="task__check" role="checkbox" aria-checked="false" aria-label="Post a story"></button>
+        <span class="listrow__body">
+          <span class="listrow__title">Post a story</span>
+          <span class="listrow__sub">Show your morning vibe 🌟</span>
+        </span>
+        <span class="task__pts">+10 pts</span>
+        <span class="muted" aria-hidden="true">›</span>
+      </div>
+      <div class="task">
+        <button class="task__check" role="checkbox" aria-checked="false" aria-label="Upload a new reel"></button>
+        <span class="listrow__body">
+          <span class="listrow__title">Upload a new reel</span>
+          <span class="listrow__sub">Trending audio picked for you</span>
+        </span>
+        <span class="task__pts">+25 pts</span>
+        <span class="muted" aria-hidden="true">›</span>
+      </div>
+      <div class="task">
+        <button class="task__check" role="checkbox" aria-checked="false" aria-label="Engage with 10 comments"></button>
+        <span class="listrow__body">
+          <span class="listrow__title">Engage with 10 comments</span>
+          <span class="listrow__sub">Build your community</span>
+        </span>
+        <span class="task__pts">+15 pts</span>
+        <span class="muted" aria-hidden="true">›</span>
+      </div>
+      <div class="progress progress--grad" style="margin-top:var(--space-16)">
+        <div class="progress__fill" style="width:0%"></div>
+      </div>
+      <p class="t-small" style="margin-top:var(--space-8);color:var(--primary-600);font-weight:600" data-task-count>0/3 completed</p>
+    </section>
+
+    <div class="note">
+      <span aria-hidden="true">▶</span>
+      <span>Maps onto the existing <code>compact</code> branch of
+      <code>portal_shell.dart</code>, which already uses <code>AppBar</code> +
+      <code>NavigationBar</code>. Only the FAB and the restyle are new (§5.1).</span>
+    </div>
+
+  </main>
+
+  <!-- Bottom tab bar: 4 items + raised centre FAB overlapping the top edge -->
+  <nav class="tabbar" aria-label="Primary">
+    <button class="tab" aria-current="page">
+      <span class="tab__icon" aria-hidden="true">🏠</span>Home
+    </button>
+    <button class="tab">
+      <span class="tab__icon" aria-hidden="true">💼</span>Campaigns
+    </button>
+    <button class="fab" aria-label="Create new">+</button>
+    <span aria-hidden="true"></span>
+    <button class="tab">
+      <span class="tab__icon" aria-hidden="true">💬</span>Inbox
+      <span class="tab__badge" aria-hidden="true">2</span>
+    </button>
+    <button class="tab">
+      <span class="tab__icon" aria-hidden="true">👤</span>Profile
+    </button>
+  </nav>
+
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

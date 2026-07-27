@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 200" fill="none" role="img" aria-label="Brand shopping illustration">
+  <defs>
+    <linearGradient id="bag" x1="60" y1="40" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8F68FF"/>
+      <stop offset="1" stop-color="#6D3EF5"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="40" y2="60">
+      <stop stop-color="#6EE7B7"/><stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+  <!-- soft shadow -->
+  <ellipse cx="110" cy="185" rx="70" ry="12" fill="#6D3EF5" opacity=".1"/>
+  <!-- plant pot -->
+  <g transform="translate(160 100)">
+    <rect x="8" y="40" width="36" height="28" rx="6" fill="#F59E0B"/>
+    <rect x="4" y="34" width="44" height="10" rx="4" fill="#FBBF24"/>
+    <path d="M20 34c0-20 8-30 14-30 2 16 0 24-4 30" fill="url(#leaf)"/>
+    <path d="M34 34c4-18 14-26 18-24-4 12-6 20-8 24" fill="#34D399"/>
+    <ellipse cx="18" cy="12" rx="5" ry="8" fill="#6EE7B7"/>
+  </g>
+  <!-- shopping bag -->
+  <path d="M55 70h100l-8 100H63L55 70z" fill="url(#bag)"/>
+  <path d="M55 70h100l-2 18H57L55 70z" fill="#A78BFA" opacity=".5"/>
+  <!-- handles -->
+  <path d="M78 70c0-28 12-42 27-42s27 14 27 42" stroke="#4C1D95" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <!-- star badge -->
+  <circle cx="105" cy="120" r="28" fill="white" opacity=".95"/>
+  <path d="M105 98l6 16 18 2-14 12 4 18-14-10-14 10 4-18-14-12 18-2 6-16z" fill="#FFB54D"/>
+  <!-- target -->
+  <g transform="translate(20 95)">
+    <circle cx="30" cy="30" r="28" fill="#F46DB4"/>
+    <circle cx="30" cy="30" r="18" fill="#FCE7F3"/>
+    <circle cx="30" cy="30" r="10" fill="#F46DB4"/>
+    <circle cx="30" cy="30" r="4" fill="white"/>
+    <path d="M48 12l18-10 2 12-10 8" fill="#FFB54D"/>
+    <path d="M48 12l8 20" stroke="#FFB54D" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- sparkles -->
+  <path d="M40 40l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6z" fill="#FFB54D"/>
+  <circle cx="180" cy="50" r="4" fill="#8F68FF" opacity=".5"/>
+  <circle cx="50" cy="160" r="3" fill="#F46DB4" opacity=".4"/>
+</svg>

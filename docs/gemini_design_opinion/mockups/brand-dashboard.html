@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Dashboard — Collabify Prototype</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-nav">
+    <div class="logo-brand">
+      <div class="logo-mark">∞</div>
+      <span>Collabify</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" class="nav-item active"><span>🏠</span> Home</a>
+      <a href="#" class="nav-item"><span>💼</span> Campaigns</a>
+      <a href="#" class="nav-item"><span>👥</span> Creators</a>
+      <a href="#" class="nav-item"><span>📊</span> Analytics</a>
+      <a href="#" class="nav-item"><span>📄</span> Reports</a>
+    </nav>
+    <div class="nav-utilities">
+      <div class="icon-btn">🔍</div>
+      <div class="icon-btn">
+        🔔
+        <div class="badge-dot">6</div>
+      </div>
+      <div class="icon-btn">💬</div>
+      <div class="user-profile">
+        <div class="avatar" style="background: #059669; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">L</div>
+        <div>
+          <div style="font-size: 13px; font-weight: 700;">LuxeGlow</div>
+          <div style="font-size: 11px; color: var(--ink-600);">Brand Account</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="app-container">
+    <div class="grid-3col">
+
+      <!-- Left / Main Column -->
+      <div class="main-column">
+
+        <!-- Hero Row: Greeting + Brand Score Card -->
+        <div style="display: flex; gap: 24px;">
+          <!-- Greeting Hero Card -->
+          <div class="hero-card" style="flex: 1;">
+            <div>
+              <h1 class="hero-title">Good morning, LuxeGlow! 👋</h1>
+              <p class="hero-subtitle">Great brands build great stories. Let's create magic today.</p>
+              <div class="btn-group">
+                <a href="campaign-create.html" class="btn btn-primary"><span>+</span> Create Campaign</a>
+                <button class="btn btn-secondary"><span>🔍</span> Find Creators</button>
+              </div>
+            </div>
+            <!-- 3D Illustration SVG Placeholder -->
+            <svg class="hero-illustration" viewBox="0 0 160 140" fill="none">
+              <rect x="30" y="40" width="80" height="90" rx="16" fill="#8F68FF" opacity="0.9"/>
+              <circle x="110" y="40" r="30" fill="#FF6FB7" opacity="0.8"/>
+              <path d="M50 30 C50 15, 90 15, 90 30" stroke="#6D3FF0" stroke-width="8" stroke-linecap="round"/>
+              <polygon points="70,60 85,90 55,90" fill="#FFB54D"/>
+            </svg>
+          </div>
+
+          <!-- Brand Score Card -->
+          <div class="score-card">
+            <div class="score-header">
+              <span>Your Brand Score ℹ</span>
+              <span style="color: #F59E0B;">★</span>
+            </div>
+            <div>
+              <div class="score-number">
+                8.6
+                <span class="trend-badge trend-up">↑ 12%</span>
+              </div>
+              <p style="font-size: 12px; color: var(--ink-600); margin-bottom: 12px;">Excellent! You're outperforming 78% of brands on Collabify.</p>
+            </div>
+            <a href="#" style="font-size: 13px; font-weight: 600;">View score insights →</a>
+          </div>
+        </div>
+
+        <!-- 5 KPI Stat Tiles Row -->
+        <div class="stat-grid">
+          <div class="stat-tile">
+            <div class="chip-icon chip-lavender">📊</div>
+            <div>
+              <div class="stat-label">Active Campaigns</div>
+              <div class="stat-val">12 <span class="trend-badge trend-up" style="font-size: 11px; padding: 2px 6px;">↑ 20%</span></div>
+            </div>
+          </div>
+
+          <div class="stat-tile">
+            <div class="chip-icon chip-pink">👥</div>
+            <div>
+              <div class="stat-label">Creators</div>
+              <div class="stat-val">48 <span class="trend-badge trend-up" style="font-size: 11px; padding: 2px 6px;">↑ 16%</span></div>
+            </div>
+          </div>
+
+          <div class="stat-tile">
+            <div class="chip-icon chip-amber">👁</div>
+            <div>
+              <div class="stat-label">Total Reach</div>
+              <div class="stat-val">4.2M <span class="trend-badge trend-up" style="font-size: 11px; padding: 2px 6px;">↑ 28%</span></div>
+            </div>
+          </div>
+
+          <div class="stat-tile">
+            <div class="chip-icon chip-mint">📈</div>
+            <div>
+              <div class="stat-label">Eng. Rate</div>
+              <div class="stat-val">5.7% <span class="trend-badge trend-up" style="font-size: 11px; padding: 2px 6px;">↑ 8%</span></div>
+            </div>
+          </div>
+
+          <div class="stat-tile">
+            <div class="chip-icon chip-blue">₹</div>
+            <div>
+              <div class="stat-label">Total Spend</div>
+              <div class="stat-val">₹12.4L <span class="trend-badge trend-down" style="font-size: 11px; padding: 2px 6px;">↓ 6%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel: Your Active Campaigns -->
+        <div>
+          <div class="section-header">
+            <h2 class="section-title">Your Active Campaigns</h2>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <a href="#" style="font-size: 14px; margin-right: 12px;">View all</a>
+              <button class="icon-btn carousel-btn-left" style="width: 32px; height: 32px;">‹</button>
+              <button class="icon-btn carousel-btn-right" style="width: 32px; height: 32px;">›</button>
+            </div>
+          </div>
+
+          <div class="carousel-container">
+            <!-- Card 1 -->
+            <div class="card-item">
+              <div class="card-thumb">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80" alt="Radiance Boost">
+                <span class="status-pill pill-in-progress">In Progress</span>
+                <div class="avatar-stack">
+                  <div class="avatar" style="background: #9363F7;"></div>
+                  <div class="avatar" style="background: #EC4899;"></div>
+                  <div class="avatar-more">+8</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-title">LuxeGlow Radiance Boost</div>
+                <div class="card-subtitle">15 Creators</div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" style="width: 62%;"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-top: 4px;">
+                  <span style="color: var(--primary-600);">62% Completed</span>
+                  <span style="color: var(--ink-600);">₹2.45L / ₹4.00L</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-item">
+              <div class="card-thumb">
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80" alt="Serum">
+                <span class="status-pill pill-in-progress">In Progress</span>
+                <div class="avatar-stack">
+                  <div class="avatar" style="background: #3B82F6;"></div>
+                  <div class="avatar" style="background: #10B981;"></div>
+                  <div class="avatar-more">+6</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-title">Vitamin C Brightening Serum</div>
+                <div class="card-subtitle">12 Creators</div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" style="width: 40%;"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-top: 4px;">
+                  <span style="color: var(--primary-600);">40% Completed</span>
+                  <span style="color: var(--ink-600);">₹1.80L / ₹3.00L</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card-item">
+              <div class="card-thumb">
+                <img src="https://images.unsplash.com/photo-1608248597261-e4d3147eeac1?w=400&q=80" alt="HydraGlow">
+                <span class="status-pill pill-live">Live</span>
+                <div class="avatar-stack">
+                  <div class="avatar" style="background: #F59E0B;"></div>
+                  <div class="avatar" style="background: #EC4899;"></div>
+                  <div class="avatar-more">+10</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-title">HydraGlow Moisturizer</div>
+                <div class="card-subtitle">18 Creators</div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" style="width: 75%; background: var(--chip-mint-fg);"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-top: 4px;">
+                  <span style="color: var(--chip-mint-fg);">75% Completed</span>
+                  <span style="color: var(--ink-600);">₹2.10L / ₹2.80L</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Rail Column -->
+      <div class="right-rail">
+
+        <!-- Quick Actions Panel -->
+        <div class="panel-card">
+          <div class="section-header" style="margin-bottom: 16px;">
+            <h3 style="font-size: 16px; font-weight: 700;">Quick Actions</h3>
+            <a href="#" style="font-size: 12px;">View all</a>
+          </div>
+          <div class="quick-action-grid">
+            <div class="action-tile">
+              <div class="action-chip chip-lavender">+</div>
+              <div class="action-label">Create Campaign</div>
+            </div>
+            <div class="action-tile">
+              <div class="action-chip chip-pink">🔍</div>
+              <div class="action-label">Find Creators</div>
+            </div>
+            <div class="action-tile">
+              <div class="action-chip chip-amber">✉</div>
+              <div class="action-label">Invite Creator</div>
+            </div>
+            <div class="action-tile">
+              <div class="action-chip chip-mint">📄</div>
+              <div class="action-label">Campaign Brief</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spend Overview Panel -->
+        <div class="panel-card">
+          <div class="section-header" style="margin-bottom: 8px;">
+            <h3 style="font-size: 16px; font-weight: 700;">Spend Overview</h3>
+            <span style="font-size: 12px; color: var(--ink-600);">This Month ▾</span>
+          </div>
+          <div style="font-family: var(--font-display); font-size: 28px; font-weight: 800;">
+            ₹12,42,300
+            <span class="trend-badge trend-down" style="font-size: 12px; margin-left: 8px;">↓ 6%</span>
+          </div>
+          <div style="font-size: 12px; color: var(--ink-600); margin-bottom: 16px;">From 8 Active Campaigns</div>
+
+          <!-- SVG Smooth Area Chart Placeholder -->
+          <svg viewBox="0 0 300 80" style="width: 100%; height: 80px; overflow: visible;">
+            <defs>
+              <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6D3FF0" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#6D3FF0" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,60 Q50,20 100,45 T200,30 T300,10 L300,80 L0,80 Z" fill="url(#chartGrad)"/>
+            <path d="M0,60 Q50,20 100,45 T200,30 T300,10" fill="none" stroke="#6D3FF0" stroke-width="3"/>
+            <circle cx="300" cy="10" r="5" fill="#6D3FF0" stroke="white" stroke-width="2"/>
+          </svg>
+        </div>
+
+        <!-- Pro Tip Callout Card -->
+        <div class="panel-card panel-warm">
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <div style="font-size: 24px;">💡</div>
+            <div>
+              <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Pro Tip for LuxeGlow</div>
+              <div style="font-size: 13px; opacity: 0.95;">Clear campaign briefs get 2x higher creator acceptance rates!</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monk — Brand Dashboard (redesign mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<!-- ShellStyle.flat — brand + admin. Edge-to-edge, flat surface, no shell radius. -->
+<div class="shell shell--flat">
+
+  <!-- Top nav. IA decision (spec §5.1): 5 primary items in the bar, the
+       remaining 5 under the account menu. Brand actually has 10 routes. -->
+  <nav class="topnav" aria-label="Primary">
+    <a class="topnav__logo" href="#main">
+      <span class="topnav__mark" aria-hidden="true">M</span>
+      <span>Monk</span>
+    </a>
+
+    <div class="topnav__items">
+      <a class="navitem" href="#main" aria-current="page"><span class="navitem__icon" aria-hidden="true">▦</span>Dashboard</a>
+      <a class="navitem" href="#main"><span class="navitem__icon" aria-hidden="true">◎</span>Discover</a>
+      <a class="navitem" href="#main"><span class="navitem__icon" aria-hidden="true">◑</span>Campaigns</a>
+      <a class="navitem" href="#main"><span class="navitem__icon" aria-hidden="true">✉</span>Applications</a>
+      <a class="navitem" href="#main"><span class="navitem__icon" aria-hidden="true">▤</span>Briefs</a>
+    </div>
+
+    <div class="topnav__actions">
+      <button class="iconbtn" aria-label="Search">⌕</button>
+      <button class="iconbtn" aria-label="Notifications, 6 unread">
+        🔔<span class="badge-count" aria-hidden="true">6</span>
+      </button>
+      <button class="iconbtn" aria-label="Messages">💬</button>
+
+      <div class="account" data-menu>
+        <button class="account__trigger" aria-haspopup="menu" aria-expanded="false">
+          <span class="avatar" aria-hidden="true">L</span>
+          <span class="account__meta">
+            <span class="account__name">LuxeGlow</span><br>
+            <span class="account__role">Brand Account</span>
+          </span>
+          <span aria-hidden="true">▾</span>
+        </button>
+        <div class="menu" role="menu" data-open="false">
+          <p class="menu__label">Workspace</p>
+          <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">🔖</span>Shortlists</a>
+          <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">🧾</span>Invoices</a>
+          <div class="menu__sep"></div>
+          <p class="menu__label">Settings</p>
+          <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">👥</span>Team</a>
+          <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">🏢</span>Company</a>
+          <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">⚙</span>Settings</a>
+          <div class="menu__sep"></div>
+          <a class="menu__item" role="menuitem" href="#main"><span aria-hidden="true">↪</span>Sign out</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="shell__body" id="main">
+
+    <div class="note" style="margin-bottom:var(--space-24)">
+      <span aria-hidden="true">▶</span>
+      <span><strong>Nav IA demo.</strong> Brand has 10 routes; the bar holds 5. Remaining five
+      (Shortlists, Invoices, Team, Company, Settings) sit under the account menu — spec §5.1
+      option (a). Open the avatar menu to see them. This still needs product sign-off before
+      <code>portal_shell.dart</code> is rewritten.</span>
+    </div>
+
+    <div class="grid-dash">
+
+      <!-- ============ MAIN COLUMN ============ -->
+      <div class="col-main">
+
+        <!-- Row 1: greeting hero + brand score. Two gradient surfaces max per
+             screen (§8) — the score card is one; the hero itself stays white. -->
+        <div style="display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:var(--space-24)">
+          <section class="card hero">
+            <div class="hero__body">
+              <h1 class="t-display-large">Good morning, LuxeGlow! 👋</h1>
+              <p class="t-body-large muted" style="margin:var(--space-12) 0 var(--space-24)">
+                Great brands build great stories. Let's create magic today.
+              </p>
+              <div class="row">
+                <button class="btn btn--primary"><span aria-hidden="true">+</span>Create Campaign</button>
+                <button class="btn btn--secondary"><span aria-hidden="true">◎</span>Find Creators</button>
+              </div>
+            </div>
+            <div class="hero__art slot" aria-hidden="true">
+              3D illustration slot<br>bag · target · plant<br><em>asset not licensed (§0.1)</em>
+            </div>
+          </section>
+
+          <!-- gradientWarm is a PALE wash carrying ink-900, not a saturated fill
+               carrying white. Built the saturated version first and it failed
+               §9 on sight — white over the secondary-100 end is unreadable. -->
+          <section class="card card--gradient card--warm-grad">
+            <div class="row-between" style="margin-bottom:var(--space-12)">
+              <span class="t-label">Your Brand Score <button class="info-dot" aria-label="How this is calculated">i</button></span>
+              <span class="chip-icon chip-icon--sm" style="background:rgba(255,255,255,.55);color:var(--primary-600)" aria-hidden="true">★</span>
+            </div>
+            <div class="row" style="align-items:flex-end;gap:var(--space-12)">
+              <span class="t-kpi">8.6</span>
+              <span class="chip" style="background:rgba(255,255,255,.35);color:var(--ink-900)">↑ 12%</span>
+            </div>
+            <p class="t-small" style="margin-top:var(--space-8);color:var(--ink-900)">
+              Excellent! You're outperforming 78% of brands on Monk.
+            </p>
+            <a class="link-viewall" href="#main" style="color:var(--ink-900)">View score insights →</a>
+          </section>
+        </div>
+
+        <!-- Row 2: stat row. §5.3 — ONE card, five columns, hairline dividers.
+             NOT five separate tiles. -->
+        <section class="card card--flush">
+          <h2 class="sr-only">Key metrics</h2>
+          <div class="statrow">
+            <div class="statrow__col">
+              <span class="chip-icon chip-lavender" aria-hidden="true">▦</span>
+              <div class="statrow__body">
+                <div class="statrow__label">Active Campaigns</div>
+                <div class="statrow__figures">
+                  <span class="statrow__value">12</span>
+                  <span class="trend trend--up"><span aria-hidden="true">↑</span>20%</span>
+                </div>
+                <div class="statrow__foot">vs last month</div>
+              </div>
+            </div>
+            <div class="statrow__col">
+              <span class="chip-icon chip-pink" aria-hidden="true">◍</span>
+              <div class="statrow__body">
+                <div class="statrow__label">Creators Collaborating</div>
+                <div class="statrow__figures">
+                  <span class="statrow__value">48</span>
+                  <span class="trend trend--up"><span aria-hidden="true">↑</span>16%</span>
+                </div>
+                <div class="statrow__foot">vs last month</div>
+              </div>
+            </div>
+            <div class="statrow__col">
+              <span class="chip-icon chip-amber" aria-hidden="true">◉</span>
+              <div class="statrow__body">
+                <div class="statrow__label">Total Reach</div>
+                <div class="statrow__figures">
+                  <span class="statrow__value">4.2M</span>
+                  <span class="trend trend--up"><span aria-hidden="true">↑</span>28%</span>
+                </div>
+                <div class="statrow__foot">vs last month</div>
+              </div>
+            </div>
+            <div class="statrow__col">
+              <span class="chip-icon chip-mint" aria-hidden="true">📈</span>
+              <div class="statrow__body">
+                <div class="statrow__label">Engagement Rate</div>
+                <div class="statrow__figures">
+                  <span class="statrow__value">5.7%</span>
+                  <span class="trend trend--up"><span aria-hidden="true">↑</span>8%</span>
+                </div>
+                <div class="statrow__foot">vs last month</div>
+              </div>
+            </div>
+            <div class="statrow__col">
+              <span class="chip-icon chip-blue" aria-hidden="true">₹</span>
+              <div class="statrow__body">
+                <div class="statrow__label">Total Spend</div>
+                <div class="statrow__figures">
+                  <span class="statrow__value">₹12.4L</span>
+                  <span class="trend trend--down"><span aria-hidden="true">↓</span>6%</span>
+                </div>
+                <div class="statrow__foot">vs last month</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Row 3: campaign carousel -->
+        <section class="card">
+          <div class="section-head">
+            <h2 class="t-headline">Your Active Campaigns</h2>
+            <a class="link-viewall" href="#main">View all</a>
+          </div>
+
+          <div class="carousel">
+            <button class="carousel__nav carousel__nav--prev" aria-label="Previous campaigns">‹</button>
+            <button class="carousel__nav carousel__nav--next" aria-label="Next campaigns">›</button>
+            <div class="carousel__track">
+
+              <article class="carousel__item campaign">
+                <div class="campaign__media slot slot--photo">
+                  <span class="chip chip--primary campaign__badge">In Progress</span>
+                  <div class="campaign__avatars avstack">
+                    <span class="avatar" aria-hidden="true">A</span>
+                    <span class="avatar" aria-hidden="true">R</span>
+                    <span class="avatar" aria-hidden="true">M</span>
+                    <span class="avstack__more">+8</span>
+                  </div>
+                </div>
+                <div class="campaign__title">LuxeGlow Radiance Boost</div>
+                <div class="campaign__sub">15 Creators</div>
+                <div class="progress"><div class="progress__fill" style="width:62%"></div></div>
+                <div class="row-between">
+                  <span class="campaign__sub">62% Completed</span>
+                  <span class="campaign__money">₹2,45,000 / ₹4,00,000</span>
+                </div>
+              </article>
+
+              <article class="carousel__item campaign">
+                <div class="campaign__media slot slot--photo">
+                  <span class="chip chip--primary campaign__badge">In Progress</span>
+                  <div class="campaign__avatars avstack">
+                    <span class="avatar" aria-hidden="true">S</span>
+                    <span class="avatar" aria-hidden="true">K</span>
+                    <span class="avstack__more">+6</span>
+                  </div>
+                </div>
+                <div class="campaign__title">Vitamin C Brightening Serum</div>
+                <div class="campaign__sub">12 Creators</div>
+                <div class="progress"><div class="progress__fill" style="width:40%"></div></div>
+                <div class="row-between">
+                  <span class="campaign__sub">40% Completed</span>
+                  <span class="campaign__money">₹1,80,000 / ₹3,00,000</span>
+                </div>
+              </article>
+
+              <article class="carousel__item campaign">
+                <div class="campaign__media slot slot--photo">
+                  <span class="chip chip--primary campaign__badge">In Progress</span>
+                  <div class="campaign__avatars avstack">
+                    <span class="avatar" aria-hidden="true">N</span>
+                    <span class="avatar" aria-hidden="true">P</span>
+                    <span class="avstack__more">+10</span>
+                  </div>
+                </div>
+                <div class="campaign__title">HydraGlow Moisturizer</div>
+                <div class="campaign__sub">18 Creators</div>
+                <div class="progress"><div class="progress__fill" style="width:75%"></div></div>
+                <div class="row-between">
+                  <span class="campaign__sub">75% Completed</span>
+                  <span class="campaign__money">₹2,10,000 / ₹2,80,000</span>
+                </div>
+              </article>
+
+              <article class="carousel__item campaign">
+                <div class="campaign__media slot slot--photo">
+                  <span class="chip chip--success campaign__badge">Live</span>
+                  <div class="campaign__avatars avstack">
+                    <span class="avatar" aria-hidden="true">D</span>
+                    <span class="avatar" aria-hidden="true">V</span>
+                    <span class="avstack__more">+7</span>
+                  </div>
+                </div>
+                <div class="campaign__title">Clean &amp; Clear Campaign</div>
+                <div class="campaign__sub">14 Creators</div>
+                <div class="progress"><div class="progress__fill" style="width:90%"></div></div>
+                <div class="row-between">
+                  <span class="campaign__sub">90% Completed</span>
+                  <span class="campaign__money">₹3,20,000 / ₹3,50,000</span>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Row 4: split lists -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--space-24)">
+
+          <section class="card">
+            <div class="section-head">
+              <h2 class="t-title">Top Performing Creators</h2>
+              <a class="link-viewall" href="#main">View all</a>
+            </div>
+            <div class="listrow" style="padding-bottom:var(--space-8);border:0">
+              <span style="width:22px" aria-hidden="true"></span>
+              <span class="avatar avatar--sm" style="visibility:hidden" aria-hidden="true"></span>
+              <span class="listrow__body"></span>
+              <span class="listrow__meta">Reach</span>
+              <span class="listrow__meta" style="min-width:64px;text-align:right">Eng. Rate</span>
+            </div>
+            <div class="listrow">
+              <span class="medal medal--1" aria-label="Rank 1">1</span>
+              <span class="avatar avatar--sm" aria-hidden="true">A</span>
+              <span class="listrow__body">
+                <span class="listrow__title">Ananya Sharma <span class="verified" aria-label="Verified">✓</span></span>
+                <span class="listrow__sub">@ananya_lifestyle · Beauty</span>
+              </span>
+              <span class="listrow__meta">820K</span>
+              <span class="listrow__meta" style="min-width:64px;text-align:right;color:var(--success-600);font-weight:600">7.8%</span>
+            </div>
+            <div class="listrow">
+              <span class="medal medal--2" aria-label="Rank 2">2</span>
+              <span class="avatar avatar--sm" aria-hidden="true">R</span>
+              <span class="listrow__body">
+                <span class="listrow__title">Rohit Verma</span>
+                <span class="listrow__sub">@fitnesswithrohit · Fitness</span>
+              </span>
+              <span class="listrow__meta">650K</span>
+              <span class="listrow__meta" style="min-width:64px;text-align:right">6.5%</span>
+            </div>
+            <div class="listrow">
+              <span class="medal medal--3" aria-label="Rank 3">3</span>
+              <span class="avatar avatar--sm" aria-hidden="true">M</span>
+              <span class="listrow__body">
+                <span class="listrow__title">Megha Kapoor</span>
+                <span class="listrow__sub">@meghasworld · Beauty</span>
+              </span>
+              <span class="listrow__meta">540K</span>
+              <span class="listrow__meta" style="min-width:64px;text-align:right">6.1%</span>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <h2 class="t-title">Recent Activity</h2>
+              <a class="link-viewall" href="#main">View all</a>
+            </div>
+            <div class="listrow">
+              <span class="chip-icon chip-icon--sm chip-lavender" aria-hidden="true">📄</span>
+              <span class="listrow__body">
+                <span class="listrow__title">Rohit Verma submitted content</span>
+                <span class="listrow__sub">for LuxeGlow Radiance Boost</span>
+              </span>
+              <span class="listrow__meta">2h ago</span>
+            </div>
+            <div class="listrow">
+              <span class="chip-icon chip-icon--sm chip-mint" aria-hidden="true">₹</span>
+              <span class="listrow__body">
+                <span class="listrow__title">Payment of ₹1,80,000</span>
+                <span class="listrow__sub">processed for Vitamin C Serum Campaign</span>
+              </span>
+              <span class="listrow__meta">5h ago</span>
+            </div>
+            <div class="listrow">
+              <span class="chip-icon chip-icon--sm chip-pink" aria-hidden="true">📷</span>
+              <span class="listrow__body">
+                <span class="listrow__title">Ananya Sharma posted content</span>
+                <span class="listrow__sub">for HydraGlow Moisturizer</span>
+              </span>
+              <span class="listrow__meta">1d ago</span>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <!-- ============ RIGHT CONTENT RAIL (360px, not nav) ============ -->
+      <aside class="col-rail" aria-label="Summary">
+
+        <section class="card">
+          <div class="section-head">
+            <h2 class="t-title">Quick Actions</h2>
+            <a class="link-viewall" href="#main">View all</a>
+          </div>
+          <div class="qa-grid">
+            <a class="qa" href="#main"><span class="chip-icon chip-icon--circle chip-lavender" aria-hidden="true">+</span>Create Campaign</a>
+            <a class="qa" href="#main"><span class="chip-icon chip-icon--circle chip-pink" aria-hidden="true">◍</span>Find Creators</a>
+            <a class="qa" href="#main"><span class="chip-icon chip-icon--circle chip-amber" aria-hidden="true">✉</span>Invite Creator</a>
+            <a class="qa" href="#main"><span class="chip-icon chip-icon--circle chip-mint" aria-hidden="true">▤</span>Campaign Brief</a>
+          </div>
+        </section>
+
+        <!-- Chart per spec §11: 2px line, gradient area to transparent, dot per
+             point, glow dot last, ink600 tabular axis labels, no vertical grid. -->
+        <section class="card">
+          <div class="section-head">
+            <h2 class="t-title">Spend Overview</h2>
+            <button class="btn btn--secondary btn--sm">This Month ▾</button>
+          </div>
+          <div class="row" style="align-items:baseline;gap:var(--space-12)">
+            <span class="t-kpi" style="font-size:30px">₹12,42,300</span>
+            <span class="trend trend--down"><span aria-hidden="true">↓</span>6%</span>
+          </div>
+          <p class="t-small muted" style="margin:var(--space-4) 0 var(--space-16)">From 8 Active Campaigns</p>
+
+          <svg class="chart" viewBox="0 0 320 130" role="img" aria-label="Spend trend: rises from ₹4L on May 1 to ₹13L on May 29">
+            <defs>
+              <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                <stop class="chart__stop-from" offset="0%"/>
+                <stop class="chart__stop-to" offset="100%"/>
+              </linearGradient>
+            </defs>
+            <line class="chart__grid" x1="30" y1="20" x2="315" y2="20"/>
+            <line class="chart__grid" x1="30" y1="55" x2="315" y2="55"/>
+            <line class="chart__grid" x1="30" y1="90" x2="315" y2="90"/>
+            <text class="chart__axis" x="0" y="24">15L</text>
+            <text class="chart__axis" x="0" y="59">10L</text>
+            <text class="chart__axis" x="4" y="94">5L</text>
+            <text class="chart__axis" x="12" y="112">0</text>
+            <path class="chart__area" d="M40,86 L86,78 L132,64 L178,58 L224,68 L270,44 L306,28 L306,108 L40,108 Z"/>
+            <path class="chart__line" d="M40,86 L86,78 L132,64 L178,58 L224,68 L270,44 L306,28"/>
+            <circle class="chart__dot" cx="40" cy="86" r="3"/>
+            <circle class="chart__dot" cx="86" cy="78" r="3"/>
+            <circle class="chart__dot" cx="132" cy="64" r="3"/>
+            <circle class="chart__dot" cx="178" cy="58" r="3"/>
+            <circle class="chart__dot" cx="224" cy="68" r="3"/>
+            <circle class="chart__dot" cx="270" cy="44" r="3"/>
+            <circle class="chart__dot--last" cx="306" cy="28" r="5"/>
+            <text class="chart__axis" x="26" y="126">May 01</text>
+            <text class="chart__axis" x="98" y="126">May 08</text>
+            <text class="chart__axis" x="170" y="126">May 15</text>
+            <text class="chart__axis" x="242" y="126">May 22</text>
+          </svg>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h2 class="t-title">Upcoming Campaigns</h2>
+            <a class="link-viewall" href="#main">View all</a>
+          </div>
+          <div class="listrow">
+            <span class="slot slot--photo" style="width:56px;height:56px;flex:0 0 56px;border-radius:var(--radius-md)" aria-hidden="true"></span>
+            <span class="listrow__body">
+              <span class="listrow__title">LuxeGlow Summer Essentials</span>
+              <span class="listrow__sub">01 Jun – 20 Jun 2025</span>
+              <span class="chip chip--primary" style="margin-top:6px">Starts in 3 days</span>
+            </span>
+            <button class="iconbtn" aria-label="More options">⋮</button>
+          </div>
+          <div class="listrow">
+            <span class="slot slot--photo" style="width:56px;height:56px;flex:0 0 56px;border-radius:var(--radius-md)" aria-hidden="true"></span>
+            <span class="listrow__body">
+              <span class="listrow__title">Glow Naturally Skincare</span>
+              <span class="listrow__sub">05 Jun – 25 Jun 2025</span>
+              <span class="chip chip--primary" style="margin-top:6px">Starts in 7 days</span>
+            </span>
+            <button class="iconbtn" aria-label="More options">⋮</button>
+          </div>
+        </section>
+
+      </aside>
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

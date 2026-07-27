@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Characters & Avatars — Influencer Monk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/avatars.css" />
+  <link rel="stylesheet" href="css/backgrounds.css" />
+  <style>
+    .stack-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      margin-top: 16px;
+    }
+    .size-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .size-row figure {
+      text-align: center;
+      font-size: 11px;
+      color: var(--ink-600);
+    }
+    .size-row figcaption { margin-top: 6px; }
+    .mascot-stage {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 16px;
+    }
+    .mascot-stage .card {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="bg-glow has-bg-scene" data-bg-faces="0">
+  <header class="top-nav">
+    <div class="top-nav__left">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">✦</span>
+        <span>Influencer <span class="accent">Monk</span></span>
+      </a>
+    </div>
+    <div class="top-nav__right">
+      <a class="btn btn--secondary btn--sm" href="index.html">← All mockups</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="intro" style="max-width:640px;margin-bottom:32px">
+      <h1 style="font-size:36px;letter-spacing:-0.03em">Characters & avatars</h1>
+      <p class="text-muted mt-8">
+        Soft Premium face set for mockups and Flutter illustration planning.
+        Flat, friendly, diverse — no stock office people. SVG files live in
+        <code>mockups/assets/chars/</code>.
+      </p>
+    </div>
+
+    <section class="card mb-16">
+      <div class="section-head">
+        <h2>Creator cast</h2>
+        <span class="chip">9 faces</span>
+      </div>
+      <div class="char-gallery">
+        <article class="char-card">
+          <div class="char-card__preview">
+            <span class="char char--xl char--shadow"><img src="assets/chars/ananya.svg" alt="Ananya" /></span>
+          </div>
+          <div class="char-card__name">Ananya Sharma</div>
+          <div class="char-card__role">Lifestyle · Fashion · Hero creator</div>
+          <div class="char-card__id">ananya.svg</div>
+        </article>
+        <article class="char-card">
+          <div class="char-card__preview">
+            <span class="char char--xl char--shadow"><img src="assets/chars/rohit.svg" alt="Rohit" /></span>
+          </div>
+          <div class="char-card__name">Rohit Verma</div>
+          <div class="char-card__role">Fitness · Performance</div>
+          <div class="char-card__id">rohit.svg</div>
+        </article>
+        <article class="char-card">
+          <div class="char-card__preview">
+            <span class="char char--xl char--shadow"><img src="assets/chars/megha.svg" alt="Megha" /></span>
+          </div>
+          <div class="char-card__name">Megha Kapoor</div>
+          <div class="char-card__role">Beauty · Glam</div>
+          <div class="char-card__id">megha.svg</div>
+        </article>
+        <article class="char-card">
+          <div class="char-card__preview">
+            <span class="char char--xl char--shadow"><img src="assets/chars/kai.svg" alt="Kai" /></span>
+          </div>
+          <div class="char-card__name">Kai Mendes</div>
+          <div class="char-card__role">Lifestyle · Travel</div>
+          <div class="char-card__id">kai.svg</div>
+        </article>
+        <article class="char-card">
+          <div class="char-card__preview">
+            <span class="char char--xl char--shadow"><img src="assets/chars/priya.svg" alt="Priya" /></span>
+          </div>
+          <div class="char-card__name">Priya Nair</div>
+          <div class="char-card__role">Beauty · Wellness</div>
+          <div class="char-card__id">priya.svg</div>
+        </article>
+        <article class="char-card">
+          <div class="char-card__preview">
+            <span class="char char--xl char--shadow"><img src="assets/chars/sam.svg" alt="Sam" /></span>
+          </div>
+          <div class="char-card__name">Sam Ortiz</div>
+          <div class="char-card__role">Tech · Reviews</div>
+          <div class="char-card__id">sam.svg</div>
+        </article>
+        <article class="char-card">
+          <div class="char-card__preview">
+            <span class="char char--xl char--shadow"><img src="assets/chars/jordan.svg" alt="Jordan" /></span>
+          </div>
+          <div class="char-card__name">Jordan Lee</div>
+          <div class="char-card__role">Music · Culture</div>
+          <div class="char-card__id">jordan.svg</div>
+        </article>
+        <article class="char-card">
+          <div class="char-card__preview">
+            <span class="char char--xl char--shadow"><img src="assets/chars/leo.svg" alt="Leo" /></span>
+          </div>
+          <div class="char-card__name">Leo Park</div>
+          <div class="char-card__role">Food · Lifestyle</div>
+          <div class="char-card__id">leo.svg</div>
+        </article>
+        <article class="char-card">
+          <div class="char-card__preview">
+            <span class="char char--xl char--shadow"><img src="assets/chars/nina.svg" alt="Nina" /></span>
+          </div>
+          <div class="char-card__name">Nina Brooks</div>
+          <div class="char-card__role">Fashion · Street</div>
+          <div class="char-card__id">nina.svg</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card mb-16">
+      <div class="section-head">
+        <h2>Brand & product</h2>
+      </div>
+      <div class="char-gallery" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))">
+        <article class="char-card">
+          <div class="char-card__preview">
+            <span class="char char--xl char--shadow"><img src="assets/chars/luxe.svg" alt="LuxeGlow" /></span>
+          </div>
+          <div class="char-card__name">LuxeGlow</div>
+          <div class="char-card__role">Brand monogram</div>
+          <div class="char-card__id">luxe.svg</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card mb-16">
+      <div class="section-head">
+        <h2>Mascots & illustrations</h2>
+        <span class="chip chip--pink">Hero moments</span>
+      </div>
+      <div class="mascot-stage">
+        <div class="card card--gradient-hero" style="border:none">
+          <img class="char-figure char-figure--md" src="assets/chars/monk-mascot.svg" alt="Monk mascot" />
+          <div class="mt-16 fw-700" style="color:white">Monk mascot</div>
+          <div class="text-sm mt-8" style="color:rgba(255,255,255,.85)">monk-mascot.svg · creator heroes</div>
+        </div>
+        <div class="card" style="background:var(--grad-card-glow)">
+          <img class="char-figure char-figure--md" src="assets/chars/shopper-mascot.svg" alt="Shopper illustration" />
+          <div class="mt-16 fw-700">Shopper scene</div>
+          <div class="text-sm text-muted mt-8">shopper-mascot.svg · brand heroes</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card mb-16">
+      <div class="section-head">
+        <h2>Sizes & stacks</h2>
+      </div>
+      <p class="text-sm text-muted">Use <code>.char</code> + size modifiers. Stacks for campaign cards.</p>
+      <div class="size-row">
+        <figure>
+          <span class="char char--xs"><img src="assets/chars/ananya.svg" alt="" /></span>
+          <figcaption>xs 24</figcaption>
+        </figure>
+        <figure>
+          <span class="char char--sm"><img src="assets/chars/ananya.svg" alt="" /></span>
+          <figcaption>sm 32</figcaption>
+        </figure>
+        <figure>
+          <span class="char char--md"><img src="assets/chars/ananya.svg" alt="" /></span>
+          <figcaption>md 40</figcaption>
+        </figure>
+        <figure>
+          <span class="char char--lg"><img src="assets/chars/ananya.svg" alt="" /></span>
+          <figcaption>lg 56</figcaption>
+        </figure>
+        <figure>
+          <span class="char char--xl char--ring"><img src="assets/chars/ananya.svg" alt="" /></span>
+          <figcaption>xl + ring</figcaption>
+        </figure>
+        <figure>
+          <span class="char char--2xl char--shadow"><img src="assets/chars/ananya.svg" alt="" /></span>
+          <figcaption>2xl + shadow</figcaption>
+        </figure>
+      </div>
+      <div class="stack-demo">
+        <div class="char-stack char-stack--lg">
+          <span class="char char--sm"><img src="assets/chars/ananya.svg" alt="" /></span>
+          <span class="char char--sm"><img src="assets/chars/rohit.svg" alt="" /></span>
+          <span class="char char--sm"><img src="assets/chars/megha.svg" alt="" /></span>
+          <span class="char char--sm"><img src="assets/chars/kai.svg" alt="" /></span>
+          <span class="char-stack__more">+12</span>
+        </div>
+        <div class="char-stack">
+          <span class="char char--md"><img src="assets/chars/priya.svg" alt="" /></span>
+          <span class="char char--md"><img src="assets/chars/sam.svg" alt="" /></span>
+          <span class="char char--md"><img src="assets/chars/jordan.svg" alt="" /></span>
+          <span class="char char--md"><img src="assets/chars/leo.svg" alt="" /></span>
+          <span class="char char--md"><img src="assets/chars/nina.svg" alt="" /></span>
+          <span class="char-stack__more" style="width:40px;height:40px">+4</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Usage snippet</h2>
+      </div>
+      <pre style="background:var(--surface);border-radius:16px;padding:16px;font-size:13px;overflow:auto;border:1px solid var(--border)"><code>&lt;span class="char char--md char--ring"&gt;
+  &lt;img src="assets/chars/ananya.svg" alt="Ananya Sharma" /&gt;
+&lt;/span&gt;
+
+&lt;div class="char-stack"&gt;
+  &lt;span class="char char--sm"&gt;&lt;img src="assets/chars/rohit.svg" alt="" /&gt;&lt;/span&gt;
+  &lt;span class="char char--sm"&gt;&lt;img src="assets/chars/megha.svg" alt="" /&gt;&lt;/span&gt;
+  &lt;span class="char-stack__more"&gt;+6&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;img class="char-figure char-figure--md" src="assets/chars/monk-mascot.svg" alt="" /&gt;</code></pre>
+      <p class="text-sm text-muted mt-16">
+        Flutter port idea: keep the same cast names as asset keys under
+        <code>assets/illustrations/chars/</code> and map via an
+        <code>ImAvatar(name: 'ananya')</code> widget.
+      </p>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" role="img" aria-label="Leo">
+  <defs>
+    <linearGradient id="leoBg" x1="0" y1="0" x2="160" y2="160">
+      <stop stop-color="#FEE2E2"/><stop offset="1" stop-color="#FCE7F3"/>
+    </linearGradient>
+    <linearGradient id="leoSkin" x1="50" y1="40" x2="110" y2="120">
+      <stop stop-color="#E0AC69"/><stop offset="1" stop-color="#C68642"/>
+    </linearGradient>
+  </defs>
+  <circle cx="80" cy="80" r="80" fill="url(#leoBg)"/>
+  <path d="M28 152c10-30 28-44 52-44s42 14 52 44" fill="#DC2626"/>
+  <path d="M42 152c6-18 20-28 38-28s32 10 38 28" fill="#EF4444"/>
+  <ellipse cx="80" cy="74" rx="34" ry="38" fill="url(#leoSkin)"/>
+  <path d="M48 64c6-26 16-38 32-38s26 12 32 38c-10-12-20-16-32-16s-22 4-32 16z" fill="#451A03"/>
+  <path d="M50 66c10-10 18-12 30-12s20 2 30 12" fill="#451A03"/>
+  <!-- undercut side -->
+  <path d="M48 70c2-8 4-14 8-18 0 10 0 18-2 26-2-2-4-4-6-8z" fill="#78350F"/>
+  <rect x="70" y="100" width="20" height="20" rx="8" fill="#C68642"/>
+  <ellipse cx="68" cy="76" rx="3.2" ry="3.8" fill="#1A1A2E"/>
+  <ellipse cx="92" cy="76" rx="3.2" ry="3.8" fill="#1A1A2E"/>
+  <circle cx="69" cy="75" r="1" fill="#fff"/>
+  <circle cx="93" cy="75" r="1" fill="#fff"/>
+  <path d="M72 92c3 5 13 5 16 0" stroke="#8B4513" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- stubble hint -->
+  <path d="M64 96c6 8 26 8 32 0" stroke="#78350F" stroke-width="3" opacity=".15" stroke-linecap="round"/>
+</svg>

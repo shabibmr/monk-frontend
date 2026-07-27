@@ -1,0 +1,618 @@
+/* ============================================================================
+   Monk redesign — component library
+   Spec: design_context.md §7.1 (existing im_* widgets) and §7.2 (new)
+   Every rule here maps to a Flutter widget. No hex literals — tokens only.
+   ========================================================================= */
+
+/* --- Top nav (§5.4, §7.1) -------------------------------------------------
+   Brand + admin: full labelled nav. Creator: same, per the §5.4 ruling that
+   the mockup's nav-less creator bar is a marketing artifact, not a spec.
+   IA decision (§5.1): 5 primary items in the bar, remainder under the avatar.
+   -------------------------------------------------------------------------- */
+
+.topnav {
+  height: var(--nav-height);
+  display: flex; align-items: center; gap: var(--space-24);
+  padding: 0 var(--space-32);
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--hairline);
+  position: relative; z-index: 20;
+}
+.topnav__logo { display: flex; align-items: center; gap: var(--space-8); font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
+.topnav__mark {
+  width: 32px; height: 32px; border-radius: var(--radius-sm);
+  background: var(--gradient-hero);
+  display: grid; place-items: center;
+  color: var(--white); font-size: 15px; font-weight: 700;
+}
+.topnav__items { display: flex; align-items: center; gap: var(--space-4); }
+.topnav__actions { margin-left: auto; display: flex; align-items: center; gap: var(--space-8); }
+
+.navitem {
+  display: inline-flex; align-items: center; gap: var(--space-8);
+  height: 40px; padding: 0 var(--space-16);
+  border: 0; background: transparent; cursor: pointer;
+  border-radius: var(--radius-full);
+  color: var(--ink-600); font-size: 14px; font-weight: 600;
+  text-decoration: none; white-space: nowrap;
+  transition: background var(--dur-hover) var(--ease), color var(--dur-hover) var(--ease);
+}
+.navitem:hover { background: var(--surface); color: var(--ink-900); }
+.navitem[aria-current="page"] { background: var(--primary-100); color: var(--primary-600); }
+.navitem__icon { width: 20px; height: 20px; }
+
+/* Circular icon action (search, bell, chat) */
+.iconbtn {
+  position: relative;
+  width: var(--touch-target); height: var(--touch-target);
+  display: grid; place-items: center;
+  border: 0; background: transparent; cursor: pointer;
+  border-radius: var(--radius-full); color: var(--ink-600);
+  transition: background var(--dur-hover) var(--ease), color var(--dur-hover) var(--ease);
+}
+.iconbtn:hover { background: var(--surface); color: var(--ink-900); }
+.iconbtn--tinted { background: var(--primary-100); color: var(--primary-600); }
+
+/* Notification count badge (§7.2) — caps at 99+ */
+.badge-count {
+  position: absolute; top: 4px; right: 4px;
+  min-width: 18px; height: 18px; padding: 0 5px;
+  display: grid; place-items: center;
+  background: var(--secondary-600); color: var(--white);
+  border-radius: var(--radius-full);
+  font-size: 11px; font-weight: 700; line-height: 1;
+  border: 2px solid var(--surface-card);
+}
+
+/* Account menu + overflow (§5.1 IA decision) */
+.account { position: relative; }
+.account__trigger {
+  display: flex; align-items: center; gap: var(--space-8);
+  height: var(--touch-target); padding: 0 var(--space-8) 0 var(--space-4);
+  border: 0; background: transparent; cursor: pointer;
+  border-radius: var(--radius-full);
+  transition: background var(--dur-hover) var(--ease);
+}
+.account__trigger:hover { background: var(--surface); }
+.account__meta { text-align: left; line-height: 1.25; }
+.account__name { font-size: 14px; font-weight: 600; }
+.account__role { font-size: 12px; color: var(--ink-600); }
+
+.menu {
+  position: absolute; top: calc(100% + 8px); right: 0;
+  min-width: 220px; padding: var(--space-8);
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-float);
+  display: none; flex-direction: column; gap: 2px;
+  z-index: 40;
+}
+.menu[data-open="true"] { display: flex; }
+.menu__label {
+  padding: var(--space-8) var(--space-12) var(--space-4);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink-600);
+}
+.menu__item {
+  display: flex; align-items: center; gap: var(--space-12);
+  min-height: var(--touch-target); padding: 0 var(--space-12);
+  border: 0; background: transparent; cursor: pointer; width: 100%;
+  border-radius: var(--radius-sm);
+  color: var(--ink-900); font-size: 14px; text-align: left; text-decoration: none;
+  transition: background var(--dur-hover) var(--ease);
+}
+.menu__item:hover { background: var(--surface); }
+.menu__sep { height: 1px; margin: var(--space-8) var(--space-4); background: var(--divider); }
+
+/* --- Card (§7.1) ----------------------------------------------------------
+   §4: hairline first, whisper-shadow second. If you can point at the shadow,
+   it is too strong. Gradient cards carry NO hairline — the fill separates.
+   -------------------------------------------------------------------------- */
+
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-24);
+}
+.card--flush { padding: 0; overflow: hidden; }
+.card--tight { padding: var(--space-16); }
+.card--gradient { border: 0; color: var(--white); }
+.card--hero-grad  { background: var(--gradient-hero); }
+/* Pale wash — carries INK, not white. See the note on --gradient-warm. */
+.card--warm-grad  { background: var(--gradient-warm); color: var(--ink-900); }
+.card--cream-grad { background: var(--gradient-cream); border: 1px solid var(--hairline); color: var(--ink-900); }
+.card--dark-grad  { background: var(--gradient-dark); }
+
+/* --- Buttons (§7.1) ------------------------------------------------------- */
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--space-8);
+  min-height: var(--touch-target); padding: 0 var(--space-24);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  text-decoration: none; white-space: nowrap;
+  transition: background var(--dur-hover) var(--ease),
+              box-shadow var(--dur-hover) var(--ease),
+              transform var(--dur-press) var(--ease);
+}
+.btn:active { transform: scale(0.98); }
+.btn--primary { background: var(--primary-600); color: var(--white); }
+.btn--primary:hover { background: var(--primary-500); box-shadow: var(--shadow-float); }
+.btn--secondary { background: var(--surface-card); border-color: var(--ink-300); color: var(--ink-900); }
+.btn--secondary:hover { background: var(--surface); box-shadow: var(--shadow-card); }
+.btn--pill { border-radius: var(--radius-full); }
+.btn--sm { min-height: 36px; padding: 0 var(--space-16); font-size: 13px; }
+.btn--block { width: 100%; }
+
+/* Glass pill on gradient heroes */
+.btn--glass {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--white);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(12px);
+}
+.btn--glass:hover { background: rgba(255, 255, 255, 0.32); }
+
+/* "View all" — appears on nearly every section header. One component (§7.2). */
+.link-viewall {
+  display: inline-flex; align-items: center; gap: var(--space-4);
+  min-height: var(--touch-target); padding: 0 var(--space-8);
+  border: 0; background: transparent; cursor: pointer;
+  color: var(--primary-600); font-size: 14px; font-weight: 600;
+  text-decoration: none; border-radius: var(--radius-sm);
+}
+.link-viewall:hover { text-decoration: underline; }
+
+/* --- Icon chip (§5.3) -----------------------------------------------------
+   radiusMd squircle on desktop; full circle on mobile (§5.7).
+   -------------------------------------------------------------------------- */
+
+.chip-icon {
+  width: 44px; height: 44px; flex: 0 0 44px;
+  display: grid; place-items: center;
+  border-radius: var(--radius-md);
+  font-size: 20px;
+}
+.chip-icon--circle { border-radius: var(--radius-full); }
+.chip-icon--lg { width: 56px; height: 56px; flex-basis: 56px; }
+.chip-icon--sm { width: 36px; height: 36px; flex-basis: 36px; font-size: 16px; }
+
+.chip-lavender { background: var(--accent-lavender-100); color: var(--accent-lavender-600); }
+.chip-pink     { background: var(--accent-pink-100);     color: var(--accent-pink-600); }
+.chip-amber    { background: var(--accent-amber-100);    color: var(--accent-amber-600); }
+.chip-mint     { background: var(--accent-mint-100);     color: var(--accent-mint-600); }
+.chip-blue     { background: var(--accent-blue-100);     color: var(--accent-blue-600); }
+
+/* --- Stat row (§5.3) ------------------------------------------------------
+   NOT five separate tiles. ONE card, five equal columns, full-height
+   hairline dividers between them.
+   -------------------------------------------------------------------------- */
+
+.statrow { display: flex; align-items: stretch; padding: var(--space-24); gap: 0; }
+.statrow__col {
+  flex: 1 1 0; min-width: 0;
+  padding: 0 var(--space-16);
+  display: flex; gap: var(--space-12);
+}
+/* The value + trend pair must wrap rather than clip — "₹12.4L ↓6%" is the
+   longest real case and it overflowed a 5-column row at 1600px. */
+.statrow__figures { display: flex; align-items: baseline; gap: var(--space-8); flex-wrap: wrap; }
+.statrow__col + .statrow__col { border-left: 1px solid var(--divider); }
+.statrow__col:first-child { padding-left: 0; }
+.statrow__col:last-child { padding-right: 0; }
+.statrow__body { min-width: 0; }
+.statrow__label { font-size: 13px; color: var(--ink-600); margin-bottom: var(--space-4); }
+.statrow__value { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.statrow__foot { font-size: 12px; color: var(--ink-600); margin-top: var(--space-4); }
+
+/* Five columns cannot hold their shape on a narrow viewport. Below 900px the
+   row wraps to a 2-up grid and the vertical dividers are dropped — a wrapped
+   divider reads as a mistake. */
+@media (max-width: 900px) {
+  .statrow { flex-wrap: wrap; gap: var(--space-16) 0; }
+  .statrow__col { flex: 1 1 45%; padding: 0 var(--space-12); }
+  .statrow__col + .statrow__col { border-left: 0; }
+}
+@media (max-width: 480px) {
+  .statrow__col { flex-basis: 100%; }
+}
+
+/* Trend delta — arrow glyph carries the meaning too, never colour alone (§9) */
+.trend { display: inline-flex; align-items: center; gap: 2px; font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.trend--up { color: var(--success-600); }
+.trend--down { color: var(--danger-600); }
+
+/* --- Status chip + marketing tag (§7.1, §7.2) -----------------------------
+   Status chips map to EntityStatus. Hot/New are marketing tags and must NOT
+   be forced into the domain enum (§11).
+   -------------------------------------------------------------------------- */
+
+.chip {
+  display: inline-flex; align-items: center; gap: var(--space-4);
+  padding: 4px var(--space-12);
+  border-radius: var(--radius-full);
+  font-size: 12px; font-weight: 600; white-space: nowrap;
+}
+.chip--success { background: var(--success-100); color: var(--success-600); }
+.chip--warning { background: var(--warning-100); color: var(--warning-600); }
+.chip--danger  { background: var(--danger-100);  color: var(--danger-600); }
+.chip--info    { background: var(--info-100);    color: var(--info-600); }
+.chip--ink     { background: var(--surface-subtle); color: var(--ink-600); border: 1px solid var(--hairline); }
+.chip--primary { background: var(--primary-100); color: var(--primary-600); }
+
+.tag { display: inline-flex; align-items: center; padding: 3px var(--space-8); border-radius: var(--radius-sm); font-size: 11px; font-weight: 700; }
+.tag--hot { background: var(--tag-hot-100); color: var(--tag-hot-600); }
+.tag--new { background: var(--tag-new-100); color: var(--tag-new-600); }
+
+/* --- Avatar + avatar stack (§7.2) ----------------------------------------- */
+
+.avatar {
+  width: 40px; height: 40px; flex: 0 0 40px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-hero);
+  display: grid; place-items: center;
+  color: var(--white); font-weight: 700; font-size: 14px;
+  overflow: hidden;
+}
+.avatar--sm { width: 32px; height: 32px; flex-basis: 32px; font-size: 12px; }
+.avatar--lg { width: 48px; height: 48px; flex-basis: 48px; font-size: 16px; }
+
+.avstack { display: flex; align-items: center; }
+.avstack .avatar {
+  width: 30px; height: 30px; flex-basis: 30px; font-size: 11px;
+  border: 2px solid var(--surface-card);
+}
+.avstack .avatar + .avatar { margin-left: -10px; }
+.avstack__more {
+  margin-left: -10px;
+  height: 30px; min-width: 30px; padding: 0 var(--space-8);
+  display: grid; place-items: center;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--surface-card);
+  background: var(--ink-300); color: var(--ink-900);
+  font-size: 11px; font-weight: 700;
+}
+
+/* Verified badge (§7.2) */
+.verified { display: inline-grid; place-items: center; width: 16px; height: 16px; border-radius: var(--radius-full); background: var(--info-600); color: var(--white); font-size: 10px; }
+
+/* Info tooltip trigger — focusable, hover AND tap (§7.2, §9) */
+.info-dot {
+  display: inline-grid; place-items: center;
+  width: 16px; height: 16px; border-radius: var(--radius-full);
+  border: 1px solid currentColor; background: transparent;
+  color: var(--ink-600); font-size: 10px; font-weight: 700;
+  cursor: help; padding: 0;
+}
+/* Scoped to the DARK gradients only — on the pale warm/cream washes the
+   trigger must stay ink or it disappears. */
+.card--hero-grad .info-dot,
+.card--dark-grad .info-dot { color: rgba(255, 255, 255, 0.8); }
+
+/* --- Progress bar (§7.1) -------------------------------------------------- */
+
+.progress { height: 4px; border-radius: var(--radius-full); background: rgba(209, 213, 219, 0.3); overflow: hidden; }
+.progress__fill { height: 100%; border-radius: var(--radius-full); background: var(--primary-600); transition: width var(--dur-progress) var(--ease); }
+.progress--thick { height: 6px; }
+.progress--grad .progress__fill { background: var(--gradient-hero); }
+
+/* --- Hero card (§7.2) ----------------------------------------------------- */
+
+.hero { display: flex; align-items: center; gap: var(--space-32); }
+.hero__body { flex: 1 1 auto; min-width: 0; }
+.hero__art { flex: 0 0 200px; height: 150px; }
+@media (max-width: 760px) { .hero { flex-direction: column; align-items: flex-start; } .hero__art { flex-basis: auto; width: 100%; } }
+
+/* --- Carousel (§5.3, §7.2) ------------------------------------------------ */
+
+.carousel { position: relative; }
+.carousel__track {
+  display: flex; gap: var(--space-16);
+  overflow-x: auto; scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: var(--space-4) 0 var(--space-12);
+  scrollbar-width: none;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+.carousel__item { flex: 0 0 232px; scroll-snap-align: start; }
+
+/* Floating circular chevron, overlaps the card edge. Hidden at extents. */
+.carousel__nav {
+  position: absolute; top: 88px; z-index: 5;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: var(--radius-full);
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-float);
+  color: var(--ink-900); cursor: pointer;
+  transition: opacity var(--dur-hover) var(--ease);
+}
+.carousel__nav--prev { left: -16px; }
+.carousel__nav--next { right: -16px; }
+.carousel__nav[disabled] { opacity: 0; pointer-events: none; }
+
+/* Campaign card */
+.campaign { display: flex; flex-direction: column; gap: var(--space-8); }
+.campaign__media { position: relative; height: 116px; border-radius: var(--radius-md); overflow: hidden; }
+.campaign__badge { position: absolute; top: var(--space-8); right: var(--space-8); }
+.campaign__avatars { position: absolute; left: var(--space-8); bottom: var(--space-8); }
+.campaign__title { font-size: 14px; font-weight: 600; }
+.campaign__sub { font-size: 12px; color: var(--ink-600); }
+.campaign__money { font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* --- Quick action tile (§7.2) --------------------------------------------- */
+
+.qa-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-12); }
+.qa {
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-8);
+  padding: var(--space-8) var(--space-4);
+  border: 0; background: transparent; cursor: pointer;
+  border-radius: var(--radius-md);
+  color: var(--ink-900); font-size: 12px; text-align: center; text-decoration: none;
+  transition: background var(--dur-hover) var(--ease);
+}
+.qa:hover { background: var(--surface); }
+
+/* --- List rows ------------------------------------------------------------ */
+
+.listrow { display: flex; align-items: center; gap: var(--space-12); padding: var(--space-12) 0; }
+.listrow + .listrow { border-top: 1px solid var(--divider); }
+.listrow__body { flex: 1; min-width: 0; }
+.listrow__title { font-size: 14px; font-weight: 600; }
+.listrow__sub { font-size: 12px; color: var(--ink-600); }
+.listrow__meta { font-size: 12px; color: var(--ink-600); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* Ranked list row — medal badge (§7.2) */
+.medal {
+  width: 22px; height: 22px; flex: 0 0 22px;
+  display: grid; place-items: center;
+  border-radius: var(--radius-full);
+  font-size: 11px; font-weight: 700; color: var(--white);
+}
+.medal--1 { background: var(--accent-amber-600); }
+.medal--2 { background: var(--ink-600); }
+.medal--3 { background: var(--accent-orange-500); color: var(--ink-900); }
+
+/* Task row with points (§7.2) */
+.task { display: flex; align-items: center; gap: var(--space-12); padding: var(--space-12) 0; }
+.task__check {
+  width: 22px; height: 22px; flex: 0 0 22px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--ink-300); background: transparent;
+  cursor: pointer; display: grid; place-items: center;
+  color: transparent; font-size: 12px;
+  transition: background var(--dur-hover) var(--ease), border-color var(--dur-hover) var(--ease);
+}
+.task__check[aria-checked="true"] { background: var(--success-600); border-color: var(--success-600); color: var(--white); }
+.task__pts { font-size: 12px; font-weight: 700; color: var(--success-600); font-variant-numeric: tabular-nums; }
+
+/* Timeline list — "What's next?" (§7.2) */
+.timeline { display: flex; flex-direction: column; }
+.timeline__item { display: flex; gap: var(--space-12); position: relative; padding-bottom: var(--space-24); }
+.timeline__item:last-child { padding-bottom: 0; }
+.timeline__item:not(:last-child)::before {
+  content: ""; position: absolute; left: 19px; top: 40px; bottom: 4px;
+  width: 1px; background: var(--ink-300);
+}
+.timeline__body { padding-top: 2px; }
+
+/* Social icon row (§7.2) */
+.socials { display: flex; align-items: center; gap: var(--space-8); }
+.social {
+  width: 32px; height: 32px; display: grid; place-items: center;
+  border-radius: var(--radius-full); background: var(--surface-subtle);
+  border: 1px solid var(--hairline); font-size: 14px;
+}
+.social--more { font-size: 11px; font-weight: 700; color: var(--ink-600); }
+
+/* --- Forms (§7.1, §7.2) --------------------------------------------------- */
+
+.field { display: flex; flex-direction: column; gap: var(--space-8); min-width: 0; }
+.field__label { font-size: 14px; font-weight: 600; }
+.req { color: var(--danger-600); } /* pair with aria-required — never colour alone */
+
+.input, .select, .textarea {
+  width: 100%;
+  min-height: var(--touch-target);
+  padding: var(--space-12) var(--space-16);
+  background: var(--surface-card);
+  border: 1px solid var(--ink-300);
+  border-radius: var(--radius-md);
+  font-size: 14px; color: var(--ink-900);
+  transition: border-color var(--dur-hover) var(--ease), box-shadow var(--dur-hover) var(--ease);
+}
+.input::placeholder, .textarea::placeholder { color: var(--ink-600); }
+.input:focus, .select:focus, .textarea:focus {
+  outline: none; border-color: var(--primary-600);
+  box-shadow: 0 0 0 1px var(--primary-600);
+}
+.textarea { min-height: 116px; resize: vertical; }
+.select { appearance: none; cursor: pointer; padding-right: var(--space-32); }
+
+.field__wrap { position: relative; }
+.field__chevron { position: absolute; right: var(--space-16); top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--ink-600); }
+.counter { position: absolute; right: var(--space-16); bottom: var(--space-12); font-size: 12px; color: var(--ink-600); font-variant-numeric: tabular-nums; }
+.counter--full { color: var(--danger-600); }
+.field__counter-inline { position: absolute; right: var(--space-16); top: 50%; transform: translateY(-50%); font-size: 12px; color: var(--ink-600); font-variant-numeric: tabular-nums; }
+
+/* Segmented toggle (§7.2) */
+.segmented { display: inline-flex; gap: var(--space-4); padding: var(--space-4); background: var(--surface-subtle); border: 1px solid var(--hairline); border-radius: var(--radius-md); }
+.segmented__btn {
+  min-height: 36px; padding: 0 var(--space-16);
+  border: 0; background: transparent; cursor: pointer;
+  border-radius: var(--radius-sm);
+  font-size: 13px; font-weight: 600; color: var(--ink-600);
+  transition: background var(--dur-hover) var(--ease), color var(--dur-hover) var(--ease);
+}
+.segmented__btn[aria-pressed="true"] { background: var(--surface-card); color: var(--primary-600); box-shadow: var(--shadow-card); }
+
+/* Selectable option card (§7.2) */
+.optcard {
+  position: relative;
+  display: flex; align-items: center; gap: var(--space-12);
+  padding: var(--space-16);
+  background: var(--surface-card);
+  border: 1px solid var(--ink-300);
+  border-radius: var(--radius-md);
+  cursor: pointer; text-align: left; width: 100%;
+  font-size: 13px; font-weight: 600; color: var(--ink-900);
+  transition: border-color var(--dur-hover) var(--ease), background var(--dur-hover) var(--ease);
+}
+.optcard:hover { border-color: var(--primary-500); }
+.optcard[aria-pressed="true"] { background: var(--primary-100); border-color: var(--primary-600); }
+.optcard__check {
+  position: absolute; top: -8px; right: -8px;
+  width: 22px; height: 22px; display: none; place-items: center;
+  border-radius: var(--radius-full);
+  background: var(--primary-600); color: var(--white); font-size: 11px;
+  border: 2px solid var(--surface-card);
+}
+.optcard[aria-pressed="true"] .optcard__check { display: grid; }
+
+/* --- Stepper (§5.6, §7.1) ------------------------------------------------- */
+
+.stepper { display: flex; align-items: center; gap: var(--space-8); }
+.step { display: flex; align-items: center; gap: var(--space-8); }
+.step__num {
+  width: 32px; height: 32px; flex: 0 0 32px;
+  display: grid; place-items: center;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--ink-300); background: var(--surface-card);
+  color: var(--ink-600); font-size: 13px; font-weight: 700;
+  transition: background var(--dur-panel) var(--ease), color var(--dur-panel) var(--ease);
+}
+.step__label { font-size: 13px; font-weight: 600; color: var(--ink-600); white-space: nowrap; }
+.step[data-state="active"] .step__num { background: var(--primary-600); border-color: var(--primary-600); color: var(--white); }
+.step[data-state="active"] .step__label { color: var(--primary-600); }
+.step[data-state="done"] .step__num { background: var(--primary-600); border-color: var(--primary-600); color: var(--white); }
+.step[data-state="done"] .step__label { color: var(--ink-900); }
+.step__link { flex: 1 1 auto; min-width: 24px; height: 1px; background: var(--ink-300); }
+.step__link[data-done="true"] { background: var(--primary-600); }
+
+/* --- Charts (§11) --------------------------------------------------------- */
+
+.chart { width: 100%; height: auto; display: block; }
+.chart__line { fill: none; stroke: var(--primary-600); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.chart__area { fill: url(#areaFill); }
+.chart__dot { fill: var(--primary-600); }
+.chart__dot--last { fill: var(--surface-card); stroke: var(--primary-600); stroke-width: 3; }
+.chart__grid { stroke: var(--ink-300); stroke-opacity: 0.3; stroke-width: 1; }
+.chart__axis { fill: var(--ink-600); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+/* SVG gradient stops. `stop-color` is a presentation attribute, so CSS can
+   drive it from tokens — this keeps hex literals out of the HTML entirely. */
+.chart__stop-from { stop-color: var(--primary-600); stop-opacity: 0.2; }
+.chart__stop-to   { stop-color: var(--primary-600); stop-opacity: 0; }
+.chart__stop-from--dark { stop-color: var(--white); stop-opacity: 0.15; }
+.chart__stop-to--dark   { stop-color: var(--white); stop-opacity: 0; }
+
+/* Dark variant — inverts to white line/dots on the gradientDark panel */
+.chart--dark .chart__line { stroke: var(--white); }
+.chart--dark .chart__area { fill: url(#areaFillDark); }
+.chart--dark .chart__dot { fill: var(--white); }
+.chart--dark .chart__dot--last { fill: var(--white); stroke: rgba(255,255,255,0.5); }
+.chart--dark .chart__axis { fill: rgba(255, 255, 255, 0.7); }
+
+/* --- Mobile chrome (§5.7) ------------------------------------------------- */
+
+.phone { max-width: 420px; margin: 0 auto; background: var(--surface); min-height: 100vh; position: relative; padding-bottom: 96px; }
+.phone__statusbar { display: flex; align-items: center; justify-content: space-between; padding: var(--space-12) var(--space-24) var(--space-4); font-size: 13px; font-weight: 600; }
+.phone__body { padding: var(--space-16); display: flex; flex-direction: column; gap: var(--space-16); }
+
+/* Mobile stat tiles — FOUR ACROSS in one row, not a 2x2 grid (§5.7) */
+.statgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-8); }
+.stattile { background: var(--surface-subtle); border: 1px solid var(--hairline); border-radius: var(--radius-md); padding: var(--space-12) var(--space-8); text-align: center; }
+.stattile__value { font-family: var(--font-display); font-size: 17px; font-weight: 700; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stattile__label { font-size: 10px; color: var(--ink-600); margin-top: 2px; }
+
+.qa-scroll { display: flex; gap: var(--space-16); overflow-x: auto; padding-bottom: var(--space-4); scrollbar-width: none; }
+.qa-scroll::-webkit-scrollbar { display: none; }
+.qa-scroll .qa { flex: 0 0 auto; width: 76px; }
+
+/* Bottom tab bar + centre FAB */
+.tabbar {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 420px; height: var(--nav-height-compact);
+  display: grid; grid-template-columns: repeat(5, 1fr); align-items: center;
+  background: var(--surface-card);
+  border-top: 1px solid var(--hairline);
+  box-shadow: var(--shadow-nav);
+  z-index: 30;
+}
+.tab {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  border: 0; background: transparent; cursor: pointer;
+  color: var(--ink-600); font-size: 11px; font-weight: 600;
+  padding: var(--space-8) 0; position: relative;
+  transition: color var(--dur-hover) var(--ease);
+}
+.tab[aria-current="page"] { color: var(--primary-600); }
+.tab__icon { font-size: 18px; }
+.tab__badge {
+  position: absolute; top: 2px; right: 50%; margin-right: -20px;
+  min-width: 16px; height: 16px; padding: 0 4px;
+  display: grid; place-items: center;
+  background: var(--secondary-600); color: var(--white);
+  border-radius: var(--radius-full); font-size: 10px; font-weight: 700;
+}
+.fab {
+  position: absolute; left: 50%; top: -22px; transform: translateX(-50%);
+  width: 56px; height: 56px;
+  display: grid; place-items: center;
+  border: 0; border-radius: var(--radius-full);
+  background: var(--gradient-hero); color: var(--white);
+  font-size: 26px; line-height: 1; cursor: pointer;
+  box-shadow: var(--shadow-float);
+}
+
+/* --- States (§10) --------------------------------------------------------- */
+
+.empty { display: flex; flex-direction: column; align-items: center; gap: var(--space-16); padding: var(--space-48) var(--space-24); text-align: center; }
+.empty__art { width: 120px; height: 120px; border-radius: var(--radius-lg); }
+
+.skeleton {
+  background: var(--surface-subtle);
+  border-radius: var(--radius-md);
+  position: relative; overflow: hidden;
+}
+.skeleton::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(209,213,219,0.2), transparent);
+  animation: shimmer var(--dur-shimmer) linear infinite;
+}
+.skeleton--text { height: 12px; border-radius: var(--radius-full); }
+@keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+/* Reduced motion: hold a static mid-tone rather than looping (§6). */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after { animation: none; background: rgba(209, 213, 219, 0.12); }
+}
+
+.errorpanel { display: flex; gap: var(--space-12); padding: var(--space-16); background: var(--danger-100); border-radius: var(--radius-md); color: var(--ink-900); }
+.errorpanel__icon { color: var(--danger-600); font-size: 18px; }
+
+/* --- Manager context bar (§5.5) ------------------------------------------ */
+.mgrbar {
+  display: flex; align-items: center; gap: var(--space-12);
+  padding: var(--space-12) var(--space-32);
+  background: var(--warning-100); color: var(--warning-600);
+  font-size: 13px; font-weight: 600;
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* --- Spec annotation (mockup-only; not a product component) --------------- */
+.note {
+  display: flex; gap: var(--space-8);
+  padding: var(--space-12) var(--space-16);
+  border-left: 3px solid var(--primary-600);
+  background: var(--primary-100);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 12px; line-height: 1.5; color: var(--ink-900);
+}
+.note code { font-size: 11px; background: rgba(255,255,255,0.6); padding: 1px 4px; border-radius: 3px; }

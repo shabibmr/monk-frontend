@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create Campaign — Influencer Monk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/avatars.css" />
+  <link rel="stylesheet" href="css/backgrounds.css" />
+  <style>
+    .form-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: var(--space-24);
+      align-items: start;
+    }
+    .form-card h2 {
+      font-size: 18px;
+      color: var(--primary);
+      margin-bottom: var(--space-24);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--space-32);
+      padding-top: var(--space-24);
+      border-top: 1px solid var(--divider);
+    }
+    .preview-media {
+      height: 140px;
+      border-radius: var(--radius-image);
+      background: linear-gradient(135deg, #fce7f3, #fbcfe8 40%, #fde68a);
+      display: grid;
+      place-items: center;
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .next-list { display: flex; flex-direction: column; gap: 16px; }
+    .next-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .next-item__num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary-100);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 960px) {
+      .form-layout { grid-template-columns: 1fr; }
+      .goal-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body class="bg-glow has-bg-scene">
+  <header class="top-nav">
+    <div class="top-nav__left">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">✦</span>
+        <span>Influencer <span class="accent">Monk</span></span>
+      </a>
+    </div>
+    <nav class="top-nav__center" aria-label="Primary">
+      <a class="nav-link" href="brand-dashboard.html">🏠 <span class="label">Home</span></a>
+      <a class="nav-link is-active" href="campaign-create.html">📣 <span class="label">Campaigns</span></a>
+      <a class="nav-link" href="#">👥 <span class="label">Creators</span></a>
+      <a class="nav-link" href="#">📊 <span class="label">Analytics</span></a>
+      <a class="nav-link" href="#">💬 <span class="label">Messages</span> <span class="badge-dot">8</span></a>
+    </nav>
+    <div class="top-nav__right">
+      <button class="icon-btn" type="button" aria-label="Notifications">🔔<span class="ping"></span></button>
+      <button class="profile-chip" type="button">
+        <span class="char char--sm">
+          <img src="assets/chars/luxe.svg" alt="" width="34" height="34" />
+        </span>
+        <span class="profile-chip__meta">
+          <strong>LuxeGlow</strong>
+          <span>Brand Account</span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="mb-16">
+      <h1 style="font-size:32px;letter-spacing:-0.03em">Create New Campaign ✨</h1>
+      <p class="text-muted mt-8">Let’s build something amazing together!</p>
+    </div>
+
+    <div class="stepper" role="list">
+      <div class="stepper__step is-active" role="listitem">
+        <span class="stepper__num">1</span> Basic Info
+      </div>
+      <span class="stepper__line" aria-hidden="true"></span>
+      <div class="stepper__step" role="listitem">
+        <span class="stepper__num">2</span> Creators
+      </div>
+      <span class="stepper__line" aria-hidden="true"></span>
+      <div class="stepper__step" role="listitem">
+        <span class="stepper__num">3</span> Content & Deliverables
+      </div>
+      <span class="stepper__line" aria-hidden="true"></span>
+      <div class="stepper__step" role="listitem">
+        <span class="stepper__num">4</span> Budget & Timeline
+      </div>
+      <span class="stepper__line" aria-hidden="true"></span>
+      <div class="stepper__step" role="listitem">
+        <span class="stepper__num">5</span> Review & Launch
+      </div>
+    </div>
+
+    <div class="form-layout">
+      <form class="card form-card" onsubmit="return false;">
+        <h2>📋 Basic Information</h2>
+
+        <div class="grid-2 mb-16">
+          <div class="field">
+            <label for="campaign-name">Campaign Name <span class="req">*</span></label>
+            <input id="campaign-name" type="text" placeholder="Give your campaign a catchy name" maxlength="80" data-count-for="#name-count" />
+            <span class="hint" id="name-count">0/80</span>
+          </div>
+          <div class="field">
+            <label for="brand">Brand <span class="req">*</span></label>
+            <select id="brand">
+              <option selected>✦ LuxeGlow</option>
+              <option>Glow Labs</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2 mb-16">
+          <div class="field">
+            <label for="category">Campaign Category <span class="req">*</span></label>
+            <select id="category">
+              <option value="">Select category</option>
+              <option>Beauty</option>
+              <option>Lifestyle</option>
+              <option>Fashion</option>
+              <option>Technology</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="type">Campaign Type <span class="req">*</span></label>
+            <select id="type">
+              <option value="">Select campaign type</option>
+              <option>Paid collab</option>
+              <option>Barter</option>
+              <option>Affiliate</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field mb-16">
+          <label for="desc">Campaign Description <span class="req">*</span></label>
+          <textarea id="desc" placeholder="Tell creators about your brand, goals and what you’re looking for…" maxlength="500" data-count-for="#desc-count"></textarea>
+          <span class="hint" id="desc-count">0/500</span>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <div class="fw-600 text-sm mb-8">Campaign Goals</div>
+            <p class="text-xs text-muted mb-16">What do you want to achieve with this campaign?</p>
+            <div class="goal-grid" data-select-group data-multi="true">
+              <button type="button" class="goal-tile is-selected" data-select>
+                <span class="goal-tile__check">✓</span>
+                <div class="goal-tile__icon">📣</div>
+                Brand Awareness
+              </button>
+              <button type="button" class="goal-tile" data-select>
+                <span class="goal-tile__check">✓</span>
+                <div class="goal-tile__icon">💬</div>
+                Engagement
+              </button>
+              <button type="button" class="goal-tile" data-select>
+                <span class="goal-tile__check">✓</span>
+                <div class="goal-tile__icon">🛍</div>
+                Sales
+              </button>
+              <button type="button" class="goal-tile" data-select>
+                <span class="goal-tile__check">✓</span>
+                <div class="goal-tile__icon">🎯</div>
+                Leads
+              </button>
+              <button type="button" class="goal-tile" data-select>
+                <span class="goal-tile__check">✓</span>
+                <div class="goal-tile__icon">🚀</div>
+                Product Launch
+              </button>
+              <button type="button" class="goal-tile" data-select>
+                <span class="goal-tile__check">✓</span>
+                <div class="goal-tile__icon">···</div>
+                Other
+              </button>
+            </div>
+          </div>
+          <div>
+            <div class="fw-600 text-sm mb-8">Target Audience <span class="text-soft fw-500">(Optional)</span></div>
+            <p class="text-xs text-muted mb-16">Define your ideal audience</p>
+            <div class="field mb-16">
+              <label>Age Range</label>
+              <div class="flex gap-8 items-center">
+                <select style="flex:1"><option>18</option><option>21</option><option>25</option></select>
+                <span class="text-muted">to</span>
+                <select style="flex:1"><option>35+</option><option>45+</option><option>55+</option></select>
+              </div>
+            </div>
+            <div class="mb-16">
+              <div class="text-sm fw-600 mb-8">Gender</div>
+              <div class="flex gap-8 flex-wrap" data-chip-group>
+                <button type="button" class="chip chip--outline is-selected">All</button>
+                <button type="button" class="chip chip--outline">Male</button>
+                <button type="button" class="chip chip--outline">Female</button>
+                <button type="button" class="chip chip--outline">Other</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="locations">Locations</label>
+              <input id="locations" type="text" placeholder="📍 Add locations (e.g., India, USA, UAE)" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a class="btn btn--secondary" href="brand-dashboard.html">Cancel</a>
+          <button class="btn btn--primary" type="button" data-save-continue>Save & Continue →</button>
+        </div>
+      </form>
+
+      <aside class="dash__rail">
+        <section class="card" style="background:var(--grad-warm);border:none;color:white">
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="fw-700">💡 Pro Tip</div>
+              <p class="text-sm mt-12" style="opacity:.95;max-width:200px">A clear campaign brief gets you better creators and content.</p>
+            </div>
+            <span style="font-size:40px">🎯</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <h3>Campaign Preview</h3>
+            <span>✨</span>
+          </div>
+          <div class="preview-media">🧴</div>
+          <div class="flex items-center gap-8 mb-8">
+            <strong data-preview-name>Campaign Name</strong>
+            <span class="chip chip--warning" style="height:22px">Draft</span>
+          </div>
+          <p class="text-xs text-muted">📂 Campaign Category</p>
+          <p class="text-xs text-muted mt-8">📅 Dates —</p>
+        </section>
+
+        <section class="card" style="background:var(--primary-50);border-color:var(--primary-100)">
+          <h3 class="text-primary mb-16" style="font-size:16px">What’s next?</h3>
+          <div class="next-list">
+            <div class="next-item">
+              <div class="char-stack" style="width:auto;margin-top:2px">
+                <span class="char char--sm"><img src="assets/chars/ananya.svg" alt="" /></span>
+                <span class="char char--sm"><img src="assets/chars/rohit.svg" alt="" /></span>
+                <span class="char char--sm"><img src="assets/chars/megha.svg" alt="" /></span>
+              </div>
+              <div>
+                <div class="fw-600 text-sm">Select the right creators</div>
+                <div class="text-xs text-muted">We’ll help you find the perfect match</div>
+              </div>
+            </div>
+            <div class="next-item">
+              <span class="next-item__num">📋</span>
+              <div>
+                <div class="fw-600 text-sm">Define content & deliverables</div>
+                <div class="text-xs text-muted">Set clear expectations</div>
+              </div>
+            </div>
+            <div class="next-item">
+              <span class="next-item__num">📅</span>
+              <div>
+                <div class="fw-600 text-sm">Set budget & timeline</div>
+                <div class="text-xs text-muted">Plan your campaign schedule</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collabify / Influencer Monk — Gemini Design Opinion Prototypes</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .showcase-hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--gradient-hero);
+      color: white;
+      border-radius: var(--radius-lg);
+      margin-bottom: 40px;
+    }
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .showcase-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      border: var(--border-card);
+      box-shadow: var(--shadow-card);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .showcase-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-float);
+    }
+    .token-preview {
+      display: flex;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="logo-brand">
+      <div class="logo-mark">∞</div>
+      <span>Collabify</span>
+    </div>
+    <div class="nav-links">
+      <span style="font-size: 14px; font-weight: 600; color: var(--primary-600);">Gemini Design Opinion v2.0</span>
+    </div>
+  </header>
+
+  <main class="app-container">
+    <div class="showcase-hero">
+      <h1 style="font-family: var(--font-display); font-size: 44px;">Soft Premium Creator Platform</h1>
+      <p style="font-size: 18px; opacity: 0.9; margin-top: 8px;">Interactive HTML/CSS/JS Prototype Suite adhering to <code style="background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 4px;">design_context_2.md</code></p>
+    </div>
+
+    <div class="showcase-grid">
+      <!-- Brand Dashboard Card -->
+      <div class="showcase-card">
+        <div>
+          <span class="status-pill pill-live" style="position: static;">Desktop Layout</span>
+          <h2 style="font-family: var(--font-display); font-size: 24px; margin-top: 12px;">Brand Dashboard</h2>
+          <p style="color: var(--ink-600); font-size: 14px; margin-top: 8px;">3-column grid featuring Brand Score card, 5 category stat tiles, Active Campaigns carousel with creator avatar stack, spend overview chart, and recent activity feed.</p>
+          <div class="token-preview">
+            <div class="swatch" style="background: #6D3FF0;" title="Primary Violet (#6D3FF0)"></div>
+            <div class="swatch" style="background: #FF6FB7;" title="Warm Gradient Start (#FF6FB7)"></div>
+            <div class="swatch" style="background: #EDE7FD;" title="Lavender Tint (#EDE7FD)"></div>
+            <div class="swatch" style="background: #D1FAE5;" title="Mint Tint (#D1FAE5)"></div>
+          </div>
+        </div>
+        <a href="brand-dashboard.html" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Launch Brand Dashboard →</a>
+      </div>
+
+      <!-- Creator Dashboard Card -->
+      <div class="showcase-card">
+        <div>
+          <span class="status-pill pill-hot" style="position: static;">Desktop & Mobile</span>
+          <h2 style="font-family: var(--font-display); font-size: 24px; margin-top: 12px;">Creator Dashboard</h2>
+          <p style="color: var(--ink-600); font-size: 14px; margin-top: 8px;">Expressive handwritten script greeting (*"Hey Ananya!"*), 3D Ananya Mascot hero card, Influence Score chart, Brands carousel, gamified task list, and dark velvet earnings panel.</p>
+          <div class="token-preview">
+            <div class="swatch" style="background: #EC4899;" title="Secondary Pink (#EC4899)"></div>
+            <div class="swatch" style="background: #231754;" title="Dark Panel Velvet (#231754)"></div>
+            <div class="swatch" style="background: #FEF3C7;" title="Amber Tint (#FEF3C7)"></div>
+            <div class="swatch" style="background: #FCE7F3;" title="Pink Tint (#FCE7F3)"></div>
+          </div>
+        </div>
+        <a href="creator-dashboard.html" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Launch Creator Dashboard →</a>
+      </div>
+
+      <!-- Campaign Create Form Card -->
+      <div class="showcase-card">
+        <div>
+          <span class="status-pill pill-progress" style="position: static;">Multi-Step Form</span>
+          <h2 style="font-family: var(--font-display); font-size: 24px; margin-top: 12px;">Campaign Create Form</h2>
+          <p style="color: var(--ink-600); font-size: 14px; margin-top: 8px;">5-step numbered circle stepper, interactive 2×3 Campaign Goals selection grid, 3D Target Pro Tip callout card, live campaign preview card, and step roadmap.</p>
+          <div class="token-preview">
+            <div class="swatch" style="background: #6D3FF0;" title="Primary Violet (#6D3FF0)"></div>
+            <div class="swatch" style="background: #FFB54D;" title="Warm Amber (#FFB54D)"></div>
+            <div class="swatch" style="background: #DBEAFE;" title="Blue Tint (#DBEAFE)"></div>
+            <div class="swatch" style="background: #ECECF3;" title="Hairline Border (#ECECF3)"></div>
+          </div>
+        </div>
+        <a href="campaign-create.html" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Launch Campaign Form →</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" role="img" aria-label="Priya">
+  <defs>
+    <linearGradient id="pBg" x1="0" y1="0" x2="160" y2="160">
+      <stop stop-color="#EDE9FE"/><stop offset="1" stop-color="#FCE7F3"/>
+    </linearGradient>
+    <linearGradient id="pSkin" x1="50" y1="40" x2="110" y2="120">
+      <stop stop-color="#D4A574"/><stop offset="1" stop-color="#C68642"/>
+    </linearGradient>
+  </defs>
+  <circle cx="80" cy="80" r="80" fill="url(#pBg)"/>
+  <path d="M30 152c8-28 28-42 50-42s42 14 50 42" fill="#7C3AED"/>
+  <path d="M42 152c6-16 18-26 38-26s32 10 38 26" fill="#6D3EF5"/>
+  <!-- long hair -->
+  <ellipse cx="80" cy="90" rx="46" ry="58" fill="#1C0A00"/>
+  <rect x="70" y="102" width="20" height="22" rx="8" fill="#C68642"/>
+  <ellipse cx="80" cy="76" rx="32" ry="36" fill="url(#pSkin)"/>
+  <path d="M48 72c2-28 16-44 32-44s30 16 32 44c-8-16-18-22-32-22s-24 6-32 22z" fill="#1C0A00"/>
+  <path d="M52 70c8-14 16-20 28-20s20 6 28 20c-8-6-16-8-28-8s-20 2-28 8z" fill="#2A1208"/>
+  <ellipse cx="68" cy="76" rx="3" ry="3.5" fill="#1A1A2E"/>
+  <ellipse cx="92" cy="76" rx="3" ry="3.5" fill="#1A1A2E"/>
+  <circle cx="69" cy="75" r="1" fill="#fff"/>
+  <circle cx="93" cy="75" r="1" fill="#fff"/>
+  <path d="M61 69c3-2 9-2 12 0" stroke="#1C0A00" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M87 69c3-2 9-2 12 0" stroke="#1C0A00" stroke-width="1.8" stroke-linecap="round"/>
+  <ellipse cx="60" cy="86" rx="5" ry="3" fill="#F46DB4" opacity=".25"/>
+  <ellipse cx="100" cy="86" rx="5" ry="3" fill="#F46DB4" opacity=".25"/>
+  <path d="M72 92c3 5 13 5 16 0" stroke="#A0522D" stroke-width="2" stroke-linecap="round"/>
+  <!-- bindi -->
+  <circle cx="80" cy="66" r="2.2" fill="#F46DB4"/>
+  <!-- nose stud -->
+  <circle cx="86" cy="84" r="1.4" fill="#FFB54D"/>
+</svg>

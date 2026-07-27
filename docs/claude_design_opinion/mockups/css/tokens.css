@@ -1,0 +1,129 @@
+/* ============================================================================
+   Monk redesign — design tokens
+   Source of truth: docs/claude_design_opinion/design_context.md §1–§4, §6
+   Mirrors the Dart identifiers in apps/monk/lib/core/theme/tokens.dart so the
+   mapping in TOKEN_MIGRATION.md is a straight three-column table.
+
+   RULE: this is the ONLY file in mockups/css that may contain a hex literal.
+   ========================================================================= */
+
+:root {
+  /* --- Brand -------------------------------------------------------------- */
+  --primary-600: #6d3ff0;   /* buttons, active nav pill, links, focus ring   */
+  --primary-500: #8a63f5;   /* hover, gradient start                          */
+  --primary-100: #ede7fd;   /* selected/tinted fills                          */
+  --secondary-600: #ec4899; /* creator portal primary, notification dot       */
+  --secondary-100: #fce4f1;
+  --admin-600: #4c1d95;     /* admin portal primary                           */
+
+  /* --- Accent stat-chip pairs (§1) ---------------------------------------- */
+  --accent-orange-500: #fb923c;  /* DECORATIVE ONLY — never behind text (§9) */
+  --accent-amber-100: #fef3c7;
+  --accent-amber-600: #b45309;   /* a11y: darkened from #D97706 (3.19:1)     */
+  --accent-mint-100: #d1fae5;
+  --accent-mint-600: #047857;    /* a11y: darkened from #059669              */
+  --accent-blue-100: #dbeafe;
+  --accent-blue-600: #2563eb;
+  --accent-pink-100: #fce7f3;
+  --accent-pink-600: #db2777;
+  --accent-lavender-100: #ede9fe;
+  --accent-lavender-600: #7c3aed;
+
+  /* --- Surfaces ----------------------------------------------------------- */
+  --surface: #f7f7fb;        /* app background                                */
+  --surface-card: #ffffff;   /* card / panel                                  */
+  --surface-subtle: #fafafd; /* nested panels inside a card                   */
+
+  /* --- Ink ---------------------------------------------------------------- */
+  --ink-900: #1a1a2e;        /* headings, primary text                        */
+  --ink-600: #5b6473;        /* a11y: darkened from #6B7280, which measured
+                                4.48:1 on --surface and fails AA by a hair.
+                                This value is ~5.5:1. Do NOT revert toward
+                                the screenshots. (spec §9)                    */
+  --ink-300: #d1d5db;        /* hairlines, dividers — NEVER text              */
+  --white: #ffffff;
+
+  /* --- Semantic ----------------------------------------------------------- */
+  --success-600: #15803d;    /* a11y: darkened from #16A34A (3.30:1 at 12px) */
+  --success-100: #dcfce7;
+  --warning-600: #b45309;    /* a11y: darkened from #D97706 (3.19:1)         */
+  --warning-100: #fef3c7;
+  --danger-600: #dc2626;     /* 4.85:1 — passes as-is                        */
+  --danger-100: #fee2e2;
+  --info-600: #2563eb;
+  --info-100: #dbeafe;
+
+  /* --- Marketing tags (§7.2 — NOT EntityStatus values) -------------------- */
+  --tag-hot-100: #fef3c7;
+  --tag-hot-600: #b45309;
+  --tag-new-100: #ede9fe;
+  --tag-new-600: #7c3aed;
+
+  /* --- Gradients (§1) — budget: max 2 surfaces per screen (§8) ------------ */
+  --gradient-hero: linear-gradient(135deg, #8a63f5 0%, #ec4899 100%);
+  /* gradientWarm is a PALE wash carrying dark ink, not a saturated fill.
+     Checking this in the browser proved the point: white text over the
+     secondary-100 end measured far below AA, and the screenshots' Brand Score
+     and Pro Tip cards are both pale cards with dark text. accentOrange500
+     survives only as the far stop, where no text sits. (spec §9) */
+  --gradient-warm: linear-gradient(135deg, #fce4f1 0%, #ffd9c2 60%, #ffc79f 100%);
+  --gradient-cream: linear-gradient(135deg, #fef6e7 0%, #fdeedc 100%);
+  --gradient-dark: linear-gradient(160deg, #3b1e8c 0%, #1a1a2e 100%);
+  --gradient-page: linear-gradient(160deg, #f3f0fe 0%, #faf7fd 100%);
+
+  /* --- Spacing (§3) — unchanged from ImSpacing ---------------------------- */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* --- Radii (§3) --------------------------------------------------------- */
+  --radius-sm: 8px;     /* chips, small badges, inline tags                   */
+  --radius-md: 16px;    /* buttons, inputs, small cards, icon chips  (was 12) */
+  --radius-lg: 24px;    /* hero cards, large panels                  (was 20) */
+  --radius-xl: 32px;    /* creator floating shell container            (new)  */
+  --radius-full: 999px;
+
+  /* --- Layout (§3) -------------------------------------------------------- */
+  --content-max-width: 1440px;  /* was 1200                                   */
+  --rail-width: 360px;          /* right CONTENT rail, not nav        (new)  */
+  --nav-height: 72px;           /* desktop top nav                     (new)  */
+  --nav-height-compact: 64px;   /* mobile bottom tab bar               (new)  */
+  --touch-target: 44px;
+  --shell-inset: 24px;          /* floating shell margin (§5.2)              */
+
+  /* --- Elevation (§4) — hairline first, whisper-shadow second ------------- */
+  --shadow-card: 0 2px 12px rgba(26, 26, 46, 0.04);
+  --shadow-float: 0 8px 24px rgba(26, 26, 46, 0.08);
+  --shadow-nav: 0 -2px 16px rgba(26, 26, 46, 0.04);
+  --hairline: rgba(209, 213, 219, 0.5);   /* --ink-300 @ 50%                 */
+  --divider: rgba(209, 213, 219, 0.4);    /* --ink-300 @ 40%                 */
+
+  /* --- Typography (§2) ---------------------------------------------------- */
+  --font-display: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-script: "Caveat", "Segoe Script", cursive;
+
+  /* --- Motion (§6) -------------------------------------------------------- */
+  --dur-hover: 150ms;
+  --dur-panel: 250ms;
+  --dur-press: 100ms;
+  --dur-progress: 400ms;
+  --dur-shimmer: 1200ms;
+  --ease: cubic-bezier(0.215, 0.61, 0.355, 1); /* easeOutCubic               */
+}
+
+/* Spec §9 — honour reduced-motion. Skeletons hold a static mid-tone rather
+   than looping; everything else drops to zero. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-hover: 0ms;
+    --dur-panel: 0ms;
+    --dur-press: 0ms;
+    --dur-progress: 0ms;
+  }
+}
